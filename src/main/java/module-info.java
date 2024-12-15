@@ -10,4 +10,6 @@ module com.rems.realestatemanagement {
 
     opens com.rems.realestatemanagement to javafx.fxml;
     exports com.rems.realestatemanagement;
+    exports com.rems.realestatemanagement.Controller;
+    opens com.rems.realestatemanagement.Controller to javafx.fxml;
 }

@@ -8,7 +8,7 @@ import javafx.collections.ObservableList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class PropertyController {
+public class PropertyControllerSearch {
     @FXML private TextField searchField;
     @FXML private ComboBox<String> locationComboBox;
     @FXML private TextField minPriceField;

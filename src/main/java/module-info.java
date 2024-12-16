@@ -7,9 +7,13 @@ module com.rems.realestatemanagement {
     requires net.synedra.validatorfx;
     requires org.kordamp.bootstrapfx.core;
     requires com.almasb.fxgl.all;
+    requires java.desktop;
 
     opens com.rems.realestatemanagement to javafx.fxml;
-    exports com.rems.realestatemanagement;
-    exports com.rems.realestatemanagement.Controller;
     opens com.rems.realestatemanagement.Controller to javafx.fxml;
+
+    exports com.rems.realestatemanagement;
+
+    opens com.rems.realestatemanagement.Controller to javafx.fxml;
+
 }

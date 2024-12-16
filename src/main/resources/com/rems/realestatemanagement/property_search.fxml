@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.PropertyController">
+    <top>
+        <HBox spacing="10" style="-fx-padding: 10;">
+            <!-- Search Field -->
+            <TextField fx:id="searchField" prefWidth="200" promptText="Search by keyword" />
+
+            <!-- Location Filter -->
+            <ComboBox fx:id="locationComboBox" promptText="Location" />
+
+            <!-- Price Range Filter -->
+            <TextField fx:id="minPriceField" prefWidth="80" promptText="Min Price" />
+            <TextField fx:id="maxPriceField" prefWidth="80" promptText="Max Price" />
+
+            <!-- Property Size Filter -->
+            <TextField fx:id="sizeField" prefWidth="80" promptText="Property Size" />
+
+            <!-- Property Type Filter -->
+            <ComboBox fx:id="typeComboBox" promptText="Property Type" />
+
+            <!-- Availability Filter -->
+            <ComboBox fx:id="availabilityComboBox" promptText="Availability">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="All" />
+                        <String fx:value="Available" />
+                        <String fx:value="Not Available" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+
+            <!-- Search Button -->
+            <Button style="-fx-background-color: #1D4634;" text="Search" textFill="WHITE" onAction="#handleSearch">
+            <font>
+               <Font name="System Bold" size="12.0" />
+            </font></Button>
+        </HBox>
+    </top>
+
+    <!-- Table to Display Results -->
+    <center>
+        <TableView fx:id="propertyTable">
+            <columns>
+                <TableColumn fx:id="titleColumn" prefWidth="150" text="Title" />
+                <TableColumn fx:id="locationColumn" prefWidth="100" text="Location" />
+                <TableColumn fx:id="priceColumn" prefWidth="100" text="Price" />
+                <TableColumn fx:id="sizeColumn" prefWidth="100" text="Size (sqm)" />
+                <TableColumn fx:id="typeColumn" prefWidth="100" text="Type" />
+                <TableColumn fx:id="availabilityColumn" prefWidth="100" text="Availability" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

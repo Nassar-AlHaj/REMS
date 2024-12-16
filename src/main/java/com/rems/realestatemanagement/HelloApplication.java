@@ -10,9 +10,12 @@ import java.io.IOException;
 public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        //contactUs.fxml
+        //popup.fxml
+        //Property.fxml
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/rems/realestatemanagement/Fxml/Property.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Real Estate Management System!");
         stage.setScene(scene);
         stage.show();
     }

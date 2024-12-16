@@ -23,7 +23,7 @@ public class OffersController {
 
     private void openCreateOfferModal() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/Fxml/CreateOfferModal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/CreateOfferModal.fxml"));
             Stage modal = new Stage();
             modal.setScene(new Scene(loader.load()));
             modal.initModality(Modality.APPLICATION_MODAL);

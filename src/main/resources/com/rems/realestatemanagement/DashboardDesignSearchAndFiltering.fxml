@@ -35,10 +35,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -48,110 +44,71 @@
 <?import javafx.scene.text.Font?>
 
 <VBox prefHeight="592.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.DashboardDesignSearchAndFilteringController">
-  <children>
-    <MenuBar prefHeight="25.0" prefWidth="679.0" VBox.vgrow="NEVER">
-      <menus>
-        <Menu mnemonicParsing="false" text="File">
-          <items>
-            <MenuItem mnemonicParsing="false" text="New" />
-            <MenuItem mnemonicParsing="false" text="Open…" />
-            <Menu mnemonicParsing="false" text="Open Recent" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Close" />
-            <MenuItem mnemonicParsing="false" text="Save" />
-            <MenuItem mnemonicParsing="false" text="Save As…" />
-            <MenuItem mnemonicParsing="false" text="Revert" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Preferences…" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quit" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Edit">
-          <items>
-            <MenuItem mnemonicParsing="false" text="Undo" />
-            <MenuItem mnemonicParsing="false" text="Redo" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Cut" />
-            <MenuItem mnemonicParsing="false" text="Copy" />
-            <MenuItem mnemonicParsing="false" text="Paste" />
-            <MenuItem mnemonicParsing="false" text="Delete" />
-            <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Select All" />
-            <MenuItem mnemonicParsing="false" text="Unselect All" />
-          </items>
-        </Menu>
-        <Menu mnemonicParsing="false" text="Help">
-          <items>
-            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
-          </items>
-        </Menu>
-      </menus>
-    </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="409.0" prefWidth="889.0" VBox.vgrow="ALWAYS">
-         <children>
-            <Pane prefHeight="567.0" prefWidth="206.0" style="-fx-background-color: white;">
-               <children>
-                  <Button fx:id="Dashboard" layoutX="13.0" layoutY="100.0" mnemonicParsing="false" onAction="#Dashboard" onMouseClicked="#onMouse_Clicked_Dashboard" onMouseEntered="#onMouse_Entered_Dashboard" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="    Dashboard">
-                     <font>
-                        <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="Property" layoutX="13.0" layoutY="140.0" mnemonicParsing="false" onAction="#Property" onMouseClicked="#onMouse_Clicked_Property" onMouseEntered="#onMouse_Entered_Property" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Property">
-                     <font>
-                        <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="Tenants" layoutX="13.0" layoutY="180.0" mnemonicParsing="false" onAction="#Tenants" onMouseClicked="#onMouse_Clicked_Tenants" onMouseEntered="#onMouse_Entered_Tenants" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Tenants">
-                     <font>
-                        <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="Add_Property" layoutX="13.0" layoutY="220.0" mnemonicParsing="false" onAction="#Add_Property" onMouseClicked="#onMouse_ClickedAdd_Property" onMouseEntered="#onMouse_EnteredAdd_Property" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Add Property">
-                     <font>
-                        <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="Clients" layoutX="13.0" layoutY="260.0" mnemonicParsing="false" onAction="#Clients" onMouseClicked="#onMouse_Clicked_Property" onMouseEntered="#onMouse_Entered_Clients" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Clients">
-                     <font>
-                        <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="Transactions" layoutX="13.0" layoutY="300.0" mnemonicParsing="false" onAction="#Transactions" onMouseClicked="#onMouse_Clicked_Transactions" onMouseEntered="#onMouse_Entered_Transactions" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Transactions">
-                     <font>
-                        <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="Contacts" layoutX="13.0" layoutY="340.0" mnemonicParsing="false" onAction="#Contacts" onMouseClicked="#onMouse_Clicked_Contacts" onMouseEntered="#onMouse_Entered_Contacts" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Contacts">
-                     <font>
-                        <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="Admin_Console" layoutX="13.0" layoutY="380.0" mnemonicParsing="false" onAction="#Admin_Console" onMouseClicked="#onMouse_Clicked_Admin_Console" onMouseEntered="#onMouse_Entered_Admin_Console" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Admin Console">
-                     <font>
-                        <Font size="16.0" />
-                     </font></Button>
-                  <ImageView fitHeight="65.0" fitWidth="162.0" layoutX="23.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/img.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <Pane layoutX="206.0" prefHeight="88.0" prefWidth="869.0" style="-fx-background-color: white;">
-               <children>
-                  <Label layoutX="21.0" layoutY="14.0" opacity="0.5" text="Keyword" />
-                  <TextField fx:id="Enter_Keyword" layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: white;" text="Enter keyword" />
-                  <Label layoutX="198.0" layoutY="14.0" opacity="0.5" text="Status" />
-                  <TextField fx:id="All_Status" layoutX="188.0" layoutY="39.0" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: white;" text="All Status" />
-                  <ChoiceBox layoutX="316.0" layoutY="40.0" prefHeight="25.0" prefWidth="23.0" style="-fx-background-color: white;" />
-                  <Label layoutX="379.0" layoutY="14.0" opacity="0.5" style="-fx-background-color: white;" text="Type" />
-                  <TextField fx:id="All_Type" layoutX="369.0" layoutY="40.0" prefHeight="25.0" prefWidth="138.0" style="-fx-background-color: white;" text="All Type" />
-                  <ChoiceBox layoutX="507.0" layoutY="39.0" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: white;" />
-                  <TextField fx:id="Filter" layoutX="565.0" layoutY="40.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: white;" text="Filter" />
-                  <Button fx:id="Search" layoutX="773.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #1D4634;" text="Search" textFill="WHITE" />
-                  <ImageView fitHeight="17.0" fitWidth="14.0" layoutX="135.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@image/Vector.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-         </children>
-    </AnchorPane>
-  </children>
-
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="409.0" prefWidth="889.0" VBox.vgrow="ALWAYS">
+            <children>
+                <Pane prefHeight="567.0" prefWidth="206.0" style="-fx-background-color: white;">
+                    <children>
+                        <Button fx:id="Dashboard" layoutX="13.0" layoutY="100.0" mnemonicParsing="false" onAction="#Dashboard" onMouseClicked="#onMouse_Clicked_Dashboard" onMouseEntered="#onMouse_Entered_Dashboard" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="    Dashboard">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Button>
+                        <Button fx:id="Property" layoutX="13.0" layoutY="140.0" mnemonicParsing="false" onAction="#Property" onMouseClicked="#onMouse_Clicked_Property" onMouseEntered="#onMouse_Entered_Property" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Property">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Button>
+                        <Button fx:id="Tenants" layoutX="13.0" layoutY="180.0" mnemonicParsing="false" onAction="#Tenants" onMouseClicked="#onMouse_Clicked_Tenants" onMouseEntered="#onMouse_Entered_Tenants" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Tenants">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Button>
+                        <Button fx:id="Add_Property" layoutX="13.0" layoutY="220.0" mnemonicParsing="false" onAction="#Add_Property" onMouseClicked="#onMouse_ClickedAdd_Property" onMouseEntered="#onMouse_EnteredAdd_Property" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Add Property">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Button>
+                        <Button fx:id="Clients" layoutX="13.0" layoutY="260.0" mnemonicParsing="false" onAction="#Clients" onMouseClicked="#onMouse_Clicked_Clients" onMouseEntered="#onMouse_Entered_Clients" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Clients">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Button>
+                        <Button fx:id="Transactions" layoutX="13.0" layoutY="300.0" mnemonicParsing="false" onAction="#Transactions" onMouseClicked="#onMouse_Clicked_Transactions" onMouseEntered="#onMouse_Entered_Transactions" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Transactions">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Button>
+                        <Button fx:id="Contacts" layoutX="13.0" layoutY="340.0" mnemonicParsing="false" onAction="#Contacts" onMouseClicked="#onMouse_Clicked_Contacts" onMouseEntered="#onMouse_Entered_Contacts" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Contacts">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Button>
+                        <Button fx:id="Admin_Console" layoutX="13.0" layoutY="380.0" mnemonicParsing="false" onAction="#Admin_Console" onMouseClicked="#onMouse_Clicked_Admin_Console" onMouseEntered="#onMouse_Entered_Admin_Console" prefHeight="30.0" prefWidth="180.0" style="-fx-background-color: white;" text="Admin Console">
+                            <font>
+                                <Font size="16.0" />
+                            </font></Button>
+                        <ImageView fitHeight="65.0" fitWidth="162.0" layoutX="23.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@image/img.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+                <Pane layoutX="206.0" prefHeight="88.0" prefWidth="869.0" style="-fx-background-color: white;">
+                    <children>
+                        <Label layoutX="21.0" layoutY="14.0" opacity="0.5" text="Keyword" />
+                        <TextField fx:id="Enter_Keyword" layoutX="14.0" layoutY="39.0" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: white;" text="Enter keyword" />
+                        <Label layoutX="198.0" layoutY="14.0" opacity="0.5" text="Status" />
+                        <TextField fx:id="All_Status" layoutX="188.0" layoutY="39.0" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: white;" text="All Status" />
+                        <ChoiceBox layoutX="316.0" layoutY="40.0" prefHeight="25.0" prefWidth="23.0" style="-fx-background-color: white;" />
+                        <Label layoutX="379.0" layoutY="14.0" opacity="0.5" style="-fx-background-color: white;" text="Type" />
+                        <TextField fx:id="All_Type" layoutX="369.0" layoutY="40.0" prefHeight="25.0" prefWidth="138.0" style="-fx-background-color: white;" text="All Type" />
+                        <ChoiceBox layoutX="507.0" layoutY="39.0" prefHeight="25.0" prefWidth="28.0" style="-fx-background-color: white;" />
+                        <TextField fx:id="Filter" layoutX="565.0" layoutY="40.0" prefHeight="25.0" prefWidth="190.0" style="-fx-background-color: white;" text="Filter" />
+                        <Button fx:id="Search" layoutX="773.0" layoutY="40.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="70.0" style="-fx-background-color: #1D4634;" text="Search" textFill="WHITE" />
+                        <ImageView fitHeight="17.0" fitWidth="14.0" layoutX="135.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@image/Vector.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                </Pane>
+            <Pane fx:id="view" layoutX="205.0" layoutY="88.0" prefHeight="480.0" prefWidth="869.0" />
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>

@@ -2,15 +2,10 @@ package com.rems.realestatemanagement;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
+import javafx.scene.layout.Pane;
 
 
 import javax.swing.*;
@@ -45,15 +40,27 @@ public class DashboardDesignSearchAndFilteringController {
     private Button Admin_Console;
 
     @FXML
-    private TextField Enter_Keyword;
+    private Pane view;
 
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
-    public void Dashboard() {
 
+    public void Dashboard() {
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            Node newPage = loader.load();
+
+            view.getChildren().clear();
+            view.getChildren().add(newPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading the new page.");
+        }
     }
 
     public void onMouse_Entered_Dashboard(){
@@ -67,24 +74,29 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     public void onMouse_Clicked_Dashboard() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newpage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Dashboard");
-        stage.setScene(scene);
-        stage.show();
+
         Dashboard.setOnMouseClicked(mouseEvent -> {
             Dashboard.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
         });
+        Dashboard();
     }
 
     public void Property() {
+        try {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            Node newPage = loader.load();
+
+            view.getChildren().clear();
+            view.getChildren().add(newPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading the new page.");
+        }
     }
 
     public void onMouse_Entered_Property(){
-
-
 
         Property.setOnMouseEntered(mouseEvent ->
                 Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
@@ -96,22 +108,27 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     public void onMouse_Clicked_Property() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newpage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Property");
-        stage.setScene(scene);
-        stage.show();
-
         Property.setOnMouseClicked(mouseEvent -> {
             Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
         });
+        Property();
     }
 
 
 
     public void Tenants() {
+        try {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            Node newPage = loader.load();
+
+            view.getChildren().clear();
+            view.getChildren().add(newPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading the new page.");
+        }
     }
 
     public void onMouse_Entered_Tenants(){
@@ -125,20 +142,27 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     public void onMouse_Clicked_Tenants() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newpage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Tenants");
-        stage.setScene(scene);
-        stage.show();
+
         Tenants.setOnMouseEntered(mouseEvent ->
                 Tenants.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
                 ));
+        Tenants();
     }
 
 
     public void Add_Property() {
+        try {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            Node newPage = loader.load();
+
+            view.getChildren().clear();
+            view.getChildren().add(newPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading the new page.");
+        }
     }
 
     public void onMouse_EnteredAdd_Property(){
@@ -152,21 +176,27 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     public void onMouse_ClickedAdd_Property() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newpage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Add_Property");
-        stage.setScene(scene);
-        stage.show();
 
         Add_Property.setOnMouseEntered(mouseEvent ->
                 Add_Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
                 ));
+        Add_Property();
     }
 
 
     public void Clients() {
+        try {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            Node newPage = loader.load();
+
+            view.getChildren().clear();
+            view.getChildren().add(newPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading the new page.");
+        }
     }
 
     public void onMouse_Entered_Clients(){
@@ -179,21 +209,25 @@ public class DashboardDesignSearchAndFilteringController {
         });
     }
     public void onMouse_Clicked_Clients() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newpage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Clients");
-        stage.setScene(scene);
-        stage.show();
-
         Clients.setOnMouseEntered(mouseEvent ->
                 Clients.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
         ));
-
+        Clients();
     }
 
     public void Transactions() {
+        try {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            Node newPage = loader.load();
+
+            view.getChildren().clear();
+            view.getChildren().add(newPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading the new page.");
+        }
     }
 
     public void onMouse_Entered_Transactions(){
@@ -206,19 +240,26 @@ public class DashboardDesignSearchAndFilteringController {
         });
     }
     public void onMouse_Clicked_Transactions() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newpage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Transactions");
-        stage.setScene(scene);
-        stage.show();
         Transactions.setOnMouseClicked(mouseEvent -> {
             Transactions.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
         });
+
+        Transactions();
     }
 
     public void Contacts() {
+        try {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            Node newPage = loader.load();
+
+            view.getChildren().clear();
+            view.getChildren().add(newPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading the new page.");
+        }
     }
     public void onMouse_Entered_Contacts(){
         Contacts.setOnMouseEntered(mouseEvent ->
@@ -230,20 +271,25 @@ public class DashboardDesignSearchAndFilteringController {
         });
     }
     public void onMouse_Clicked_Contacts() throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newpage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Contacts");
-        stage.setScene(scene);
-        stage.show();
-
         Contacts.setOnMouseEntered(mouseEvent ->
                 Contacts.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
                 ));
+        Contacts();
     }
 
     public void Admin_Console() {
+        try {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            Node newPage = loader.load();
+
+            view.getChildren().clear();
+            view.getChildren().add(newPage);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error loading the new page.");
+        }
     }
     public void onMouse_Entered_Admin_Console(){
         Admin_Console.setOnMouseEntered(mouseEvent ->
@@ -257,15 +303,9 @@ public class DashboardDesignSearchAndFilteringController {
 
     public void onMouse_Clicked_Admin_Console() throws IOException {
 
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("newpage.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Admin Console");
-        stage.setScene(scene);
-        stage.show();
-
         Admin_Console.setOnMouseClicked(mouseEvent -> {
             Admin_Console.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
         });
+        Admin_Console();
     }
 }

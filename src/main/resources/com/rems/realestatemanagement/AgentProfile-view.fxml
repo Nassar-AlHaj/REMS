@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.AgentProfileController">
+    <top>
+        <VBox spacing="10.0">
+            <children>
+                <HBox spacing="10.0">
+                    <children>
+                        <TextField fx:id="nameField" promptText="Agent Name" />
+                        <TextField fx:id="emailField" promptText="Email Address" />
+                        <PasswordField fx:id="passwordField" promptText="Password" />
+                        <Button onAction="#addAgent" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #1D4634;" text="Add Agent" textFill="WHITE">
+                            <HBox.margin>
+                                <Insets left="32.0" />
+                            </HBox.margin>
+                        </Button>
+                    </children>
+                </HBox>
+            </children>
+            <padding>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </padding>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="agentTable" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="50.0" text="ID" />
+                <TableColumn fx:id="nameColumn" prefWidth="150.0" text="Agent Name" />
+                <TableColumn fx:id="emailColumn" prefWidth="200.0" text="Email Address" />
+                <TableColumn fx:id="passwordColumn" prefWidth="200.0" text="Password Hash" />
+                <TableColumn fx:id="actionColumn" prefWidth="100.0" text="Action" />
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>

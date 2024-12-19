@@ -9,6 +9,7 @@ module com.rems.realestatemanagement {
     requires com.almasb.fxgl.all;
     requires java.desktop;
 
-    opens com.rems.realestatemanagement to javafx.fxml;
+    opens com.rems.realestatemanagement.Controller to javafx.fxml;
     exports com.rems.realestatemanagement;
 }
+

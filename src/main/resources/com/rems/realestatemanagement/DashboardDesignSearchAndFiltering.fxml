@@ -65,7 +65,7 @@
                     </VBox.margin>
                 </Button>
 
-                <Button fx:id="Offer" onAction="#Tenants"
+                <Button fx:id="Offer" onAction="#Offer"
                         style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
                         text="Offer">
                     <VBox.margin>
@@ -73,7 +73,7 @@
                     </VBox.margin>
                 </Button>
 
-                <Button fx:id="Dashboard" onAction="#Dashboard"
+                <Button fx:id="CreateOffer" onAction="#CreateOffer"
                         style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
                         text="Create Offer">
                     <VBox.margin>

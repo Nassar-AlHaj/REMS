@@ -15,13 +15,13 @@ public class DashboardDesignSearchAndFilteringController {
     private Label welcomeText;
 
     @FXML
-    private Button Dashboard;
+    private Button CreateOffer;
 
     @FXML
     private Button Property;
 
     @FXML
-    private Button Tenants;
+    private Button Offer;
 
     @FXML
     private Button Add_Property;
@@ -47,10 +47,10 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
 
-    public void Dashboard() {
+    public void CreateOffer() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/CreateOfferModal.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();
@@ -62,28 +62,28 @@ public class DashboardDesignSearchAndFilteringController {
         }
     }
 
-    public void onMouse_Entered_Dashboard(){
-        Dashboard.setOnMouseEntered(mouseEvent ->
-                Dashboard.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
+    public void onMouse_Entered_CreateOffer(){
+        CreateOffer.setOnMouseEntered(mouseEvent ->
+                CreateOffer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
                 ));
 
-        Dashboard.setOnMouseExited(mouseEvent -> {
-            Dashboard.setStyle("-fx-background-color: '';-fx-text-fill: black");
+        CreateOffer.setOnMouseExited(mouseEvent -> {
+            CreateOffer.setStyle("-fx-background-color: '';-fx-text-fill: black");
         });
     }
 
-    public void onMouse_Clicked_Dashboard() throws IOException {
+    public void onMouse_Clicked_CreateOffer() throws IOException {
 
-        Dashboard.setOnMouseClicked(mouseEvent -> {
-            Dashboard.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
+        CreateOffer.setOnMouseClicked(mouseEvent -> {
+            CreateOffer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
         });
-        Dashboard();
+        CreateOffer();
     }
 
     public void Property() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/proparty-card.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();
@@ -115,10 +115,10 @@ public class DashboardDesignSearchAndFilteringController {
 
 
 
-    public void Tenants() {
+    public void Offer() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/OffersView.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();
@@ -130,25 +130,25 @@ public class DashboardDesignSearchAndFilteringController {
         }
     }
 
-    public void onMouse_Entered_Tenants(){
-        Tenants.setOnMouseEntered(mouseEvent ->
-                Tenants.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
+    public void onMouse_Entered_Offer(){
+        Offer.setOnMouseEntered(mouseEvent ->
+                Offer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
                 ));
 
-        Tenants.setOnMouseExited(mouseEvent -> {
-            Tenants.setStyle("-fx-background-color: '';-fx-text-fill: black");
+        Offer.setOnMouseExited(mouseEvent -> {
+            Offer.setStyle("-fx-background-color: '';-fx-text-fill: black");
         });
     }
 
-    public void onMouse_Clicked_Tenants() throws IOException {
+    public void onMouse_Clicked_Offer() throws IOException {
 
-        Tenants.setOnMouseEntered(mouseEvent ->
-                Tenants.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
+        Offer.setOnMouseEntered(mouseEvent ->
+                Offer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
                 ));
-        Tenants();
+        Offer();
     }
 
-
+//CreateOffer
     public void Add_Property() {
         try {
 

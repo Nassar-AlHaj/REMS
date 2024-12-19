@@ -50,7 +50,7 @@
                <children>
                   <ImageView fitHeight="46.0" fitWidth="27.0" layoutX="117.0" layoutY="26.0" opacity="0.44" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../img/PhotoIcon.png" />
+                        <Image url="@../../../img/PhotoIcon.png" />
                      </image>
                   </ImageView>
                   <Label layoutX="79.0" layoutY="60.0" text="Drop your files here" textFill="#4d4d4d" />
@@ -60,12 +60,12 @@
             <TextField alignment="CENTER" layoutX="14.0" layoutY="444.0" prefHeight="56.0" prefWidth="290.0" promptText="image 03. png" />
             <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="279.0" layoutY="463.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../img/DeleteIcon.png" />
+                  <Image url="@../../../img/DeleteIcon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="43.0" fitWidth="67.0" layoutX="19.0" layoutY="450.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../img/property1.png" />
+                  <Image url="@../../../img/property1.png" />
                </image>
             </ImageView>
             <ProgressBar fx:id="progressBar1" layoutX="203.0" layoutY="467.0" prefHeight="9.0" prefWidth="68.0" progress="1.0" />
@@ -73,12 +73,12 @@
             <ProgressBar fx:id="progressBar2" layoutX="203.0" layoutY="538.0" prefHeight="9.0" prefWidth="68.0" progress="0.41" />
             <ImageView fitHeight="18.0" fitWidth="16.0" layoutX="279.0" layoutY="534.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../img/DeleteIcon.png" />
+                  <Image url="@../../../img/DeleteIcon.png" />
                </image>
             </ImageView>
             <ImageView fitHeight="43.0" fitWidth="95.0" layoutX="21.0" layoutY="521.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../img/property2.png" />
+                  <Image url="@../../../img/property2.png" />
                </image>
             </ImageView>
          </children>

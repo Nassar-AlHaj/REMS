@@ -152,7 +152,7 @@ public class DashboardDesignSearchAndFilteringController {
     public void Add_Property() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/property.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();
@@ -249,7 +249,7 @@ public class DashboardDesignSearchAndFilteringController {
     public void Contacts() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/contactUs.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();

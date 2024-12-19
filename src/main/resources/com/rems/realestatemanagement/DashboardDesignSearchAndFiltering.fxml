@@ -43,7 +43,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="592.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.DashboardDesignSearchAndFilteringController">
+<VBox prefHeight="592.0" prefWidth="1075.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.DashboardDesignSearchAndFilteringController">
     <children>
         <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="409.0" prefWidth="889.0" VBox.vgrow="ALWAYS">
             <children>

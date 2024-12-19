@@ -34,7 +34,7 @@ public class loginController {
         System.out.println("Password: " + password);
 
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("com/rems/realestatemanagement/Fxml/resetpassword.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("com/rems/realestatemanagement/resetpassword.fxml")));
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();
@@ -59,10 +59,29 @@ public class loginController {
     }
 
 
+    public void handleGoToDashboard(ActionEvent actionEvent) {
+        try {
+            // Load the dashboard FXML file
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));
+
+            // Get the current stage from the event source
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+
+            // Set the new scene and show it
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace(); // Log the exception
+        }
+    }
+
+
+
+
     public void handleGoToResetAction(ActionEvent actionEvent) {
         try {
 
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/Fxml/resetpass.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/resetpass.fxml")));
 
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
 

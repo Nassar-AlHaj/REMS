@@ -39,7 +39,11 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Button fx:id="loginbutton" layoutX="39.0" layoutY="293.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: #1D4634;" text="Log In" textFill="#fdf7f7" />
+            <Button fx:id="loginbutton" layoutX="39.0" layoutY="293.0" mnemonicParsing="false"
+                    prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: #1D4634;"
+                    text="Log In" textFill="#fdf7f7" onAction="#handleGoToDashboard"/>
+
+
             <Label layoutX="38.0" layoutY="134.0" text="Email" textFill="#989696">
                <font>
                   <Font size="11.0" />

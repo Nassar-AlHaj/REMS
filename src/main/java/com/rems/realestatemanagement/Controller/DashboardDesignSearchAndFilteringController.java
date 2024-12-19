@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement;
+package com.rems.realestatemanagement.Controller;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -8,7 +8,6 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 
-import javax.swing.*;
 import java.io.IOException;
 
 public class DashboardDesignSearchAndFilteringController {
@@ -84,7 +83,7 @@ public class DashboardDesignSearchAndFilteringController {
     public void Property() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();
@@ -119,7 +118,7 @@ public class DashboardDesignSearchAndFilteringController {
     public void Tenants() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();
@@ -153,7 +152,7 @@ public class DashboardDesignSearchAndFilteringController {
     public void Add_Property() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();
@@ -187,7 +186,7 @@ public class DashboardDesignSearchAndFilteringController {
     public void Clients() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();
@@ -218,7 +217,7 @@ public class DashboardDesignSearchAndFilteringController {
     public void Transactions() {
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
             Node newPage = loader.load();
 
             view.getChildren().clear();

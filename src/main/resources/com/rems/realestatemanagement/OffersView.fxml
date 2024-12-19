@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TableView layoutX="47.0" layoutY="87.0" prefHeight="200.0" prefWidth="458.0" style="-fx-border-color: #E0E0E0;">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Client Name" />
+          <TableColumn prefWidth="76.800048828125" text="Property Address" />
+            <TableColumn prefWidth="76.800048828125" text="Type" />
+            <TableColumn prefWidth="75.0" text="Status" />
+            <TableColumn prefWidth="75.0" text="Amount" />
+            <TableColumn prefWidth="75.0" text="Date" />
+        </columns>
+      </TableView>
+      <Button layoutX="446.0" layoutY="33.0" mnemonicParsing="false" style="-fx-background-color: #2B634B;" text="Add New Offer" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font></Button>
+      <Label layoutX="47.0" layoutY="39.0" text="Offfer &amp; Agreements">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+   </children>
+</AnchorPane>

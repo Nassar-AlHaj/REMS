@@ -1,53 +1,71 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F4F5F7;">
    <children>
-      <Label layoutX="256.0" layoutY="27.0" text="Create new offer">
-         <font>
-            <Font name="System Bold" size="16.0" />
-         </font>
-      </Label>
-      <Label layoutX="66.0" layoutY="63.0" text="Client Name">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="66.0" layoutY="153.0" text="Type">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="71.0" layoutY="236.0" text="Status">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="66.0" layoutY="308.0" text="Amount">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </Label>
-      <TextField layoutX="63.0" layoutY="106.0" />
-      <TextField layoutX="63.0" layoutY="187.0" />
-      <ComboBox layoutX="62.0" layoutY="266.0" prefWidth="150.0" />
-      <ComboBox layoutX="62.0" layoutY="348.0" prefWidth="150.0" />
-      <Button layoutX="282.0" layoutY="406.0" mnemonicParsing="false" style="-fx-background-color: #E09B6B;" text="Cancel">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
-      <Button layoutX="352.0" layoutY="406.0" mnemonicParsing="false" style="-fx-background-color: #2B634B;" text="Create" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Button>
+      <!-- Main Content Wrapper -->
+      <VBox alignment="CENTER" spacing="20.0" prefWidth="600.0" maxWidth="600.0"
+            style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;
+                   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 5);"
+            AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="100.0"
+            AnchorPane.rightAnchor="100.0" AnchorPane.bottomAnchor="50.0">
+
+         <!-- Header -->
+         <Label text="Create New Offer" textFill="#2B2B2B"
+                style="-fx-font-family: 'Arial Black'; -fx-font-size: 24px; -fx-padding: 10;" />
+
+         <!-- Form Section -->
+         <VBox spacing="15.0" alignment="CENTER" maxWidth="500.0">
+            <!-- Client Name -->
+            <VBox spacing="5.0">
+               <Label text="Client Name *" textFill="#606060"
+                      style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               <TextField promptText="Enter the client's name"
+                          style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                 -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
+            </VBox>
+
+            <!-- Type -->
+            <VBox spacing="5.0">
+               <Label text="Type *" textFill="#606060"
+                      style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               <TextField promptText="Enter the type of offer"
+                          style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                 -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
+            </VBox>
+
+            <!-- Status -->
+            <VBox spacing="5.0">
+               <Label text="Status *" textFill="#606060"
+                      style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               <ComboBox promptText="Select the status"
+                         style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 5;" />
+            </VBox>
+
+            <!-- Amount -->
+            <VBox spacing="5.0">
+               <Label text="Amount *" textFill="#606060"
+                      style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               <ComboBox promptText="Select the amount"
+                         style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 5;" />
+            </VBox>
+         </VBox>
+
+         <!-- Action Buttons -->
+         <HBox alignment="CENTER" spacing="15.0" style="-fx-padding: 20;">
+            <Button text="Cancel" mnemonicParsing="false"
+                    style="-fx-background-color: #E09B6B; -fx-background-radius: 20;
+                           -fx-font-size: 14px; -fx-padding: 10;" textFill="WHITE" />
+            <Button text="Create" mnemonicParsing="false"
+                    style="-fx-background-color: #2B634B; -fx-background-radius: 20;
+                           -fx-font-size: 14px; -fx-padding: 10;" textFill="WHITE" />
+         </HBox>
+      </VBox>
    </children>
 </AnchorPane>

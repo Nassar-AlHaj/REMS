@@ -11,7 +11,7 @@ public class resetController {
     public void handleGoNewPass(javafx.event.ActionEvent event) {
         try {
 
-            Parent root = FXMLLoader.load(getClass().getResource("/com/rems/realestatemanagement/Fxml/newpassform.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/com/rems/realestatemanagement/newpassform.fxml"));
 
             Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();
 

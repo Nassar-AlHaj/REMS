@@ -81,9 +81,9 @@
                     </VBox.margin>
                 </Button>
 
-                <Button fx:id="Transactions" onAction="#Transactions"
+                <Button fx:id="Interactions" onAction="#Interactions"
                         style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Transactions">
+                        text="Interactions">
                     <VBox.margin>
                         <Insets bottom="10"/>
                     </VBox.margin>
@@ -151,8 +151,11 @@
                 </HBox>
 
                 <!-- Content View -->
-                <AnchorPane fx:id="view" VBox.vgrow="ALWAYS" style="-fx-background-color: #f5f5f5;"/>
-            </VBox>
+                <AnchorPane fx:id="view" VBox.vgrow="ALWAYS"
+                            AnchorPane.topAnchor="0.0"
+                            AnchorPane.rightAnchor="0.0"
+                            AnchorPane.bottomAnchor="0.0"
+                            AnchorPane.leftAnchor="0.0"/>            </VBox>
         </HBox>
     </children>
 </VBox>

@@ -7,25 +7,34 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <TableView layoutX="47.0" layoutY="87.0" prefHeight="200.0" prefWidth="458.0" style="-fx-border-color: #E0E0E0;">
-        <columns>
-          <TableColumn prefWidth="75.0" text="Client Name" />
-          <TableColumn prefWidth="76.800048828125" text="Property Address" />
-            <TableColumn prefWidth="76.800048828125" text="Type" />
-            <TableColumn prefWidth="75.0" text="Status" />
-            <TableColumn prefWidth="75.0" text="Amount" />
-            <TableColumn prefWidth="75.0" text="Date" />
-        </columns>
-      </TableView>
-      <Button layoutX="446.0" layoutY="33.0" mnemonicParsing="false" style="-fx-background-color: #2B634B;" text="Add New Offer" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="14.0" />
-         </font></Button>
-      <Label layoutX="47.0" layoutY="39.0" text="Offfer &amp; Agreements">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font></Label>
-   </children>
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F4F5F7;">
+    <children>
+        <!-- Header -->
+        <Label text="Offers &amp; Agreements"
+               style="-fx-font-family: 'Arial Black'; -fx-font-size: 22px; -fx-text-fill: #2B2B2B; -fx-padding: 10;"
+               AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="47.0" />
+
+        <!-- TableView Section -->
+        <TableView style="-fx-background-color: #FFFFFF; -fx-border-color: #E0E0E0; -fx-background-radius: 10;
+                        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 5);"
+                   AnchorPane.topAnchor="87.0" AnchorPane.leftAnchor="47.0"
+                   AnchorPane.rightAnchor="47.0" AnchorPane.bottomAnchor="200.0">
+            <columns>
+                <TableColumn text="Client Name" prefWidth="125.0" style="-fx-font-size: 14px;" />
+                <TableColumn text="Property Address" prefWidth="150.0" style="-fx-font-size: 14px;" />
+                <TableColumn text="Type" prefWidth="100.0" style="-fx-font-size: 14px;" />
+                <TableColumn text="Status" prefWidth="75.0" style="-fx-font-size: 14px;" />
+                <TableColumn text="Amount" prefWidth="75.0" style="-fx-font-size: 14px;" />
+                <TableColumn text="Date" prefWidth="75.0" style="-fx-font-size: 14px;" />
+            </columns>
+        </TableView>
+
+        <!-- Add New Offer Button -->
+        <Button text="Add New Offer" mnemonicParsing="false"
+                style="-fx-background-color: #2B634B; -fx-background-radius: 20;
+                     -fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-text-fill: white;
+                     -fx-padding: 10 20 10 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5);"
+                AnchorPane.topAnchor="30.0" AnchorPane.rightAnchor="47.0" />
+    </children>
 </AnchorPane>

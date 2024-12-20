@@ -5,9 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-
-
 import java.io.IOException;
 
 public class DashboardDesignSearchAndFilteringController {
@@ -30,7 +29,7 @@ public class DashboardDesignSearchAndFilteringController {
     private Button Clients;
 
     @FXML
-    private Button Transactions;
+    private Button Interactions;
 
     @FXML
     private Button Contacts;
@@ -39,33 +38,50 @@ public class DashboardDesignSearchAndFilteringController {
     private Button Admin_Console;
 
     @FXML
-    private Pane view;
+    private AnchorPane view;
 
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
     }
 
-
-    public void CreateOffer() {
+    private void loadPage(String fxmlPath) {
         try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/CreateOfferModal.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlPath));
             Node newPage = loader.load();
+
+            AnchorPane.setTopAnchor(newPage, 0.0);
+            AnchorPane.setRightAnchor(newPage, 0.0);
+            AnchorPane.setBottomAnchor(newPage, 0.0);
+            AnchorPane.setLeftAnchor(newPage, 0.0);
+
+            if (!(newPage instanceof AnchorPane)) {
+                AnchorPane wrapper = new AnchorPane(newPage);
+                AnchorPane.setTopAnchor(newPage, 0.0);
+                AnchorPane.setRightAnchor(newPage, 0.0);
+                AnchorPane.setBottomAnchor(newPage, 0.0);
+                AnchorPane.setLeftAnchor(newPage, 0.0);
+                newPage = wrapper;
+            }
 
             view.getChildren().clear();
             view.getChildren().add(newPage);
 
         } catch (IOException e) {
             e.printStackTrace();
-            System.out.println("Error loading the new page.");
+            System.out.println("Error loading the page: " + fxmlPath);
         }
     }
 
-    public void onMouse_Entered_CreateOffer(){
+    // Create Offer methods
+    public void CreateOffer() {
+        loadPage("/com/rems/realestatemanagement/CreateOfferModal.fxml");
+    }
+
+    public void onMouse_Entered_CreateOffer() {
         CreateOffer.setOnMouseEntered(mouseEvent ->
-                CreateOffer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                CreateOffer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
 
         CreateOffer.setOnMouseExited(mouseEvent -> {
             CreateOffer.setStyle("-fx-background-color: '';-fx-text-fill: black");
@@ -73,33 +89,21 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     public void onMouse_Clicked_CreateOffer() throws IOException {
-
         CreateOffer.setOnMouseClicked(mouseEvent -> {
             CreateOffer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
         });
         CreateOffer();
     }
 
+    // Property methods
     public void Property() {
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/proparty-card.fxml"));
-            Node newPage = loader.load();
-
-            view.getChildren().clear();
-            view.getChildren().add(newPage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading the new page.");
-        }
+        loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
     }
 
-    public void onMouse_Entered_Property(){
-
+    public void onMouse_Entered_Property() {
         Property.setOnMouseEntered(mouseEvent ->
-                Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
 
         Property.setOnMouseExited(mouseEvent -> {
             Property.setStyle("-fx-background-color: '';-fx-text-fill: black");
@@ -113,27 +117,15 @@ public class DashboardDesignSearchAndFilteringController {
         Property();
     }
 
-
-
+    // Offer methods
     public void Offer() {
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/OffersView.fxml"));
-            Node newPage = loader.load();
-
-            view.getChildren().clear();
-            view.getChildren().add(newPage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading the new page.");
-        }
+        loadPage("/com/rems/realestatemanagement/OffersView.fxml");
     }
 
-    public void onMouse_Entered_Offer(){
+    public void onMouse_Entered_Offer() {
         Offer.setOnMouseEntered(mouseEvent ->
-                Offer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Offer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
 
         Offer.setOnMouseExited(mouseEvent -> {
             Offer.setStyle("-fx-background-color: '';-fx-text-fill: black");
@@ -141,33 +133,21 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     public void onMouse_Clicked_Offer() throws IOException {
-
         Offer.setOnMouseEntered(mouseEvent ->
-                Offer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Offer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
         Offer();
     }
 
-//CreateOffer
+    // Add Property methods
     public void Add_Property() {
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/property.fxml"));
-            Node newPage = loader.load();
-
-            view.getChildren().clear();
-            view.getChildren().add(newPage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading the new page.");
-        }
+        loadPage("/com/rems/realestatemanagement/property.fxml");
     }
 
-    public void onMouse_EnteredAdd_Property(){
+    public void onMouse_EnteredAdd_Property() {
         Add_Property.setOnMouseEntered(mouseEvent ->
-                Add_Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Add_Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
 
         Add_Property.setOnMouseExited(mouseEvent -> {
             Add_Property.setStyle("-fx-background-color: '';-fx-text-fill: black");
@@ -175,125 +155,87 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     public void onMouse_ClickedAdd_Property() throws IOException {
-
         Add_Property.setOnMouseEntered(mouseEvent ->
-                Add_Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Add_Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
         Add_Property();
     }
 
-
+    // Clients methods
     public void Clients() {
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
-            Node newPage = loader.load();
-
-            view.getChildren().clear();
-            view.getChildren().add(newPage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading the new page.");
-        }
+        loadPage("/com/rems/realestatemanagement/Client.fxml");
     }
 
-    public void onMouse_Entered_Clients(){
+    public void onMouse_Entered_Clients() {
         Clients.setOnMouseEntered(mouseEvent ->
-                Clients.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Clients.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
 
         Clients.setOnMouseExited(mouseEvent -> {
             Clients.setStyle("-fx-background-color: '';-fx-text-fill: black");
         });
     }
+
     public void onMouse_Clicked_Clients() throws IOException {
         Clients.setOnMouseEntered(mouseEvent ->
-                Clients.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-        ));
+                Clients.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
         Clients();
     }
 
-    public void Transactions() {
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpage.fxml"));
-            Node newPage = loader.load();
-
-            view.getChildren().clear();
-            view.getChildren().add(newPage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading the new page.");
-        }
+    // Interactions methods
+    public void Interactions() {
+        loadPage("/com/rems/realestatemanagement/Interactions.fxml");
     }
 
-    public void onMouse_Entered_Transactions(){
-        Transactions.setOnMouseEntered(mouseEvent ->
-                Transactions.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+    public void onMouse_Entered_Interactions() {
+        Interactions.setOnMouseEntered(mouseEvent ->
+                Interactions.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
 
-        Transactions.setOnMouseExited(mouseEvent -> {
-            Transactions.setStyle("-fx-background-color: '';-fx-text-fill: black");
+        Interactions.setOnMouseExited(mouseEvent -> {
+            Interactions.setStyle("-fx-background-color: '';-fx-text-fill: black");
         });
     }
-    public void onMouse_Clicked_Transactions() throws IOException {
-        Transactions.setOnMouseClicked(mouseEvent -> {
-            Transactions.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
-        });
 
-        Transactions();
+    public void onMouse_Clicked_Interactions() throws IOException {
+        Interactions.setOnMouseClicked(mouseEvent -> {
+            Interactions.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
+        });
+        Interactions();
     }
 
+    // Contacts methods
     public void Contacts() {
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/contactUs.fxml"));
-            Node newPage = loader.load();
-
-            view.getChildren().clear();
-            view.getChildren().add(newPage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading the new page.");
-        }
+        loadPage("/com/rems/realestatemanagement/contactUs.fxml");
     }
-    public void onMouse_Entered_Contacts(){
+
+    public void onMouse_Entered_Contacts() {
         Contacts.setOnMouseEntered(mouseEvent ->
-                Contacts.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Contacts.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
 
         Contacts.setOnMouseExited(mouseEvent -> {
             Contacts.setStyle("-fx-background-color: '';-fx-text-fill: black");
         });
     }
+
     public void onMouse_Clicked_Contacts() throws IOException {
         Contacts.setOnMouseEntered(mouseEvent ->
-                Contacts.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Contacts.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
         Contacts();
     }
 
+    // Admin Console methods
     public void Admin_Console() {
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("newpage.fxml"));
-            Node newPage = loader.load();
-
-            view.getChildren().clear();
-            view.getChildren().add(newPage);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error loading the new page.");
-        }
+        loadPage("/com/rems/realestatemanagement/newpage.fxml");
     }
-    public void onMouse_Entered_Admin_Console(){
+
+    public void onMouse_Entered_Admin_Console() {
         Admin_Console.setOnMouseEntered(mouseEvent ->
-                Admin_Console.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white"
-                ));
+                Admin_Console.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
+        );
 
         Admin_Console.setOnMouseExited(mouseEvent -> {
             Admin_Console.setStyle("-fx-background-color: '';-fx-text-fill: black");
@@ -301,7 +243,6 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     public void onMouse_Clicked_Admin_Console() throws IOException {
-
         Admin_Console.setOnMouseClicked(mouseEvent -> {
             Admin_Console.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
         });

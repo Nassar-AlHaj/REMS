@@ -73,7 +73,6 @@ public class DashboardDesignSearchAndFilteringController {
         }
     }
 
-    // Create Offer methods
     public void CreateOffer() {
         loadPage("/com/rems/realestatemanagement/CreateOfferModal.fxml");
     }
@@ -95,7 +94,6 @@ public class DashboardDesignSearchAndFilteringController {
         CreateOffer();
     }
 
-    // Property methods
     public void Property() {
         loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
     }
@@ -117,7 +115,6 @@ public class DashboardDesignSearchAndFilteringController {
         Property();
     }
 
-    // Offer methods
     public void Offer() {
         loadPage("/com/rems/realestatemanagement/OffersView.fxml");
     }
@@ -139,7 +136,6 @@ public class DashboardDesignSearchAndFilteringController {
         Offer();
     }
 
-    // Add Property methods
     public void Add_Property() {
         loadPage("/com/rems/realestatemanagement/property.fxml");
     }
@@ -161,7 +157,6 @@ public class DashboardDesignSearchAndFilteringController {
         Add_Property();
     }
 
-    // Clients methods
     public void Clients() {
         loadPage("/com/rems/realestatemanagement/Client.fxml");
     }
@@ -183,7 +178,7 @@ public class DashboardDesignSearchAndFilteringController {
         Clients();
     }
 
-    // Interactions methods
+
     public void Interactions() {
         loadPage("/com/rems/realestatemanagement/Interactions.fxml");
     }
@@ -205,7 +200,6 @@ public class DashboardDesignSearchAndFilteringController {
         Interactions();
     }
 
-    // Contacts methods
     public void Contacts() {
         loadPage("/com/rems/realestatemanagement/contactUs.fxml");
     }
@@ -227,9 +221,8 @@ public class DashboardDesignSearchAndFilteringController {
         Contacts();
     }
 
-    // Admin Console methods
     public void Admin_Console() {
-        loadPage("/com/rems/realestatemanagement/newpage.fxml");
+        loadPage("/com/rems/realestatemanagement/AgentProfile-view.fxml");
     }
 
     public void onMouse_Entered_Admin_Console() {

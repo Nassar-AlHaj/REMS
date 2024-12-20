@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.AgentProfileController">
+    <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+        <!-- Top section with form for adding agent -->
+        <top>
+            <VBox minHeight="80.0" spacing="10.0">
+                <children>
+                    <HBox spacing="10.0">
+                        <children>
+                            <TextField fx:id="nameField" promptText="Agent Name" HBox.hgrow="ALWAYS" />
+                            <TextField fx:id="emailField" promptText="Email Address" HBox.hgrow="ALWAYS" />
+                            <PasswordField fx:id="passwordField" promptText="Password" HBox.hgrow="ALWAYS" />
+                            <Button onAction="#addAgent" prefHeight="26.0" prefWidth="106.0" style="-fx-background-color: #1D4634;" text="Add Agent" textFill="WHITE">
+                                <HBox.margin>
+                                    <Insets left="32.0" />
+                                </HBox.margin>
+                            </Button>
+                        </children>
+                    </HBox>
+                </children>
+                <padding>
+                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                </padding>
+            </VBox>
+        </top>
+
+        <!-- Table View of Agents -->
+        <center>
+            <VBox spacing="10.0" VBox.vgrow="ALWAYS">
+                <TableView fx:id="agentTable" VBox.vgrow="ALWAYS">
+                    <columnResizePolicy>
+                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                    </columnResizePolicy>
+
+                    <!-- Columns definition for Table -->
+                    <columns>
+                        <TableColumn fx:id="idColumn" minWidth="50.0" text="ID">
+                            <maxWidth>200</maxWidth>
+                            <prefWidth>75.0</prefWidth>
+                        </TableColumn>
+
+                        <TableColumn fx:id="nameColumn" minWidth="150.0" text="Agent Name">
+                            <maxWidth>2000</maxWidth>
+                            <prefWidth>200.0</prefWidth>
+                        </TableColumn>
+
+                        <TableColumn fx:id="emailColumn" minWidth="200.0" text="Email Address">
+                            <maxWidth>2000</maxWidth>
+                            <prefWidth>250.0</prefWidth>
+                        </TableColumn>
+
+                        <TableColumn fx:id="passwordColumn" minWidth="200.0" text="Password Hash">
+                            <maxWidth>2000</maxWidth>
+                            <prefWidth>250.0</prefWidth>
+                        </TableColumn>
+
+                        <TableColumn fx:id="actionColumn" minWidth="100.0" text="Action">
+                            <maxWidth>1000</maxWidth>
+                            <prefWidth>125.0</prefWidth>
+                        </TableColumn>
+                    </columns>
+
+                    <!-- Margin for table -->
+                    <VBox.margin>
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
+                    </VBox.margin>
+                </TableView>
+            </VBox>
+        </center>
+    </BorderPane>
+</AnchorPane>

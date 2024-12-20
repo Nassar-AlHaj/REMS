@@ -31,7 +31,6 @@ public class CreateOfferController {
     }
 
     private void saveOffer() {
-        // Here you can add logic to save data to your database
         System.out.println("Offer Created!");
         closeModal();
     }

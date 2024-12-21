@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.addagentController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.AddagentController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="293.0" style="-fx-background-color: #2B634B;">
          <children>
             <ImageView fitHeight="60.0" fitWidth="174.0" layoutX="60.0" layoutY="149.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="" />
-               </image>
+<!--               <image>-->
+<!--                  <Image url="" />-->
+<!--               </image>-->
             </ImageView>
             <Label layoutX="17.0" layoutY="215.0" text="Real Estate Management System" textFill="WHITE">
                <font>

@@ -1,40 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-            prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F4F5F7;">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #F4F5F7;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <!-- Header -->
-        <Label text="Offers &amp; Agreements"
-               style="-fx-font-family: 'Arial Black'; -fx-font-size: 22px; -fx-text-fill: #2B2B2B; -fx-padding: 10;"
-               AnchorPane.topAnchor="30.0" AnchorPane.leftAnchor="47.0" />
+        <Label style="-fx-font-family: 'Arial Black'; -fx-font-size: 22px; -fx-text-fill: #2B2B2B; -fx-padding: 10;" text="Offers &amp; Agreements" AnchorPane.leftAnchor="47.0" AnchorPane.topAnchor="30.0" />
 
         <!-- TableView Section -->
-        <TableView style="-fx-background-color: #FFFFFF; -fx-border-color: #E0E0E0; -fx-background-radius: 10;
-                        -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 5);"
-                   AnchorPane.topAnchor="87.0" AnchorPane.leftAnchor="47.0"
-                   AnchorPane.rightAnchor="47.0" AnchorPane.bottomAnchor="200.0">
+        <TableView style="-fx-background-color: #FFFFFF; -fx-border-color: #E0E0E0; -fx-background-radius: 10;                         -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 5);" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="47.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="87.0">
             <columns>
-                <TableColumn text="Client Name" prefWidth="125.0" style="-fx-font-size: 14px;" />
-                <TableColumn text="Property Address" prefWidth="150.0" style="-fx-font-size: 14px;" />
-                <TableColumn text="Type" prefWidth="100.0" style="-fx-font-size: 14px;" />
-                <TableColumn text="Status" prefWidth="75.0" style="-fx-font-size: 14px;" />
-                <TableColumn text="Amount" prefWidth="75.0" style="-fx-font-size: 14px;" />
-                <TableColumn text="Date" prefWidth="75.0" style="-fx-font-size: 14px;" />
+                <TableColumn prefWidth="125.0" style="-fx-font-size: 14px;" text="Client Name" />
+                <TableColumn prefWidth="150.0" style="-fx-font-size: 14px;" text="Property Address" />
+                <TableColumn prefWidth="100.0" style="-fx-font-size: 14px;" text="Type" />
+                <TableColumn prefWidth="75.0" style="-fx-font-size: 14px;" text="Status" />
+                <TableColumn prefWidth="75.0" style="-fx-font-size: 14px;" text="Amount" />
+                <TableColumn prefWidth="75.0" style="-fx-font-size: 14px;" text="Date" />
             </columns>
         </TableView>
 
         <!-- Add New Offer Button -->
-        <Button text="Add New Offer" mnemonicParsing="false"
-                style="-fx-background-color: #2B634B; -fx-background-radius: 20;
-                     -fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-text-fill: white;
-                     -fx-padding: 10 20 10 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5);"
-                AnchorPane.topAnchor="30.0" AnchorPane.rightAnchor="47.0" />
+        <Button mnemonicParsing="false" style="-fx-background-color: #2B634B; -fx-background-radius: 20;                      -fx-font-family: 'Arial'; -fx-font-size: 14px; -fx-text-fill: white;                      -fx-padding: 10 20 10 20; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 5);" text="Create offer" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="30.0" />
     </children>
 </AnchorPane>

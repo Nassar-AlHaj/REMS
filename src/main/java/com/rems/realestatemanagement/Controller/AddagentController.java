@@ -4,7 +4,7 @@ import javafx.scene.control.TextField;
 
 import java.awt.*;
 
-public class addagentController {
+public class AddagentController {
 
     @FXML
     private TextField agentname;

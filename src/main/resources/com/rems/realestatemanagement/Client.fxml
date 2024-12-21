@@ -75,7 +75,7 @@
                             <Font size="16.0"/>
                         </font>
                     </Label>
-                    <TextField fx:id="idField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                    <TextField fx:id="idField" text="No client now" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0"
                                style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #cccccc;
                                     -fx-background-color: #f8f8f8; -fx-font-size: 15;">
                     </TextField>

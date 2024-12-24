@@ -4,29 +4,23 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
+
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DashboardDesignSearchAndFilteringController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
-    private Button CreateOffer;
-
-    @FXML
-    private Button Property;
-
-    @FXML
-    private Button Offer;
-
-    @FXML
-    private Button Add_Property;
+    private Button Admin_Console;
 
     @FXML
     private Button Clients;
+
+    @FXML
+    private Button Offer;
 
     @FXML
     private Button Interactions;
@@ -35,14 +29,89 @@ public class DashboardDesignSearchAndFilteringController {
     private Button Contacts;
 
     @FXML
-    private Button Admin_Console;
+    private ChoiceBox<String> Property_management;
 
     @FXML
     private AnchorPane view;
 
+    private List<Button> buttons;
+
+    private Button activeButton;
+
+    private String activeChoice;
+
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    public void initialize() {
+        buttons = new ArrayList<>();
+        buttons.add(Admin_Console);
+        buttons.add(Clients);
+        buttons.add(Offer);
+        buttons.add(Interactions);
+        buttons.add(Contacts);
+
+        // Property_management.setPromptText("Property Management");
+        Property_management.getItems().addAll(
+                "Property",
+                "Add Property"
+        );
+
+        Property_management.setOnMouseEntered(event -> {
+            Property_management.show();
+        });
+
+        for (Button button : buttons) {
+            button.setOnMouseEntered(event -> {
+                if (button != activeButton) {
+                    button.setStyle("-fx-background-color: #1D4634; -fx-text-fill: white;" +
+                            "-fx-font-size: 16px;" +
+                            "-fx-min-width: 180;" +
+                            "-fx-alignment: CENTER_LEFT;" +
+                            "-fx-padding: 8 12;");
+                }
+            });
+
+            button.setOnMouseExited(event -> {
+                if (button != activeButton) {
+                    button.setStyle("-fx-background-color: white; -fx-text-fill: #1D4634;" +
+                            "-fx-font-size: 16px;" +
+                            "-fx-min-width: 180;" +
+                            "-fx-alignment: CENTER_LEFT;" +
+                            "-fx-padding: 8 12;");
+                }
+            });
+        }
+    }
+
+    private void highlightButton(Button selectedButton) {
+        for (Button button : buttons) {
+            if (button == selectedButton) {
+                button.setStyle("-fx-background-color: #1D4634; -fx-text-fill: white;" +
+                        "-fx-font-size: 16px;" +
+                        "-fx-min-width: 180;" +
+                        "-fx-alignment: CENTER_LEFT;" +
+                        "-fx-padding: 8 12;");
+                activeButton = button;
+            } else {
+                button.setStyle("-fx-background-color: white; -fx-text-fill: #1D4634;" +
+                        "-fx-font-size: 16px;" +
+                        "-fx-min-width: 180;" +
+                        "-fx-alignment: CENTER_LEFT;" +
+                        "-fx-padding: 8 12;");
+            }
+        }
+    }
+
+    private void highlightChoiceBox(String selectedOption) {
+        if (selectedOption != null) {
+            activeChoice = selectedOption;
+            Property_management.setStyle("-fx-background-color: #1D4634; -fx-text: white;" +
+                    "-fx-font-size: 16px;" +
+                    "-fx-padding: 8 12;");
+        } else {
+            Property_management.setStyle("-fx-background-color: white; -fx-text: #1D4634;" +
+                    "-fx-font-size: 16px;" +
+                    "-fx-padding: 8 12;");
+        }
     }
 
     private void loadPage(String fxmlPath) {
@@ -73,172 +142,46 @@ public class DashboardDesignSearchAndFilteringController {
         }
     }
 
-    public void CreateOffer() {
-        loadPage("/com/rems/realestatemanagement/CreateOfferModal.fxml");
+    public void Admin_Console() {
+        loadPage("/com/rems/realestatemanagement/AgentProfile-view.fxml");
+        highlightButton(Admin_Console);
     }
 
-    public void onMouse_Entered_CreateOffer() {
-        CreateOffer.setOnMouseEntered(mouseEvent ->
-                CreateOffer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
+    public void Property_management() {
+        Property_management.setOnAction(event -> {
+            String selectedOption = Property_management.getValue();
 
-        CreateOffer.setOnMouseExited(mouseEvent -> {
-            CreateOffer.setStyle("-fx-background-color: '';-fx-text-fill: black");
+            switch (selectedOption) {
+                case "Property":
+                    highlightChoiceBox("Property");
+                    loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
+                    break;
+                case "Add Property":
+                    highlightChoiceBox("Add Property");
+                    loadPage("/com/rems/realestatemanagement/property.fxml");
+                    break;
+                default:
+                    System.out.println("Unknown option: " + selectedOption);
+            }
         });
-    }
-
-    public void onMouse_Clicked_CreateOffer() throws IOException {
-        CreateOffer.setOnMouseClicked(mouseEvent -> {
-            CreateOffer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
-        });
-        CreateOffer();
-    }
-
-    public void Property() {
-        loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
-    }
-
-    public void onMouse_Entered_Property() {
-        Property.setOnMouseEntered(mouseEvent ->
-                Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-
-        Property.setOnMouseExited(mouseEvent -> {
-            Property.setStyle("-fx-background-color: '';-fx-text-fill: black");
-        });
-    }
-
-    public void onMouse_Clicked_Property() throws IOException {
-        Property.setOnMouseClicked(mouseEvent -> {
-            Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
-        });
-        Property();
-    }
-
-    public void Offer() {
-        loadPage("/com/rems/realestatemanagement/OffersView.fxml");
-    }
-
-    public void onMouse_Entered_Offer() {
-        Offer.setOnMouseEntered(mouseEvent ->
-                Offer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-
-        Offer.setOnMouseExited(mouseEvent -> {
-            Offer.setStyle("-fx-background-color: '';-fx-text-fill: black");
-        });
-    }
-
-    public void onMouse_Clicked_Offer() throws IOException {
-        Offer.setOnMouseEntered(mouseEvent ->
-                Offer.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-        Offer();
-    }
-
-    public void Add_Property() {
-        loadPage("/com/rems/realestatemanagement/property.fxml");
-    }
-
-    public void onMouse_EnteredAdd_Property() {
-        Add_Property.setOnMouseEntered(mouseEvent ->
-                Add_Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-
-        Add_Property.setOnMouseExited(mouseEvent -> {
-            Add_Property.setStyle("-fx-background-color: '';-fx-text-fill: black");
-        });
-    }
-
-    public void onMouse_ClickedAdd_Property() throws IOException {
-        Add_Property.setOnMouseEntered(mouseEvent ->
-                Add_Property.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-        Add_Property();
     }
 
     public void Clients() {
         loadPage("/com/rems/realestatemanagement/Client.fxml");
+        highlightButton(Clients);
     }
 
-    public void onMouse_Entered_Clients() {
-        Clients.setOnMouseEntered(mouseEvent ->
-                Clients.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-
-        Clients.setOnMouseExited(mouseEvent -> {
-            Clients.setStyle("-fx-background-color: '';-fx-text-fill: black");
-        });
+    public void Offer() {
+        loadPage("/com/rems/realestatemanagement/OffersView.fxml");
+        highlightButton(Offer);
     }
-
-    public void onMouse_Clicked_Clients() throws IOException {
-        Clients.setOnMouseEntered(mouseEvent ->
-                Clients.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-        Clients();
-    }
-
 
     public void Interactions() {
         loadPage("/com/rems/realestatemanagement/Interactions.fxml");
-    }
-
-    public void onMouse_Entered_Interactions() {
-        Interactions.setOnMouseEntered(mouseEvent ->
-                Interactions.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-
-        Interactions.setOnMouseExited(mouseEvent -> {
-            Interactions.setStyle("-fx-background-color: '';-fx-text-fill: black");
-        });
-    }
-
-    public void onMouse_Clicked_Interactions() throws IOException {
-        Interactions.setOnMouseClicked(mouseEvent -> {
-            Interactions.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
-        });
-        Interactions();
+        highlightButton(Interactions);
     }
 
     public void Contacts() {
         loadPage("/com/rems/realestatemanagement/contactUs.fxml");
-    }
-
-    public void onMouse_Entered_Contacts() {
-        Contacts.setOnMouseEntered(mouseEvent ->
-                Contacts.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-
-        Contacts.setOnMouseExited(mouseEvent -> {
-            Contacts.setStyle("-fx-background-color: '';-fx-text-fill: black");
-        });
-    }
-
-    public void onMouse_Clicked_Contacts() throws IOException {
-        Contacts.setOnMouseEntered(mouseEvent ->
-                Contacts.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-        Contacts();
-    }
-
-    public void Admin_Console() {
-        loadPage("/com/rems/realestatemanagement/AgentProfile-view.fxml");
-    }
-
-    public void onMouse_Entered_Admin_Console() {
-        Admin_Console.setOnMouseEntered(mouseEvent ->
-                Admin_Console.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white")
-        );
-
-        Admin_Console.setOnMouseExited(mouseEvent -> {
-            Admin_Console.setStyle("-fx-background-color: '';-fx-text-fill: black");
-        });
-    }
-
-    public void onMouse_Clicked_Admin_Console() throws IOException {
-        Admin_Console.setOnMouseClicked(mouseEvent -> {
-            Admin_Console.setStyle("-fx-background-color: #1D4634;-fx-text-fill: white");
-        });
-        Admin_Console();
     }
 }

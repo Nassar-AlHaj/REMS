@@ -9,7 +9,9 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="0.8"
             prefHeight="269.0" prefWidth="378.0" style="-fx-background-color: #2B634B;"
-            xmlns="http://javafx.com/javafx/23.0.1">
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml" fx:controller="com.rems.realestatemanagement.Controller.PopupController">
+
    <children>
       <Label layoutX="93.0" layoutY="94.0" text="Thank you for contacting us!" textFill="WHITE">
          <font>
@@ -21,10 +23,11 @@
             <Font size="15.0" />
          </font>
       </Label>
-      <Button layoutX="139.0" layoutY="165.0" mnemonicParsing="false" style="-fx-background-color: #E09B6B;" text="Back to Home" textFill="WHITE" />
+      <Button layoutX="139.0" layoutY="165.0" mnemonicParsing="false" style="-fx-background-color: #E09B6B;" text="Back to Home" textFill="WHITE" fx:id="backToHomeButton" onAction="#handleBackToHomeButton"/>
+
       <ImageView fitHeight="42.0" fitWidth="102.0" layoutX="136.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../img/Logoooooo.png" />
+            <Image url="@../img/Logoooooo.png" />
          </image>
       </ImageView>
    </children>

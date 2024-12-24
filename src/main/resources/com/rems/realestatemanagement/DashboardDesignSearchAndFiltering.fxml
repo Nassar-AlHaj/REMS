@@ -9,153 +9,109 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Priority?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.DashboardDesignSearchAndFilteringController">
     <children>
         <HBox VBox.vgrow="ALWAYS">
-            <!-- Sidebar -->
-            <VBox style="-fx-background-color: white;" minWidth="200" maxWidth="200">
+
+            <VBox maxWidth="200" minWidth="200" style="-fx-background-color: white;">
                 <padding>
-                    <Insets top="20" right="10" bottom="20" left="10"/>
+                    <Insets bottom="20" left="10" right="10" top="20" />
                 </padding>
                 <ImageView fitHeight="65.0" fitWidth="162.0" preserveRatio="true">
                     <image>
-                        <Image url="@image/img.png"/>
+                        <Image url="@image/img.png" />
                     </image>
                     <VBox.margin>
-                        <Insets bottom="20"/>
+                        <Insets bottom="20" />
                     </VBox.margin>
                 </ImageView>
 
-                <Button fx:id="Admin_Console" onAction="#Admin_Console"
-                        style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Admin Console">
+                <Button fx:id="Admin_Console" onAction="#Admin_Console" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Admin Console">
                     <VBox.margin>
-                        <Insets bottom="10"/>
+                        <Insets bottom="10" />
                     </VBox.margin>
                     <font>
-                        <Font size="16.0"/>
+                        <Font size="16.0" />
                     </font>
                 </Button>
+                <ChoiceBox fx:id="Property_management" onAction="#Property_management" prefWidth="150.0" style="-fx-background-color: White; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" />
 
-                <Button fx:id="Property" onAction="#Property"
-                        style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Property">
+                <Button fx:id="Clients" onAction="#Clients" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Clients">
                     <VBox.margin>
-                        <Insets bottom="10"/>
+                        <Insets bottom="10" />
                     </VBox.margin>
                 </Button>
 
-                <Button fx:id="Add_Property" onAction="#Add_Property"
-                        style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Add Property">
+                <Button fx:id="Offer" onAction="#Offer" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Offer managment">
                     <VBox.margin>
-                        <Insets bottom="10"/>
+                        <Insets bottom="10" />
                     </VBox.margin>
                 </Button>
 
-                <Button fx:id="Clients" onAction="#Clients"
-                        style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Clients">
+                <Button fx:id="Interactions" onAction="#Interactions" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Interactions">
                     <VBox.margin>
-                        <Insets bottom="10"/>
+                        <Insets bottom="10" />
                     </VBox.margin>
                 </Button>
 
-                <Button fx:id="Offer" onAction="#Offer"
-                        style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Offer">
+                <Button fx:id="Contacts" onAction="#Contacts" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Contacts">
                     <VBox.margin>
-                        <Insets bottom="10"/>
+                        <Insets bottom="10" />
                     </VBox.margin>
                 </Button>
-
-                <Button fx:id="CreateOffer" onAction="#CreateOffer"
-                        style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Create Offer">
-                    <VBox.margin>
-                        <Insets bottom="10"/>
-                    </VBox.margin>
-                </Button>
-
-                <Button fx:id="Interactions" onAction="#Interactions"
-                        style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Interactions">
-                    <VBox.margin>
-                        <Insets bottom="10"/>
-                    </VBox.margin>
-                </Button>
-
-                <Button fx:id="Contacts" onAction="#Contacts"
-                        style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;"
-                        text="Contacts">
-                    <VBox.margin>
-                        <Insets bottom="10"/>
-                    </VBox.margin>
-                </Button>
+                <HBox.margin>
+                    <Insets bottom="10.0" />
+                </HBox.margin>
             </VBox>
 
-            <!-- Main Content Area -->
+
             <VBox HBox.hgrow="ALWAYS">
-                <!-- Search Bar Area -->
-                <HBox style="-fx-background-color: white;" spacing="10" alignment="CENTER_LEFT">
+
+                <HBox alignment="CENTER_LEFT" spacing="10" style="-fx-background-color: white;">
                     <padding>
-                        <Insets top="20" right="20" bottom="20" left="20"/>
+                        <Insets bottom="20" left="20" right="20" top="20" />
                     </padding>
 
                     <VBox>
-                        <Label text="Keyword" opacity="0.5"/>
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <TextField fx:id="Enter_Keyword" promptText="Enter keyword"
-                                       style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;"/>
+                        <Label opacity="0.5" text="Keyword" />
+                        <HBox alignment="CENTER_LEFT" spacing="5">
+                            <TextField fx:id="Enter_Keyword" promptText="Enter keyword" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;" />
                             <ImageView fitHeight="17.0" fitWidth="14.0">
                                 <image>
-                                    <Image url="@image/Vector.png"/>
+                                    <Image url="@image/Vector.png" />
                                 </image>
                             </ImageView>
                         </HBox>
                     </VBox>
 
                     <VBox>
-                        <Label text="Status" opacity="0.5"/>
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <TextField fx:id="All_Status" promptText="All Status"
-                                       style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;"/>
-                            <ChoiceBox prefWidth="23.0"
-                                       style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4;"/>
+                        <Label opacity="0.5" text="Status" />
+                        <HBox alignment="CENTER_LEFT" spacing="5">
+                            <TextField fx:id="All_Status" promptText="All Status" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;" />
+                            <ChoiceBox prefWidth="23.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4;" />
                         </HBox>
                     </VBox>
 
                     <VBox>
-                        <Label text="Type" opacity="0.5"/>
-                        <HBox spacing="5" alignment="CENTER_LEFT">
-                            <TextField fx:id="All_Type" promptText="All Type"
-                                       style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;"/>
-                            <ChoiceBox prefWidth="23.0"
-                                       style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4;"/>
+                        <Label opacity="0.5" text="Type" />
+                        <HBox alignment="CENTER_LEFT" spacing="5">
+                            <TextField fx:id="All_Type" promptText="All Type" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;" />
+                            <ChoiceBox prefWidth="23.0" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4;" />
                         </HBox>
                     </VBox>
 
                     <VBox HBox.hgrow="ALWAYS">
-                        <Label text="Filter" opacity="0.5"/>
-                        <TextField fx:id="Filter" promptText="Filter"
-                                   style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;"/>
+                        <Label opacity="0.5" text="Filter" />
+                        <TextField fx:id="Filter" promptText="Filter" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;" />
                     </VBox>
 
-                    <Button fx:id="Search"
-                            style="-fx-background-color: #1D4634; -fx-text-fill: white; -fx-min-width: 70; -fx-min-height: 25; -fx-cursor: hand;"
-                            text="Search"/>
+                    <Button fx:id="Search" style="-fx-background-color: #1D4634; -fx-text-fill: white; -fx-min-width: 70; -fx-min-height: 25; -fx-cursor: hand;" text="Search" />
                 </HBox>
 
-                <!-- Content View -->
-                <AnchorPane fx:id="view" VBox.vgrow="ALWAYS"
-                            AnchorPane.topAnchor="0.0"
-                            AnchorPane.rightAnchor="0.0"
-                            AnchorPane.bottomAnchor="0.0"
-                            AnchorPane.leftAnchor="0.0"/>            </VBox>
+                <AnchorPane fx:id="view" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" VBox.vgrow="ALWAYS" />            </VBox>
         </HBox>
     </children>
 </VBox>

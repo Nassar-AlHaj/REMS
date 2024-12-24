@@ -37,18 +37,7 @@
                         <Font size="16.0" />
                     </font>
                 </Button>
-
-                <Button fx:id="Property" onAction="#Property" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Property">
-                    <VBox.margin>
-                        <Insets bottom="10" />
-                    </VBox.margin>
-                </Button>
-
-                <Button fx:id="Add_Property" onAction="#Add_Property" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Add Property">
-                    <VBox.margin>
-                        <Insets bottom="10" />
-                    </VBox.margin>
-                </Button>
+            <ChoiceBox fx:id="Property_management" onAction="#Property_management" prefWidth="150.0" style="-fx-background-color: White; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" />
 
                 <Button fx:id="Clients" onAction="#Clients" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Clients">
                     <VBox.margin>
@@ -56,13 +45,7 @@
                     </VBox.margin>
                 </Button>
 
-                <Button fx:id="Offer" onAction="#Offer" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Offer">
-                    <VBox.margin>
-                        <Insets bottom="10" />
-                    </VBox.margin>
-                </Button>
-
-                <Button fx:id="CreateOffer" onAction="#CreateOffer" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Create Offer">
+                <Button fx:id="Offer" onAction="#Offer" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Offer managment">
                     <VBox.margin>
                         <Insets bottom="10" />
                     </VBox.margin>
@@ -79,7 +62,6 @@
                         <Insets bottom="10" />
                     </VBox.margin>
                 </Button>
-            <Button fx:id="Property_management" mnemonicParsing="false" onAction="#Property_management" style="-fx-background-color: white; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Property management" />
             <HBox.margin>
                <Insets bottom="10.0" />
             </HBox.margin>

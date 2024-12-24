@@ -4,24 +4,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.layout.AnchorPane;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardDesignSearchAndFilteringController {
-    @FXML
-    private Label welcomeText;
 
     @FXML
     private Button Admin_Console;
-
-    @FXML
-    private Button Property;
-
-    @FXML
-    private Button Add_Property;
 
     @FXML
     private Button Clients;
@@ -30,16 +23,13 @@ public class DashboardDesignSearchAndFilteringController {
     private Button Offer;
 
     @FXML
-    private Button CreateOffer;
-
-    @FXML
     private Button Interactions;
 
     @FXML
     private Button Contacts;
 
     @FXML
-    private Button Property_management;
+    private ChoiceBox<String> Property_management;
 
     @FXML
     private AnchorPane view;
@@ -48,18 +38,26 @@ public class DashboardDesignSearchAndFilteringController {
 
     private Button activeButton;
 
+    private String activeChoice;
+
     @FXML
     public void initialize() {
         buttons = new ArrayList<>();
         buttons.add(Admin_Console);
-        buttons.add(Property);
-        buttons.add(Add_Property);
         buttons.add(Clients);
         buttons.add(Offer);
-        buttons.add(CreateOffer);
         buttons.add(Interactions);
         buttons.add(Contacts);
-        buttons.add(Property_management);
+
+       // Property_management.setPromptText("Property Management");
+        Property_management.getItems().addAll(
+                "Property",
+                "Add Property"
+        );
+
+        Property_management.setOnMouseEntered(event -> {
+            Property_management.show();
+        });
 
         for (Button button : buttons) {
             button.setOnMouseEntered(event -> {
@@ -103,9 +101,17 @@ public class DashboardDesignSearchAndFilteringController {
         }
     }
 
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private void highlightChoiceBox(String selectedOption) {
+        if (selectedOption != null) {
+            activeChoice = selectedOption;
+            Property_management.setStyle("-fx-background-color: #1D4634; -fx-text: white;" +
+                    "-fx-font-size: 16px;" +
+                    "-fx-padding: 8 12;");
+        } else {
+            Property_management.setStyle("-fx-background-color: white; -fx-text: #1D4634;" +
+                    "-fx-font-size: 16px;" +
+                    "-fx-padding: 8 12;");
+        }
     }
 
     private void loadPage(String fxmlPath) {
@@ -141,19 +147,23 @@ public class DashboardDesignSearchAndFilteringController {
         highlightButton(Admin_Console);
     }
 
-    public void Property() {
-        loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
-        highlightButton(Property);
-    }
+    public void Property_management() {
+        Property_management.setOnAction(event -> {
+            String selectedOption = Property_management.getValue();
 
-    public void Add_Property() {
-        loadPage("/com/rems/realestatemanagement/property.fxml");
-        highlightButton(Add_Property);
-    }
-
-    public void Property_management(){
-        loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
-        highlightButton(Property_management);
+            switch (selectedOption) {
+                case "Property":
+                    highlightChoiceBox("Property");
+                    loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
+                    break;
+                case "Add Property":
+                    highlightChoiceBox("Add Property");
+                    loadPage("/com/rems/realestatemanagement/property.fxml");
+                    break;
+                default:
+                    System.out.println("Unknown option: " + selectedOption);
+            }
+        });
     }
 
     public void Clients() {
@@ -166,11 +176,6 @@ public class DashboardDesignSearchAndFilteringController {
         highlightButton(Offer);
     }
 
-    public void CreateOffer() {
-        loadPage("/com/rems/realestatemanagement/CreateOfferModal.fxml");
-        highlightButton(CreateOffer);
-    }
-
     public void Interactions() {
         loadPage("/com/rems/realestatemanagement/Interactions.fxml");
         highlightButton(Interactions);
@@ -178,6 +183,5 @@ public class DashboardDesignSearchAndFilteringController {
 
     public void Contacts() {
         loadPage("/com/rems/realestatemanagement/contactUs.fxml");
-        highlightButton(Contacts);
     }
 }

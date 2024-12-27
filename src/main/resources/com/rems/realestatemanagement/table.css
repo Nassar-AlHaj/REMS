@@ -1,0 +1,67 @@
+/* General Table Styling */
+.table-view {
+    -fx-background-color: #fefefe;
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #d6d6d6;
+    -fx-border-width: 1;
+    -fx-padding: 0;
+}
+
+/* Column Headers */
+.table-view .column-header-background {
+    -fx-background-color: #f1f1f1;
+    -fx-background-radius: 10 10 0 0;
+    -fx-padding: 10 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-font-size: 15;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+    -fx-padding: 15 10;
+}
+
+/* Row Styling */
+.table-row-cell {
+    -fx-background-color: white;
+    -fx-border-color: transparent transparent #eeeeee transparent;
+    -fx-padding: 12 8;
+    -fx-font-size: 14;
+    -fx-text-fill: #4a4a4a;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #fafafa;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #e0f7fa; /* Hover background */
+    -fx-text-fill: black; /* Ensure hover text is black */
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #2B634B; /* Selected row background */
+    -fx-text-fill: white; /* Selected row text */
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:selected:hover {
+    -fx-background-color: #1D4634; /* Slightly darker for hover */
+    -fx-text-fill: white;
+}
+
+/* Delete Button in Action Column */
+.delete-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #DC3545;
+    -fx-border-radius: 4;
+    -fx-cursor: hand;
+}
+
+.delete-button:hover {
+    -fx-background-color: #DC3545;
+    -fx-text-fill: white;
+}

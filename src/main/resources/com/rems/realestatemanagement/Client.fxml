@@ -108,7 +108,7 @@
     </HBox>
    <ImageView fitHeight="47.0" fitWidth="115.0" layoutX="9.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
       <image>
-         <Image url="@../../../../../../../../../Desktop/Group.png" />
+         <Image url="@../../../../../Desktop/Group.png" />
       </image>
    </ImageView>
    <Label layoutX="117.0" layoutY="13.0" prefHeight="40.0" prefWidth="79.0" text="REMS" textFill="#104028">

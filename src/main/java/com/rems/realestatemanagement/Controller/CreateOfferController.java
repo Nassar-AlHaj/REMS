@@ -9,10 +9,10 @@ import javafx.stage.Stage;
 public class CreateOfferController {
 
     @FXML
-    private TextField clientName, propertyAddress, amountField;
+    private TextField clientName, propertyId, amountField;
 
     @FXML
-    private ComboBox<String> typeComboBox, statusComboBox;
+    private ComboBox<String> typeComboBox;
 
     @FXML
     private Button cancelButton, createButton;
@@ -20,7 +20,6 @@ public class CreateOfferController {
     @FXML
     public void initialize() {
         typeComboBox.getItems().addAll("Rent", "Purchase");
-        statusComboBox.getItems().addAll("Pending", "In Negotiation", "Approved");
 
         cancelButton.setOnAction(event -> closeModal());
         createButton.setOnAction(event -> saveOffer());

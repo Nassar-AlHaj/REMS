@@ -164,16 +164,13 @@ public class DashboardDesignSearchAndFilteringController {
         isSubmenuAnimating = true;
 
         if (!propertySubmenu.isVisible()) {
-            // Show submenu with animation
             propertySubmenu.setVisible(true);
             propertySubmenu.setManaged(true);
 
-            // Fade in animation
             FadeTransition fadeIn = new FadeTransition(Duration.millis(200), propertySubmenu);
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
 
-            // Slide down animation
             TranslateTransition slideDown = new TranslateTransition(Duration.millis(200), propertySubmenu);
             slideDown.setFromY(-20);
             slideDown.setToY(0);
@@ -185,7 +182,6 @@ public class DashboardDesignSearchAndFilteringController {
             });
             parallel.play();
         } else {
-            // Hide submenu with animation
             FadeTransition fadeOut = new FadeTransition(Duration.millis(200), propertySubmenu);
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);

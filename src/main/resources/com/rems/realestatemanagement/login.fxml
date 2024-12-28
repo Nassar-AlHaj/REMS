@@ -11,6 +11,8 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.loginController">
    <children>
       <AnchorPane layoutX="-2.0" prefHeight="400.0" prefWidth="301.0" style="-fx-background-color: #2B634B;">
@@ -25,11 +27,11 @@
                   <Font name="System Bold" size="17.0" />
                </font>
             </Label>
-<!--            <ImageView fitHeight="67.0" fitWidth="175.0" layoutX="62.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">-->
-<!--               <image>-->
-<!--                  <Image url="" />-->
-<!--               </image>-->
-<!--            </ImageView>-->
+            <ImageView fitHeight="67.0" fitWidth="175.0" layoutX="62.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@image/img.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
       <AnchorPane layoutX="299.0" prefHeight="400.0" prefWidth="301.0" style="-fx-background-color: #f7f7f7f7;">

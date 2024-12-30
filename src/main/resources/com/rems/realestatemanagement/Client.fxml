@@ -7,13 +7,15 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
+<?import java.net.URL?>
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.rems.realestatemanagement.Controller.ClientController">
-
+    <stylesheets>
+        <URL value="@table.css" />
+    </stylesheets>
     <VBox AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0"
           AnchorPane.rightAnchor="0.0" AnchorPane.bottomAnchor="0.0">
 
-        <!-- Enhanced Header Section -->
         <StackPane style="-fx-background-color: linear-gradient(to right, #2b634b, #3a7a5f);">
             <padding>
                 <Insets top="15" bottom="15"/>
@@ -40,13 +42,13 @@
             </HBox>
         </StackPane>
 
-        <!-- Main Content -->
+
         <HBox VBox.vgrow="ALWAYS" spacing="20">
             <padding>
                 <Insets top="20" right="20" bottom="20" left="20"/>
             </padding>
 
-            <!-- Enhanced Form Section -->
+
             <VBox minWidth="400" maxWidth="600" HBox.hgrow="SOMETIMES" spacing="10"
                   style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0); -fx-border-radius: 8; -fx-background-radius: 8;">
                 <padding>
@@ -68,14 +70,13 @@
                         <RowConstraints minHeight="45" prefHeight="50" vgrow="ALWAYS"/>
                     </rowConstraints>
 
-                    <!-- Enhanced Field Styling -->
                     <Label text="ID:" GridPane.rowIndex="0"
                            style="-fx-font-weight: bold; -fx-text-fill: #2B634B;">
                         <font>
                             <Font size="16.0"/>
                         </font>
                     </Label>
-                    <TextField fx:id="idField" text="No client now" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0"
+                    <TextField fx:id="idField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="0"
                                style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #cccccc;
                                     -fx-background-color: #f8f8f8; -fx-font-size: 15;">
                     </TextField>
@@ -137,7 +138,7 @@
                 </GridPane>
             </VBox>
 
-            <!-- Enhanced Table Section -->
+
             <VBox HBox.hgrow="ALWAYS"
                   style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 0); -fx-border-radius: 8; -fx-background-radius: 8;">
                 <padding>
@@ -167,7 +168,6 @@
             </VBox>
         </HBox>
 
-        <!-- Enhanced Button Section -->
         <HBox alignment="CENTER" spacing="40">
             <padding>
                 <Insets top="25" right="25" bottom="25" left="25"/>

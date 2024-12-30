@@ -1,11 +1,16 @@
 package com.rems.realestatemanagement.Controller;
+
+import com.rems.realestatemanagement.models.User;
+import com.rems.realestatemanagement.models.services.UsersDOAImp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.Objects;
 
@@ -16,72 +21,73 @@ public class loginController {
     @FXML
     private PasswordField pass;
     @FXML
-    private TextField shpass;
+    private Button register;
     @FXML
-    private Button loginbutton;
+    private Hyperlink forgotpass;
     @FXML
-    private Hyperlink fpass;
-    @FXML
-    private CheckBox showpass;
+    private Label errorLabel;
+    private UsersDOAImp UsersDAO;
 
+    public loginController() {
+        UsersDAO = new UsersDOAImp();
+    }
 
     @FXML
     public void handleLoginAction(ActionEvent actionEvent) {
+        String useremail = email.getText().trim();
+        String password = pass.getText().trim();
 
-        String useremail = email.getText();
-        String password = pass.getText();
-        System.out.println("Username: " + useremail);
-        System.out.println("Password: " + password);
-
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("com/rems/realestatemanagement/resetpassword.fxml")));
-            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (!isValidEmail(useremail)) {
+            errorLabel.setText("Please enter a valid email address.");
+            errorLabel.setTextFill(Color.RED);
+            return;
         }
 
-    }
-    @FXML
-    public void initialize() {
-        shpass.textProperty().bindBidirectional(pass.textProperty());
+        if (!isValidPassword(password)) {
+            errorLabel.setText("Password must be strong.");
+            errorLabel.setTextFill(Color.RED);
+            return;
+        }
 
-        showpass.selectedProperty().addListener((observable, oldValue, newValue) -> {
-            if (newValue) {
-                shpass.setVisible(true);
-                pass.setVisible(false);
+        if (password.isEmpty()) {
+            errorLabel.setText("Password cannot be empty.");
+            errorLabel.setTextFill(Color.RED);
+            return;
+        }
+
+        errorLabel.setText("");
+
+        User user = UsersDAO.getUserByEmailAndPassword(useremail, password);
+
+        if (user != null) {
+
+            if (BCrypt.checkpw(password, user.getPassword())) {
+                try {
+                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));  // Adjust the path to your next FXML page
+                    Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             } else {
-                shpass.setVisible(false);
-                pass.setVisible(true);
+                errorLabel.setText("Invalid password.");
+                errorLabel.setTextFill(Color.RED);
             }
-        });
-    }
 
 
-    public void handleGoToDashboard(ActionEvent actionEvent) {
-        try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));
 
-            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-
-            stage.setScene(new Scene(root));
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+        } else {
+            errorLabel.setText("User not found.");
+            errorLabel.setTextFill(Color.RED);
         }
     }
 
-
-
-
+    @FXML
     public void handleGoToResetAction(ActionEvent actionEvent) {
         try {
-
             Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/resetpass.fxml")));
-
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-
             stage.setScene(new Scene(root));
             stage.show();
         } catch (Exception e) {
@@ -89,4 +95,13 @@ public class loginController {
         }
     }
 
+    public static boolean isValidEmail(String email) {
+        String emailRegex = "^[\\w._%+-]+@[\\w.-]+\\.[a-zA-Z]{2,}$";
+        return email != null && email.matches(emailRegex);
+    }
+
+    public static boolean isValidPassword(String password) {
+        String passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,20}$";
+        return password != null && password.matches(passwordRegex);
+    }
 }

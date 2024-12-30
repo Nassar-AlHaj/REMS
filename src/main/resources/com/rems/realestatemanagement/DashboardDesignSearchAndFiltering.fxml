@@ -19,7 +19,7 @@
                 <!-- Logo -->
                 <ImageView fitHeight="65.0" fitWidth="162.0" preserveRatio="true">
                     <image>
-                        <Image url="@image/img.png" />
+                        <Image url="@img/img.png" />
                     </image>
                     <VBox.margin>
                         <Insets bottom="30" />
@@ -90,7 +90,7 @@
                                        style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 5;" />
                             <ImageView fitHeight="17.0" fitWidth="14.0">
                                 <image>
-                                    <Image url="@image/Vector.png" />
+                                    <Image url="@img/Vector.png" />
                                 </image>
                             </ImageView>
                         </HBox>

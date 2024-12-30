@@ -1,224 +1,154 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <Pane layoutX="443.0" layoutY="31.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: #ffffff;" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="30.0">
-        <ImageView fitHeight="120.0" fitWidth="320.0" layoutX="15.0" layoutY="14.0">
-            <!--
-            <image>
-            <Image url="@/img/propartycard2.png" />
-            </image>
-            -->
-        </ImageView>
-        <Label layoutX="17.0" layoutY="143.0" text="Meadow View">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="171.0" text="9540.99" textFill="#fcb262">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="196.0" text="Doane Street, Fremont CA 94538" textFill="#817b7b" />
-        <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="17.0" layoutY="173.0">
-            <!--
-            <image>
-            <Image url="@/img/dollar.png" />
-            </image>
-            -->
-        </ImageView>
-        <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="17.0" layoutY="199.0">
-            <!--
-            <image>
-            <Image url="@/img/marker.png" />
-            </image>
-            -->
-        </ImageView>
-        <Label layoutX="15.0" layoutY="14.0" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #e67300;" text="  Sold" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
-        <ImageView layoutX="285.0" layoutY="211.0">
-            <!--
-            <image>
-            <Image url="@/img/Frame.png" />
-            </image>
-            -->
-        </ImageView>
-        <ImageView layoutX="316.0" layoutY="211.0">
-            <!--
-            <image>
-            <Image url="@/img/Remove.png" />
-            </image>
-            -->
-        </ImageView>
-    </Pane>
+<AnchorPane style="-fx-background-color: #f5f5f5;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.PropartyCardController">
 
-    <Pane layoutX="20.0" layoutY="300.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0">
-        <ImageView fitHeight="120.0" fitWidth="320.0" layoutX="15.0" layoutY="14.0">
-            <!--
-            <image>
-            <Image url="@/img/propartycard2.png" />
-            </image>
-            -->
-        </ImageView>
-        <Label layoutX="17.0" layoutY="143.0" text="The Old Rectory">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="171.0" text="5999.99" textFill="#fcb262">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="196.0" text="LaYule street, Arvada Co bel" textFill="#817b7b" />
-        <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="17.0" layoutY="173.0">
-            <!--
-            <image>
-            <Image url="@/img/dollar.png" />
-            </image>
-            -->
-        </ImageView>
-        <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="17.0" layoutY="199.0">
-            <!--
-            <image>
-            <Image url="@/img/marker.png" />
-            </image>
-            -->
-        </ImageView>
-        <Label layoutX="17.0" layoutY="14.0" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #e67300;" text="  Rented" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
-        <ImageView layoutX="293.0" layoutY="212.0">
-            <!--
-            <image>
-            <Image url="@/img/Remove.png" />
-            </image>
-            -->
-        </ImageView>
-        <ImageView layoutX="260.0" layoutY="212.0">
-            <!--
-            <image>
-            <Image url="@/img/Frame.png" />
-            </image>
-            -->
-        </ImageView>
-    </Pane>
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 
-    <Pane layoutX="419.0" layoutY="300.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
-        <ImageView fitHeight="120.0" fitWidth="320.0" layoutX="15.0" layoutY="14.0">
-            <!--
-            <image>
-            <Image url="@/img/propartycard1.png" />
-            </image>
-            -->
-        </ImageView>
-        <Label layoutX="17.0" layoutY="143.0" text="Meadow View">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="171.0" text="9540.99" textFill="#fcb262">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="196.0" text="Doane Street, Fremont CA 94538" textFill="#817b7b" />
-        <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="17.0" layoutY="173.0">
-            <!--
-            <image>
-            <Image url="@/img/dollar.png" />
-            </image>
-            -->
-        </ImageView>
-        <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="17.0" layoutY="199.0">
-            <!--
-            <image>
-            <Image url="@/img/marker.png" />
-            </image>
-            -->
-        </ImageView>
-        <Label layoutX="15.0" layoutY="14.0" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #e67300;" text="  Sold" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
-        <ImageView layoutX="285.0" layoutY="211.0">
-            <!--
-            <image>
-            <Image url="@/img/Frame.png" />
-            </image>
-            -->
-        </ImageView>
-        <ImageView layoutX="316.0" layoutY="211.0">
-            <!--
-            <image>
-            <Image url="@/img/Remove.png" />
-            </image>
-            -->
-        </ImageView>
-    </Pane>
+        <!-- Search Section -->
+        <VBox style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-spacing: 15;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
 
-    <Pane layoutX="20.0" layoutY="30.0" prefHeight="250.0" prefWidth="350.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
-        <ImageView fitHeight="120.0" fitWidth="320.0" layoutX="15.0" layoutY="14.0">
-            <!--
-            <image>
-            <Image url="@/img/propartycard1.png" />
-            </image>\\
-            -->
-        </ImageView>
-        <Label layoutX="17.0" layoutY="143.0" text="The Old Rectory">
-            <font>
-                <Font name="System Bold" size="14.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="171.0" text="5999.99" textFill="#fcb262">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
-        <Label layoutX="34.0" layoutY="196.0" text="LaYule street, Arvada Co bel" textFill="#817b7b" />
-        <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="17.0" layoutY="173.0">
-            <!--
-            <image>
-            <Image url="@/img/dollar.png" />
-            </image>
-            -->
-        </ImageView>
-        <ImageView fitHeight="12.0" fitWidth="12.0" layoutX="17.0" layoutY="199.0">
-            <!--
-            <Image url="@/img/marker.png" />
-            -->
-        </ImageView>
-        <Label layoutX="17.0" layoutY="14.0" prefHeight="25.0" prefWidth="58.0" style="-fx-background-color: #e67300;" text="  Rented" textFill="WHITE">
-            <font>
-                <Font name="System Bold" size="12.0" />
-            </font>
-        </Label>
-        <ImageView layoutX="293.0" layoutY="212.0">
-            <!--
-            <image>
-            <Image url="@/img/Remove.png" />
-            </image>
-            -->
-        </ImageView>
-        <ImageView layoutX="260.0" layoutY="212.0">
-            <!--
-            <image>
-            <Image url="@/img/Frame.png" />
-            </image>
--->
-        </ImageView>
-    </Pane>
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <!-- Keyword Search -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Keyword" />
+                    <TextField fx:id="Enter_Keyword" promptText="Enter keyword" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" />
+                </VBox>
+
+                <!-- Location Filter -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Location" />
+                    <MenuButton fx:id="Location" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" text="Select Location">
+                        <items>
+                            <CheckMenuItem text="All" fx:id="AllLocation"/>
+                            <CheckMenuItem text="New York" fx:id="New_York"/>
+                            <CheckMenuItem text="Los Angeles" fx:id="Los_Angeles"/>
+                            <CheckMenuItem text="Chicago" fx:id="Chicago"/>
+                        </items>
+                    </MenuButton>
+                </VBox>
+
+                <!-- Property Type Filter -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Property Type" />
+                    <MenuButton fx:id="Type" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" text="Select Type">
+                        <items>
+                            <CheckMenuItem text="All" fx:id="All"/>
+                            <CheckMenuItem text="Residential" fx:id="Residential"/>
+                            <CheckMenuItem text="Commercial" fx:id="Commercial"/>
+                            <CheckMenuItem text="Industrial" fx:id="Industrial"/>
+                            <CheckMenuItem text="Agricultural" fx:id="Agricultural"/>
+                            <CheckMenuItem text="Land" fx:id="Land"/>
+                        </items>
+                    </MenuButton>
+                </VBox>
+
+                <!-- Price Filter -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Filter" />
+                    <MenuButton fx:id="Filter" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" text="Select Filter">
+                        <items>
+                            <CheckMenuItem text="Price above" fx:id="Price_above"/>
+                            <CheckMenuItem text="Price below" fx:id="Price_below"/>
+                            <CheckMenuItem text="Latest" fx:id="Latest"/>
+                            <CheckMenuItem text="Oldest" fx:id="Oldest"/>
+                        </items>
+                    </MenuButton>
+                </VBox>
+
+                <!-- Availability Filter -->
+                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                    <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Availability" />
+                    <ChoiceBox fx:id="Availability" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" />
+                </VBox>
+
+                <!-- Search Button -->
+                <VBox alignment="BOTTOM_LEFT" spacing="5">
+                    <Button fx:id="Search" onAction="#Filtering" style="-fx-background-color: #1D4634; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-cursor: hand; -fx-background-radius: 4;" text="Search" />
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- Property Cards Container -->
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
+            <FlowPane fx:id="flowPane" hgap="20" style="-fx-background-color: transparent;" vgap="20">
+                <padding>
+                    <Insets bottom="20" left="20" right="20" top="20" />
+                </padding>
+
+                <!-- Property Card Template -->
+                <VBox fx:id="propertyCard" style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-background-radius: 8; -fx-min-width: 300; -fx-max-width: 300; -fx-spacing: 10;">
+
+                    <!-- Property Image and Status -->
+                    <StackPane>
+                        <ImageView fitHeight="200" fitWidth="300" preserveRatio="true">
+                            <Image url="@img/propartycard2.png" />
+                        </ImageView>
+                        <Label style="-fx-background-color: #e67300; -fx-text-fill: white; -fx-padding: 5 10; -fx-font-weight: bold; -fx-background-radius: 4;" text="Sold" StackPane.alignment="TOP_LEFT">
+                            <StackPane.margin>
+                                <Insets left="10" top="10" />
+                            </StackPane.margin>
+                        </Label>
+                    </StackPane>
+
+                    <!-- Property Details -->
+                    <VBox spacing="10" style="-fx-padding: 15;">
+                        <Label style="-fx-font-size: 16px; -fx-font-family: black; -fx-font-weight: bold;" text="Meadow View" textFill="#d00000" />
+
+                        <!-- Price -->
+                        <HBox alignment="CENTER_LEFT" spacing="5">
+                            <ImageView fitHeight="16.0" fitWidth="16.0">
+                                <Image url="@img/dollar.png" />
+                            </ImageView>
+                            <Label style="-fx-text-fill: #fcb262; -fx-font-weight: bold;" text="9,540.99" />
+                        </HBox>
+
+                        <!-- Address -->
+                        <HBox alignment="CENTER_LEFT" spacing="5">
+                            <ImageView fitHeight="16.0" fitWidth="16.0">
+                                <Image url="@img/marker.png" />
+                            </ImageView>
+                            <Label style="-fx-text-fill: #817b7b;" text="Doane Street, Fremont CA94" />
+                        </HBox>
+
+                        <!-- Action Buttons -->
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <Button style="-fx-background-color: transparent; -fx-cursor: hand;">
+                                <graphic>
+                                    <ImageView>
+                                        <Image url="@img/Frame.png" />
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button style="-fx-background-color: transparent; -fx-cursor: hand;">
+                                <graphic>
+                                    <ImageView>
+                                        <Image url="@img/Remove.png" />
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </HBox>
+                    </VBox>
+                </VBox>
+            </FlowPane>
+        </ScrollPane>
+    </VBox>
 </AnchorPane>

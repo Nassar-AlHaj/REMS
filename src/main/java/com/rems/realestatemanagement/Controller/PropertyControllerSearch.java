@@ -1,6 +1,8 @@
 package com.rems.realestatemanagement.Controller;
 
 import com.rems.realestatemanagement.Controller.Property;
+import com.rems.realestatemanagement.models.interfaces.PropertyDAO;
+import com.rems.realestatemanagement.models.services.PropertyDAOImp;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.collections.FXCollections;
@@ -25,25 +27,25 @@ public class PropertyControllerSearch {
     @FXML private TableColumn<Property, String> availabilityColumn;
 
     private ObservableList<Property> allProperties = FXCollections.observableArrayList();
+    private PropertyDAOImp propertyDAO;
+
 
     public void initialize() {
-        allProperties.addAll(
-                new Property("House A", "New York", 300000, 120, "Residential", true),
-                new Property("Office X", "Los Angeles", 500000, 300, "Commercial", false),
-                new Property("Apartment B", "Chicago", 200000, 80, "Residential", true)
-        );
+        propertyDAO = new PropertyDAOImp();
 
-        propertyTable.setItems(allProperties);
+
 
         locationComboBox.setItems(FXCollections.observableArrayList("All", "New York", "Los Angeles", "Chicago"));
         typeComboBox.setItems(FXCollections.observableArrayList("All", "Residential", "Commercial"));
 
-        titleColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getTitle()));
-        locationColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getLocation()));
-        priceColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleDoubleProperty(data.getValue().getPrice()).asObject());
-        sizeColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleDoubleProperty(data.getValue().getSize()).asObject());
-        typeColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getType()));
-        availabilityColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().isAvailable() ? "Available" : "Not Available"));
+        List<Property> filter = allProperties.stream()
+                .filter(p-> (locationComboBox.getValue() == null || locationComboBox.getValue().equals("All")))
+                .filter(p -> (typeComboBox.getValue() == null || typeComboBox.getValue().equals("All")))
+                .filter(p -> (availabilityComboBox.getValue() == null || availabilityComboBox.getValue().equals("All")))
+                .collect(Collectors.toList());
+        propertyTable.setItems(FXCollections.observableArrayList(filter));
+
+
     }
 
     @FXML
@@ -52,20 +54,17 @@ public class PropertyControllerSearch {
         String location = locationComboBox.getValue();
         String type = typeComboBox.getValue();
         boolean isAvailable = "Available".equals(availabilityComboBox.getValue());
-        String minPrice = minPriceField.getText();
-        String maxPrice = maxPriceField.getText();
 
         List<Property> filtered = allProperties.stream()
                 .filter(p -> (keyword.isEmpty() || p.getTitle().toLowerCase().contains(keyword)))
                 .filter(p -> (location == null || location.equals("All") || p.getLocation().equals(location)))
                 .filter(p -> (type == null || type.equals("All") || p.getType().equals(type)))
                 .filter(p -> (availabilityComboBox.getValue() == null || availabilityComboBox.getValue().equals("All") || p.isAvailable() == isAvailable))
-                .filter(p -> minPrice.isEmpty() || p.getPrice() >= Double.parseDouble(minPrice))
-                .filter(p -> maxPrice.isEmpty() || p.getPrice() <= Double.parseDouble(maxPrice))
                 .collect(Collectors.toList());
-
 
         propertyTable.setItems(FXCollections.observableArrayList(filtered));
     }
 
 }
+
+

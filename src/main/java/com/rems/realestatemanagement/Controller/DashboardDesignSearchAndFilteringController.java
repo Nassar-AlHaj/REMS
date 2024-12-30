@@ -19,6 +19,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DashboardDesignSearchAndFilteringController {
+    public MenuButton Type;
+    public MenuButton Filter;
+    public MenuButton Location;
+    public ChoiceBox Availability;
     @FXML private Button Admin_Console;
     @FXML private Button Clients;
     @FXML private Button Offer;
@@ -56,17 +60,20 @@ public class DashboardDesignSearchAndFilteringController {
 
     @FXML
     public void initialize() {
+
+
+
+
         buttons = new ArrayList<>();
         buttons.add(Admin_Console);
         buttons.add(Clients);
         buttons.add(Offer);
         buttons.add(Interactions);
         buttons.add(Contacts);
-
         setupButtonEffects();
         setupPropertyManagement();
         setupResponsiveness();
-
+        Admin_Console();
         propertySubmenu.setVisible(false);
         propertySubmenu.setManaged(false);
     }
@@ -164,13 +171,16 @@ public class DashboardDesignSearchAndFilteringController {
         isSubmenuAnimating = true;
 
         if (!propertySubmenu.isVisible()) {
+            // Show submenu with animation
             propertySubmenu.setVisible(true);
             propertySubmenu.setManaged(true);
 
+            // Fade in animation
             FadeTransition fadeIn = new FadeTransition(Duration.millis(200), propertySubmenu);
             fadeIn.setFromValue(0);
             fadeIn.setToValue(1);
 
+            // Slide down animation
             TranslateTransition slideDown = new TranslateTransition(Duration.millis(200), propertySubmenu);
             slideDown.setFromY(-20);
             slideDown.setToY(0);
@@ -182,6 +192,7 @@ public class DashboardDesignSearchAndFilteringController {
             });
             parallel.play();
         } else {
+            // Hide submenu with animation
             FadeTransition fadeOut = new FadeTransition(Duration.millis(200), propertySubmenu);
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);
@@ -300,4 +311,5 @@ public class DashboardDesignSearchAndFilteringController {
         loadPage("/com/rems/realestatemanagement/contactUs.fxml");
         highlightButton(Contacts);
     }
+
 }

@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckMenuItem?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -10,20 +15,84 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 
+
+<?import javafx.scene.text.Font?>
 <AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.PropartyCardController">
-    <HBox alignment="CENTER_LEFT" spacing="15"
-          style="-fx-background-color: linear-gradient(to right, #1D4634, #2E8B57); -fx-padding: 15 25;"
-          AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-        <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
-            <image>
-                <Image url="@img/Logoooooo.png" />
-            </image>
-        </ImageView>
-        <Label text="Property" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;"/>
-    </HBox>
-    <ScrollPane  fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0">
+
+
+
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+    <!-- Search Section -->
+    <VBox style="-fx-background-color: white; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2); -fx-spacing: 15;">
+        <padding>
+            <Insets bottom="20" left="20" right="20" top="20" />
+        </padding>
+
+        <HBox alignment="CENTER_LEFT" spacing="15">
+            <!-- Keyword Search -->
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Keyword" />
+                <TextField fx:id="Enter_Keyword" promptText="Enter keyword" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" />
+            </VBox>
+
+            <!-- Location Filter -->
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Location" />
+                <MenuButton fx:id="Location" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" text="Select Location">
+                    <items>
+                        <CheckMenuItem text="All" fx:id="AllLocation"/>
+                        <CheckMenuItem text="New York" fx:id="New_York"/>
+                        <CheckMenuItem text="Los Angeles" fx:id="Los_Angeles"/>
+                        <CheckMenuItem text="Chicago" fx:id="Chicago"/>
+                    </items>
+                </MenuButton>
+            </VBox>
+
+            <!-- Property Type Filter -->
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Property Type" />
+                <MenuButton fx:id="Type" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" text="Select Type">
+                    <items>
+                        <CheckMenuItem text="All" fx:id="All"/>
+                        <CheckMenuItem text="Residential" fx:id="Residential"/>
+                        <CheckMenuItem text="Commercial" fx:id="Commercial"/>
+                        <CheckMenuItem text="Industrial" fx:id="Industrial"/>
+                        <CheckMenuItem text="Agricultural" fx:id="Agricultural"/>
+                        <CheckMenuItem text="Land" fx:id="Land"/>
+                    </items>
+                </MenuButton>
+            </VBox>
+
+            <!-- Price Filter -->
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Filter" />
+                <MenuButton fx:id="Filter" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" text="Select Filter">
+                    <items>
+                        <CheckMenuItem text="Price above" fx:id="Price_above"/>
+                        <CheckMenuItem text="Price below" fx:id="Price_below"/>
+                        <CheckMenuItem text="Latest" fx:id="Latest"/>
+                        <CheckMenuItem text="Oldest" fx:id="Oldest"/>
+                    </items>
+                </MenuButton>
+            </VBox>
+
+            <!-- Availability Filter -->
+            <VBox spacing="5" HBox.hgrow="ALWAYS">
+                <Label style="-fx-text-fill: #666666; -fx-font-size: 12px;" text="Availability" />
+                <ChoiceBox fx:id="Availability" style="-fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-radius: 4; -fx-padding: 8; -fx-pref-width: 200;" />
+            </VBox>
+
+            <!-- Search Button -->
+            <VBox alignment="BOTTOM_LEFT" spacing="5">
+                <Button fx:id="Search" onAction="#Filtering" style="-fx-background-color: #1D4634; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 20; -fx-cursor: hand; -fx-background-radius: 4;" text="Search" />
+            </VBox>
+        </HBox>
+    </VBox>
+    </VBox>
+
+    <ScrollPane  fitToHeight="true" fitToWidth="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="95.0">
 
 
         <FlowPane fx:id="flowPane" prefHeight="600.0" prefWidth="1050.0">

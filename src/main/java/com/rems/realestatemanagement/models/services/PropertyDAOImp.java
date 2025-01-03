@@ -75,6 +75,20 @@ public class PropertyDAOImp implements PropertyDAO {
     }
 
     @Override
+    public List<String> getAllLocations() {
+        Session session = sessionFactory.openSession();
+        try {
+            return session.createQuery("select distinct location from Property", String.class).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+
+    @Override
     public void delete(int id) {
 
         Session session = sessionFactory.openSession();

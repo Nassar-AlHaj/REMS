@@ -5,7 +5,10 @@ import com.rems.realestatemanagement.models.interfaces.UsersDOA;
 import com.rems.realestatemanagement.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.mindrot.jbcrypt.BCrypt;
+
+import java.util.List;
 
 public class UsersDOAImp implements UsersDOA {
 
@@ -62,6 +65,56 @@ public class UsersDOAImp implements UsersDOA {
         session.update(user);
         session.getTransaction().commit();
         session.close();
+
+    }
+
+    @Override
+    public List<User> getAllAgents() {
+        Session session = sessionFactory.openSession();
+        try {
+            return session.createQuery("from User where role.name = 'Agent'", User.class).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
+
+
+    @Override
+    public void delete(User users) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            session.delete(users);
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+    }
+
+    @Override
+    public void delete(int id) {
+        Session session = sessionFactory.openSession();
+        Transaction transaction = null;
+        try {
+            transaction = session.beginTransaction();
+            User users = session.get(User.class, id);
+            if (users != null) {
+                session.delete(users);
+            }
+            transaction.commit();
+        } catch (Exception e) {
+            if (transaction != null) transaction.rollback();
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
 
     }
 

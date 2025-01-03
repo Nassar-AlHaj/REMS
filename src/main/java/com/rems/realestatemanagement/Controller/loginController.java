@@ -2,6 +2,7 @@ package com.rems.realestatemanagement.Controller;
 
 import com.rems.realestatemanagement.models.User;
 import com.rems.realestatemanagement.models.services.UsersDOAImp;
+import com.rems.realestatemanagement.session.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -44,7 +45,7 @@ public class loginController {
         }
 
         if (!isValidPassword(password)) {
-            errorLabel.setText("Password must be strong.");
+            errorLabel.setText("Password is not correct.");
             errorLabel.setTextFill(Color.RED);
             return;
         }
@@ -60,10 +61,14 @@ public class loginController {
         User user = UsersDAO.getUserByEmailAndPassword(useremail, password);
 
         if (user != null) {
-
             if (BCrypt.checkpw(password, user.getPassword())) {
+                UserSession session = UserSession.getInstance();
+                session.setUsername(user.getUsername());
+                session.setEmail(user.getEmail());
+                session.setRole(user.getRole().getName());
                 try {
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/nextpage.fxml")));  // Adjust the path to your next FXML page
+                    FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/resetpass.fxml")));
+                    Parent root = loader.load();
                     Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.show();
@@ -83,7 +88,7 @@ public class loginController {
     @FXML
     public void handleGoToResetAction(ActionEvent actionEvent) {
         try {
-            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/resetpass.fxml")));
             Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();

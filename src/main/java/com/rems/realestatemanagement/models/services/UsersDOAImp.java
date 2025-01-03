@@ -5,6 +5,7 @@ import com.rems.realestatemanagement.models.interfaces.UsersDOA;
 import com.rems.realestatemanagement.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class UsersDOAImp implements UsersDOA {
 
@@ -24,18 +25,23 @@ public class UsersDOAImp implements UsersDOA {
      session.close();
     }
 
-    @Override
+
     public User getUserByEmailAndPassword(String email, String password) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        User user = (User) session.createQuery("FROM User WHERE email = :email AND password = :password")
+        User user = (User) session.createQuery("FROM User WHERE email = :email")
                 .setParameter("email", email)
-                .setParameter("password", password)
                 .uniqueResult();
         session.getTransaction().commit();
         session.close();
-        return user;
+        if (user != null && BCrypt.checkpw(password, user.getPassword())) {
+            return user;
+        } else {
+            return null;
+        }
     }
+
+    @Override
     public User getUserByEmail(String email) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();

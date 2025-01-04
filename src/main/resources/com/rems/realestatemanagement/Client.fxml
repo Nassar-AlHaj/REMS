@@ -135,6 +135,17 @@
                                style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #cccccc;
                                     -fx-background-color: white; -fx-font-size: 15;">
                     </TextField>
+
+                    <Label text="Categorization:" GridPane.rowIndex="6"
+                           style="-fx-font-weight: bold; -fx-text-fill: #2B634B;">
+                        <font>
+                            <Font size="16.0"/>
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="categorizationComboBox" GridPane.columnIndex="1" GridPane.rowIndex="6"
+                              style="-fx-background-radius: 6; -fx-border-radius: 6; -fx-border-color: #cccccc;
+                -fx-background-color: white; -fx-font-size: 15;">
+                    </ComboBox>
                 </GridPane>
             </VBox>
 
@@ -160,6 +171,8 @@
                                      style="-fx-alignment: CENTER-LEFT;"/>
                         <TableColumn fx:id="addressColumn" text="Address" minWidth="220"
                                      style="-fx-alignment: CENTER-LEFT;"/>
+                        <TableColumn fx:id="categorizationColumn" text="Categorization" minWidth="70" maxWidth="100"
+                                     style="-fx-alignment: CENTER-LEFT; -fx-font-weight: bold;"/>
                     </columns>
                     <columnResizePolicy>
                         <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>

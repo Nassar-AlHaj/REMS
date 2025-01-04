@@ -1,17 +1,17 @@
 package com.rems.realestatemanagement.models.services;
 
 import com.rems.realestatemanagement.models.User;
-import com.rems.realestatemanagement.models.interfaces.UsersDOA;
+import com.rems.realestatemanagement.models.interfaces.UsersDAO;
 import com.rems.realestatemanagement.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.mindrot.jbcrypt.BCrypt;
 
-public class UsersDOAImp implements UsersDOA {
+public class UsersDAOImp implements UsersDAO {
 
     HibernateUtil hibernateUtil;
     SessionFactory sessionFactory;
-    public UsersDOAImp() {
+    public UsersDAOImp() {
         hibernateUtil = HibernateUtil.getInstance();
         sessionFactory = hibernateUtil.getSessionFactory();
     }

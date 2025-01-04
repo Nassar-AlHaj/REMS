@@ -1,19 +1,12 @@
 package com.rems.realestatemanagement.Controller;
-
 import com.rems.realestatemanagement.models.Role;
 import com.rems.realestatemanagement.models.User;
-//import com.rems.realestatemanagement.models.Permissions;
-import com.rems.realestatemanagement.models.services.RoleDOAImp;
-import com.rems.realestatemanagement.models.services.UsersDOAImp;
-//import javafx.event.ActionEvent;
+import com.rems.realestatemanagement.models.services.RoleDAOImp;
+import com.rems.realestatemanagement.models.services.UsersDAOImp;
 import javafx.fxml.FXML;
-//import javafx.fxml.FXMLLoader;
-//import javafx.scene.Parent;
-//import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-//import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
 
@@ -34,12 +27,12 @@ public class addagentController {
     @FXML
     private Label addlabel;
 
-    private UsersDOAImp UsersDAO;
-    private RoleDOAImp RoleDAO;
+    private UsersDAOImp UsersDAO;
+    private RoleDAOImp RoleDAO;
 
     public addagentController() {
-        UsersDAO = new UsersDOAImp();
-        RoleDAO = new RoleDOAImp();
+        UsersDAO = new UsersDAOImp();
+        RoleDAO = new RoleDAOImp();
     }
 
 

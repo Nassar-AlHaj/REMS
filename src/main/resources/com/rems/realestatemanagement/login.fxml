@@ -40,7 +40,7 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Button fx:id="register" layoutX="39.0" layoutY="286.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: #1D4634;" text="Log In" textFill="#fdf7f7" />
+            <Button fx:id="register" layoutX="39.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: #1D4634;" text="Log In" textFill="#fdf7f7" />
             <Label layoutX="36.0" layoutY="133.0" text="Email" textFill="#989696">
                <font>
                   <Font size="11.0" />
@@ -58,7 +58,7 @@
                </font>
             </Hyperlink>
             <PasswordField fx:id="pass" layoutX="34.0" layoutY="221.0" prefHeight="25.0" prefWidth="223.0" />
-            <Label fx:id="errorLabel" layoutX="39.0" layoutY="268.0" />
+            <Label fx:id="errorLabel" layoutX="33.0" layoutY="248.0" prefHeight="17.0" prefWidth="12.0" />
          </children>
       </AnchorPane>
       <Accordion />

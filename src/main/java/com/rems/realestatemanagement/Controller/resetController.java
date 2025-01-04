@@ -1,7 +1,7 @@
 package com.rems.realestatemanagement.Controller;
 
 import com.rems.realestatemanagement.models.User;
-import com.rems.realestatemanagement.models.services.UsersDOAImp;
+import com.rems.realestatemanagement.models.services.UsersDAOImp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,12 +36,12 @@ public class resetController {
     @FXML
     private Label codelabel;
 
-    private UsersDOAImp UsersDAO;
+    private UsersDAOImp UsersDAO;
 
     private String verificationCode;
 
     public resetController() {
-        UsersDAO = new UsersDOAImp();
+        UsersDAO = new UsersDAOImp();
     }
 
     public void initialize() {

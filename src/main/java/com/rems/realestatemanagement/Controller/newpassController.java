@@ -1,7 +1,7 @@
 package com.rems.realestatemanagement.Controller;
 
 import com.rems.realestatemanagement.models.User;
-import com.rems.realestatemanagement.models.services.UsersDOAImp;
+import com.rems.realestatemanagement.models.services.UsersDAOImp;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,10 +27,10 @@ public class newpassController {
     @FXML
     private String verifiedEmail;
 
-    private UsersDOAImp UsersDOA;
+    private UsersDAOImp UsersDOA;
 
     public newpassController() {
-        UsersDOA = new UsersDOAImp();
+        UsersDOA = new UsersDAOImp();
     }
 
     public void setVerifiedEmail(String email) {

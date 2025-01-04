@@ -1,7 +1,7 @@
 package com.rems.realestatemanagement.Controller;
 
 import com.rems.realestatemanagement.models.User;
-import com.rems.realestatemanagement.models.services.UsersDOAImp;
+import com.rems.realestatemanagement.models.services.UsersDAOImp;
 import com.rems.realestatemanagement.session.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -27,10 +27,10 @@ public class loginController {
     private Hyperlink forgotpass;
     @FXML
     private Label errorLabel;
-    private UsersDOAImp UsersDAO;
+    private UsersDAOImp UsersDAO;
 
     public loginController() {
-        UsersDAO = new UsersDOAImp();
+        UsersDAO = new UsersDAOImp();
     }
 
     @FXML

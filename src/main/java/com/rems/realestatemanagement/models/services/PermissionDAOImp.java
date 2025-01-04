@@ -1,17 +1,17 @@
 package com.rems.realestatemanagement.models.services;
 
 import com.rems.realestatemanagement.models.Permissions;
-import com.rems.realestatemanagement.models.interfaces.PermissionDOA;
+import com.rems.realestatemanagement.models.interfaces.PermissionDAO;
 import com.rems.realestatemanagement.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 
-public class PermissionDOAImp implements PermissionDOA {
+public class PermissionDAOImp implements PermissionDAO {
     HibernateUtil hibernateUtil;
     SessionFactory sessionFactory;
 
-    public PermissionDOAImp() {
+    public PermissionDAOImp() {
         hibernateUtil = HibernateUtil.getInstance();
         sessionFactory = hibernateUtil.getSessionFactory();
     }

@@ -9,6 +9,9 @@ public interface PropertyDAO {
     int insert(Property property);
     void update(Property property);
     void delete(Property property);
+
+    List<String> getAllLocations();
+
     void delete(int id);
     List<Property> getAllProperties();
     Property findProperty(Property property);

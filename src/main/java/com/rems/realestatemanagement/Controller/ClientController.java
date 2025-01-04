@@ -1,6 +1,7 @@
 package com.rems.realestatemanagement.Controller;
 
 import com.rems.realestatemanagement.models.Client;
+import com.rems.realestatemanagement.models.Client.ClientCategory;
 import com.rems.realestatemanagement.models.services.ClientDOAimp;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -20,6 +21,7 @@ public class ClientController implements Initializable {
     @FXML private TextField phoneField;
     @FXML private TextField emailField;
     @FXML private TextField addressField;
+    @FXML private ComboBox<ClientCategory> categorizationComboBox;
 
     @FXML private TableView<Client> clientsTable;
     @FXML private TableColumn<Client, Integer> idColumn;
@@ -28,6 +30,7 @@ public class ClientController implements Initializable {
     @FXML private TableColumn<Client, String> phoneColumn;
     @FXML private TableColumn<Client, String> emailColumn;
     @FXML private TableColumn<Client, String> addressColumn;
+    @FXML private TableColumn<Client, ClientCategory> categorizationColumn;
 
     @FXML private Button addButton;
     @FXML private Button editButton;
@@ -41,22 +44,34 @@ public class ClientController implements Initializable {
         clientDAO = new ClientDOAimp();
         clientsList = FXCollections.observableArrayList();
 
+        initializeColumns();
+        initializeCategorizationComboBox();
+        refreshTable();
+        setupTableSelection();
+        setupButtonHandlers();
+    }
+
+    private void initializeColumns() {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         firstNameColumn.setCellValueFactory(new PropertyValueFactory<>("fname"));
         lastNameColumn.setCellValueFactory(new PropertyValueFactory<>("lname"));
         phoneColumn.setCellValueFactory(new PropertyValueFactory<>("phone"));
         emailColumn.setCellValueFactory(new PropertyValueFactory<>("email"));
         addressColumn.setCellValueFactory(new PropertyValueFactory<>("address"));
+        categorizationColumn.setCellValueFactory(new PropertyValueFactory<>("categorization"));
+    }
 
-        refreshTable();
+    private void initializeCategorizationComboBox() {
+        categorizationComboBox.setItems(FXCollections.observableArrayList(ClientCategory.values()));
+        categorizationComboBox.getSelectionModel().selectFirst();
+    }
 
+    private void setupTableSelection() {
         clientsTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
             if (newSelection != null) {
                 populateFields(newSelection);
             }
         });
-
-        setupButtonHandlers();
     }
 
     private void setupButtonHandlers() {
@@ -72,7 +87,8 @@ public class ClientController implements Initializable {
                     lastNameField.getText(),
                     phoneField.getText(),
                     emailField.getText(),
-                    addressField.getText()
+                    addressField.getText(),
+                    categorizationComboBox.getValue()
             );
 
             clientDAO.save(client);
@@ -95,6 +111,7 @@ public class ClientController implements Initializable {
             selectedClient.setPhone(phoneField.getText());
             selectedClient.setEmail(emailField.getText());
             selectedClient.setAddress(addressField.getText());
+            selectedClient.setCategorization(categorizationComboBox.getValue());
 
             clientDAO.update(selectedClient);
             clearFields();
@@ -136,6 +153,7 @@ public class ClientController implements Initializable {
         phoneField.setText(client.getPhone());
         emailField.setText(client.getEmail());
         addressField.setText(client.getAddress());
+        categorizationComboBox.setValue(client.getCategorization());
     }
 
     private void clearFields() {
@@ -145,6 +163,7 @@ public class ClientController implements Initializable {
         phoneField.clear();
         emailField.clear();
         addressField.clear();
+        categorizationComboBox.getSelectionModel().selectFirst();
     }
 
     private boolean validateInput() {
@@ -164,6 +183,9 @@ public class ClientController implements Initializable {
         }
         if (addressField.getText().trim().isEmpty()) {
             errors.append("Address is required.\n");
+        }
+        if (categorizationComboBox.getValue() == null) {
+            errors.append("Categorization is required.\n");
         }
 
         if (errors.length() > 0) {

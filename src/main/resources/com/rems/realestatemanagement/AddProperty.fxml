@@ -9,17 +9,17 @@
 <AnchorPane style="-fx-background-color: #F5F7FA;"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.rems.realestatemanagement.Controller.PropertyController">
+            fx:controller="com.rems.realestatemanagement.Controller.AddPropertyController">
 
    <HBox alignment="CENTER_LEFT" spacing="15"
          style="-fx-background-color: linear-gradient(to right, #1D4634, #2E8B57); -fx-padding: 15 25;"
          AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
          <image>
-            <Image url="@img/Logoooooo.png" />
+            <Image url="@../../../img/Logoooooo.png" />
          </image>
       </ImageView>
-      <Label text="Add Property" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;"/>
+      <Label text="Property" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;"/>
    </HBox>
 
    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;"
@@ -28,7 +28,7 @@
       <VBox alignment="CENTER" spacing="25" style="-fx-padding: 20;">
          <HBox alignment="CENTER" spacing="30">
 
-            <!-- Left Panel -->
+
             <VBox spacing="15" prefWidth="400" style="-fx-background-color: white; -fx-padding: 25;
                   -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
                   -fx-background-radius: 8;">
@@ -50,7 +50,7 @@
                      -fx-border-radius: 8; -fx-border-style: dashed;">
                   <ImageView fitHeight="35" fitWidth="35" opacity="0.6">
                      <image>
-                        <Image url="@img/PhotoIcon.png" />
+                        <Image url="@../../../img/PhotoIcon.png" />
                      </image>
                   </ImageView>
                   <Label text="Drop your files here" style="-fx-font-size: 13;" textFill="#6C757D"/>
@@ -62,7 +62,7 @@
                <VBox fx:id="uploadedImagesContainer" spacing="15"/>
             </VBox>
 
-            <!-- Right Panel -->
+
             <VBox spacing="15" prefWidth="400" style="-fx-background-color: white; -fx-padding: 25;
                   -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 3);
                   -fx-background-radius: 8;">

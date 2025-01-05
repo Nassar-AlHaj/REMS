@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
 
-<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.DashboardDesignSearchAndFilteringController">
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.DashboardDesignSearchAndFilteringController">
     <children>
         <HBox VBox.vgrow="ALWAYS">
             <!-- Sidebar -->
@@ -17,7 +13,6 @@
                 <padding>
                     <Insets bottom="20" left="10" right="10" top="20" />
                 </padding>
-
                 <!-- Logo -->
                 <ImageView fitHeight="65.0" fitWidth="162.0" preserveRatio="true">
                     <image>
@@ -27,42 +22,83 @@
                         <Insets bottom="30" />
                     </VBox.margin>
                 </ImageView>
-
                 <!-- Navigation Section -->
                 <VBox spacing="16">
                     <!-- Admin Console -->
-                    <Button fx:id="Admin_Console" onAction="#Admin_Console" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Admin Console" />
-
+                    <Button fx:id="Admin_Console" onAction="#Admin_Console" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Admin Console">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/dashboard-icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
                     <!-- Property Management Section -->
                     <VBox spacing="2">
-                        <Button fx:id="Property_management" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Property Management" />
-
+                        <Button fx:id="Property_management" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Property Management">
+                            <graphic>
+                                <ImageView fitHeight="20" fitWidth="20">
+                                    <Image url="@img/property-icon 1.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
                         <!-- Property Management Submenu -->
-                        <VBox fx:id="propertySubmenu" spacing="2" style="-fx-background-color: #f8f8f8;">
+                        <VBox fx:id="propertySubmenu" spacing="2" style="-fx-background-color: #F8F8F8;">
                             <VBox.margin>
                                 <Insets left="12" top="2" />
                             </VBox.margin>
-                            <Button fx:id="propertyButton" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 14px; -fx-min-width: 160; -fx-alignment: CENTER_LEFT; -fx-padding: 6 12;" text="Property" />
-                            <Button fx:id="addPropertyButton" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 14px; -fx-min-width: 160; -fx-alignment: CENTER_LEFT; -fx-padding: 6 12;" text="Add Property" />
+                            <Button fx:id="propertyButton" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 14px; -fx-min-width: 160; -fx-alignment: CENTER_LEFT; -fx-padding: 6 12;" text=" Property">
+                                <graphic>
+                                    <ImageView fitHeight="16" fitWidth="16">
+                                        <Image url="@img/list-icon.png" />
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="addPropertyButton" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 14px; -fx-min-width: 160; -fx-alignment: CENTER_LEFT; -fx-padding: 6 12;" text=" Add Property">
+                                <graphic>
+                                    <ImageView fitHeight="16" fitWidth="16">
+                                        <Image url="@img/add-property-icon.png" />
+                                    </ImageView>
+                                </graphic>
+                            </Button>
                         </VBox>
                     </VBox>
-
                     <!-- Clients -->
-                    <Button fx:id="Clients" onAction="#Clients" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Clients" />
-
+                    <Button fx:id="Clients" onAction="#Clients" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Clients">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/clients-icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
                     <!-- Offer Management -->
-                    <Button fx:id="Offer" onAction="#Offer" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Offer Management" />
-
+                    <Button fx:id="Offer" onAction="#Offer" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Offer Management">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/offers-icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
                     <!-- Interactions -->
-                    <Button fx:id="Interactions" onAction="#Interactions" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Interactions" />
-
+                    <Button fx:id="Interactions" onAction="#Interactions" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Interactions">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/interactions-icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
                     <!-- Contacts -->
-                    <Button fx:id="Contacts" onAction="#Contacts" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text="Contacts" />
+                    <Button fx:id="Contacts" onAction="#Contacts" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Contacts">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/contact.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
                 </VBox>
             </VBox>
-            <!-- Main Content Area -->
+
             <VBox HBox.hgrow="ALWAYS">
-                <!-- Search Bar Area -->
+
                 <HBox alignment="CENTER_LEFT" prefHeight="40.0" prefWidth="245.0" spacing="10" style="-fx-background-color: white;">
                     <padding>
                         <Insets bottom="20" left="20" right="20" top="20" />
@@ -77,8 +113,7 @@
                     </children>
                 </HBox>
 
-                <!-- Main Content View -->
-                <AnchorPane fx:id="view" style="-fx-background-color: #f8f8f8;" VBox.vgrow="ALWAYS" />
+                <AnchorPane fx:id="view" style="-fx-background-color: #F8F8F8;" VBox.vgrow="ALWAYS" />
             </VBox>
         </HBox>
     </children>

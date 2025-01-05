@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.rems.realestatemanagement.Controller.EditPropertyController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <VBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+        <padding>
+            <Insets top="30" right="40" bottom="30" left="40"/>
+        </padding>
+
+        <Label text="Edit Property Details" style="-fx-font-size: 24; -fx-font-weight: bold;"/>
+
+        <GridPane vgap="25" hgap="20">
+            <columnConstraints>
+                <ColumnConstraints minWidth="120" prefWidth="120"/>
+                <ColumnConstraints hgrow="ALWAYS" minWidth="200"/>
+            </columnConstraints>
+
+            <Label text="Property Type" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="propertyTypeComboBox" GridPane.rowIndex="0" GridPane.columnIndex="1"
+                      maxWidth="Infinity" style="-fx-background-radius: 5;"/>
+
+            <Label text="Property Name" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+            <TextField fx:id="propertyNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"
+                       style="-fx-background-radius: 5;"/>
+
+            <Label text="Description" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.valignment="TOP"/>
+            <TextArea fx:id="propertyDescriptionField" GridPane.rowIndex="2" GridPane.columnIndex="1"
+                      prefRowCount="4" wrapText="true" style="-fx-background-radius: 5;"/>
+
+            <Label text="Location" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+            <TextField fx:id="propertyLocationField" GridPane.rowIndex="3" GridPane.columnIndex="1"
+                       style="-fx-background-radius: 5;"/>
+
+            <Label text="Price" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+            <TextField fx:id="propertyPriceField" GridPane.rowIndex="4" GridPane.columnIndex="1"
+                       maxWidth="200" style="-fx-background-radius: 5;"/>
+
+            <Label text="Number of Rooms" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
+            <TextField fx:id="propertyRoomsField" GridPane.rowIndex="5" GridPane.columnIndex="1"
+                       maxWidth="200" style="-fx-background-radius: 5;"/>
+
+            <Label text="Property Image" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <VBox spacing="10" GridPane.rowIndex="6" GridPane.columnIndex="1">
+                <ImageView fx:id="propertyImageView" fitHeight="150" fitWidth="200"
+                           style="-fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
+                <Button fx:id="updateImageButton" text="Choose New Image"
+                        style="-fx-background-color: #1D4634; -fx-text-fill: white; -fx-background-radius: 5;"/>
+            </VBox>
+        </GridPane>
+
+        <HBox spacing="15" alignment="CENTER_RIGHT">
+            <Button fx:id="cancelButton" text="Cancel"
+                    style="-fx-background-color: #E09B6B; -fx-text-fill: white; -fx-background-radius: 5; -fx-min-width: 100;"/>
+            <Button fx:id="saveButton" text="Save Changes"
+                    style="-fx-background-color: #1D4634; -fx-text-fill: white; -fx-background-radius: 5; -fx-min-width: 100;"/>
+        </HBox>
+    </VBox>
+</StackPane>

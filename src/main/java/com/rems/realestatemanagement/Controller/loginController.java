@@ -1,7 +1,8 @@
 package com.rems.realestatemanagement.Controller;
 
 import com.rems.realestatemanagement.models.User;
-import com.rems.realestatemanagement.models.services.UsersDOAImp;
+import com.rems.realestatemanagement.models.services.UsersDAOImp;
+import com.rems.realestatemanagement.session.UserSession;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,10 +27,10 @@ public class loginController {
     private Hyperlink forgotpass;
     @FXML
     private Label errorLabel;
-    private UsersDOAImp UsersDAO;
+    private UsersDAOImp UsersDAO;
 
     public loginController() {
-        UsersDAO = new UsersDOAImp();
+        UsersDAO = new UsersDAOImp();
     }
 
     @FXML
@@ -62,6 +63,10 @@ public class loginController {
         if (user != null) {
 
             if (BCrypt.checkpw(password, user.getPassword())) {
+                UserSession session = UserSession.getInstance();
+                session.setUsername(user.getUsername());
+                session.setEmail(user.getEmail());
+                session.setRole(user.getRole().getName());
                 try {
                     Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));  // Adjust the path to your next FXML page
                     Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();

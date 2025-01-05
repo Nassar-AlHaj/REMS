@@ -39,14 +39,16 @@ public class PropertyDAOImp implements PropertyDAO {
     }
 
     @Override
-    public void update(Property property) {
-
+    public boolean update(Property property) {
         Session session = sessionFactory.openSession();
         Transaction transaction = null;
+        boolean isUpdated = false;
+
         try {
             transaction = session.beginTransaction();
             session.update(property);
             transaction.commit();
+            isUpdated = true;
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
             e.printStackTrace();
@@ -54,6 +56,7 @@ public class PropertyDAOImp implements PropertyDAO {
             session.close();
         }
 
+        return isUpdated;
     }
 
     @Override

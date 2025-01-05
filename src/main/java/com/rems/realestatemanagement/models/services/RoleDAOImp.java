@@ -1,19 +1,19 @@
 package com.rems.realestatemanagement.models.services;
 
 import com.rems.realestatemanagement.models.Role;
-import com.rems.realestatemanagement.models.interfaces.RoleDOA;
+import com.rems.realestatemanagement.models.interfaces.RoleDAO;
 import com.rems.realestatemanagement.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 
 
 
-public class RoleDOAImp implements RoleDOA {
+public class RoleDAOImp implements RoleDAO {
     HibernateUtil hibernateUtil;
     SessionFactory sessionFactory;
 
 
-    public RoleDOAImp() {
+    public RoleDAOImp() {
         hibernateUtil = new HibernateUtil();
         sessionFactory = hibernateUtil.getSessionFactory();
     }

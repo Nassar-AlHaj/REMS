@@ -44,7 +44,14 @@ public class EditPropertyController {
     private ImageView propertyImageView;
 
     private String imagePath;
+    private Property currentProperty;
     private PropertyDAOImp propertyDAO;
+
+    public interface OnSaveListener {
+        void onSave(Property updatedProperty);
+    }
+
+    private OnSaveListener saveListener;
 
     @FXML
     public void initialize() {
@@ -63,76 +70,73 @@ public class EditPropertyController {
         cancelButton.setOnAction(event -> handleCancel());
     }
 
+    public void setProperty(Property property) {
+        this.currentProperty = property;
+
+        propertyTypeComboBox.setValue(property.getPropertyType());
+        propertyNameField.setText(property.getPropertyName());
+        propertyDescriptionField.setText(property.getDescription());
+        propertyLocationField.setText(property.getLocation());
+        propertyPriceField.setText(String.valueOf(property.getPrice()));
+        propertyRoomsField.setText(String.valueOf(property.getNumberOfRooms()));
+
+        if (property.getImageProperty() != null && !property.getImageProperty().isEmpty()) {
+            propertyImageView.setImage(new Image(property.getImageProperty()));
+        }
+    }
+
+    public void setOnSaveListener(OnSaveListener listener) {
+        this.saveListener = listener;
+    }
+
     private void handleUpdateImage() {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Select New Property Image");
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.jpeg")
-        );
-
-        Stage stage = (Stage) updateImageButton.getScene().getWindow();
-        File selectedFile = fileChooser.showOpenDialog(stage);
-
-        if (selectedFile != null) {
-            imagePath = selectedFile.toURI().toString();
-            Image image = new Image(imagePath);
-            propertyImageView.setImage(image);
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png", "*.gif"));
+        File file = fileChooser.showOpenDialog(new Stage());
+        if (file != null) {
+            imagePath = file.toURI().toString();
+            propertyImageView.setImage(new Image(imagePath));
         }
     }
 
     private void handleSave() {
         try {
-            String propertyType = propertyTypeComboBox.getValue();
-            String propertyName = propertyNameField.getText();
-            String propertyDescription = propertyDescriptionField.getText();
-            String propertyLocation = propertyLocationField.getText();
-            double propertyPrice = Double.parseDouble(propertyPriceField.getText());
-            int propertyRooms = Integer.parseInt(propertyRoomsField.getText());
-
-            Property property = new Property();
-            property.setPropertyType(propertyType);
-            property.setPropertyName(propertyName);
-            property.setDescription(propertyDescription);
-            property.setLocation(propertyLocation);
-            property.setPrice(propertyPrice);
-            property.setNumberOfRooms(propertyRooms);
-            property.setImageProperty(imagePath);
-
-            int propertyId = propertyDAO.insert(property);
-            if (propertyId > 0) {
-                showAlert(Alert.AlertType.INFORMATION, "Success", "Property details saved successfully!");
-            } else {
-                showAlert(Alert.AlertType.ERROR, "Error", "Failed to save property details.");
+            if (currentProperty == null) {
+                showAlert(Alert.AlertType.ERROR, "Error", "No property data to update.");
+                return;
             }
 
-            clearFields();
+            currentProperty.setPropertyType(propertyTypeComboBox.getValue());
+            currentProperty.setPropertyName(propertyNameField.getText());
+            currentProperty.setDescription(propertyDescriptionField.getText());
+            currentProperty.setLocation(propertyLocationField.getText());
+            currentProperty.setPrice(Double.parseDouble(propertyPriceField.getText()));
+            currentProperty.setNumberOfRooms(Integer.parseInt(propertyRoomsField.getText()));
+            currentProperty.setImageProperty(imagePath);
 
+            boolean isUpdated = propertyDAO.update(currentProperty);
+            if (isUpdated) {
+                if (saveListener != null) {
+                    saveListener.onSave(currentProperty);
+                }
+                showAlert(Alert.AlertType.INFORMATION, "Success", "Property details updated successfully!");
+            } else {
+                showAlert(Alert.AlertType.ERROR, "Error", "Failed to update property details.");
+            }
         } catch (Exception e) {
             showAlert(Alert.AlertType.ERROR, "Error", "Please enter valid details. " + e.getMessage());
         }
     }
 
     private void handleCancel() {
-        clearFields();
-        System.out.println("Editing cancelled.");
+        Stage stage = (Stage) cancelButton.getScene().getWindow();
+        stage.close();
     }
 
-    private void clearFields() {
-        propertyTypeComboBox.setValue(null);
-        propertyNameField.clear();
-        propertyDescriptionField.clear();
-        propertyLocationField.clear();
-        propertyPriceField.clear();
-        propertyRoomsField.clear();
-        propertyImageView.setImage(null);
-        imagePath = null;
-    }
-
-    private void showAlert(Alert.AlertType alertType, String title, String content) {
+    private void showAlert(Alert.AlertType alertType, String title, String message) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
-        alert.setHeaderText(null);
-        alert.setContentText(content);
+        alert.setContentText(message);
         alert.showAndWait();
     }
 }

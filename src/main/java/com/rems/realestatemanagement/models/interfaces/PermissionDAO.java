@@ -2,7 +2,7 @@ package com.rems.realestatemanagement.models.interfaces;
 
 import com.rems.realestatemanagement.models.Permissions;
 
-public interface PermissionDOA {
+public interface PermissionDAO {
 
     void save(Permissions permission);
 

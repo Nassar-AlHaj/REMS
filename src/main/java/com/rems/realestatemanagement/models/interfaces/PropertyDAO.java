@@ -7,7 +7,7 @@ import java.util.List;
 public interface PropertyDAO {
 
     int insert(Property property);
-    void update(Property property);
+    boolean update(Property property);
     void delete(Property property);
 
     List<String> getAllLocations();

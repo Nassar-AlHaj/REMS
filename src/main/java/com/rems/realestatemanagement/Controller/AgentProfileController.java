@@ -1,7 +1,7 @@
 package com.rems.realestatemanagement.Controller;
 
 import com.rems.realestatemanagement.models.User;
-import com.rems.realestatemanagement.models.services.UsersDOAImp;
+import com.rems.realestatemanagement.models.services.UsersDAOImp;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
@@ -41,11 +41,11 @@ public class AgentProfileController {
     @FXML
     private TableColumn<UserTableItem, HBox> actionColumn;
 
-    private final UsersDOAImp userDao;
+    private final UsersDAOImp userDao;
     private final ObservableList<UserTableItem> userTableItems;
 
     public AgentProfileController() {
-        this.userDao = new UsersDOAImp();
+        this.userDao = new UsersDAOImp();
         this.userTableItems = FXCollections.observableArrayList();
     }
 

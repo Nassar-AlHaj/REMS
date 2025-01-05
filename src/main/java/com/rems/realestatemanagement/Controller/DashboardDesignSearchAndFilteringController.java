@@ -228,7 +228,7 @@ public class DashboardDesignSearchAndFilteringController {
                 loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
                 break;
             case "Add Property":
-                loadPage("/com/rems/realestatemanagement/property.fxml");
+                loadPage("/com/rems/realestatemanagement/AddProperty.fxml");
                 break;
         }
     }

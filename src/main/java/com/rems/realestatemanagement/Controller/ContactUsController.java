@@ -128,7 +128,7 @@ public class ContactUsController {
 
     private void showThankYouPopup() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/popup.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/Fxml/popup.fxml"));
             AnchorPane popupRoot = loader.load();
 
             Stage popupStage = new Stage();

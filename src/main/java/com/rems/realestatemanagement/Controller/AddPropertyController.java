@@ -1,5 +1,6 @@
 package com.rems.realestatemanagement.Controller;
 
+import com.rems.realestatemanagement.models.Property;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -10,12 +11,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import com.rems.realestatemanagement.models.services.PropertyDAOImp;
-import com.rems.realestatemanagement.models.Property;
 
 import java.io.File;
 import java.time.LocalDate;
 
-public class PropertyController {
+public class AddPropertyController {
 
     private PropertyDAOImp propertyDAOImp = new PropertyDAOImp();
 
@@ -86,18 +86,18 @@ public class PropertyController {
         borderPane.setStyle("-fx-border-color: #cccccc; -fx-border-width: 1; -fx-border-radius: 5; -fx-padding: 5;");
 
         ImageView imageView = new ImageView(new Image(imageUrl));
-        imageView.setFitHeight(50);
-        imageView.setFitWidth(50);
+        imageView.setFitHeight(53);
+        imageView.setFitWidth(53);
         imageView.setPreserveRatio(true);
 
         TextField textField = new TextField(imageUrl);
-        textField.setPrefHeight(35);
-        textField.setPrefWidth(250);
+        textField.setPrefHeight(33);
+        textField.setPrefWidth(210);
         textField.setStyle("-fx-background-color: #f1f1f1; -fx-border-radius: 5; -fx-border-color: #cccccc;");
 
         ImageView deleteIcon = new ImageView(new Image(getClass().getResource("/com/rems/realestatemanagement/img/DeleteIcon.png").toString()));
-        deleteIcon.setFitHeight(20);
-        deleteIcon.setFitWidth(20);
+        deleteIcon.setFitHeight(35);
+        deleteIcon.setFitWidth(40);
         deleteIcon.setPreserveRatio(true);
 
         deleteIcon.setOnMouseClicked(event -> {

@@ -1,4 +1,3 @@
-/* General styling for the dialog pane */
 .dialog-pane {
     -fx-background-color: #f9f9f9;
     -fx-border-color: #dcdcdc;
@@ -10,14 +9,12 @@
     -fx-font-size: 14px;
 }
 
-/* Styling for labels */
 .label {
     -fx-font-size: 14px;
     -fx-font-weight: bold;
     -fx-text-fill: #333333;
 }
 
-/* Styling for text fields */
 .text-field, .password-field {
     -fx-border-color: #cccccc;
     -fx-border-radius: 5px;
@@ -28,20 +25,17 @@
     -fx-text-fill: #333333;
 }
 
-/* Focused text fields styling */
 .text-field:focused, .password-field:focused {
-    -fx-border-color: #0078d7; /* Blue highlight for focused fields */
+    -fx-border-color: #0078d7;
     -fx-border-width: 2px;
 }
 
-/* Password validation label styling */
 .password-match-label {
     -fx-font-size: 12px;
     -fx-font-style: italic;
     -fx-text-fill: #666666;
 }
 
-/* Buttons styling */
 .dialog-pane .button {
     -fx-background-color: #1D4634;
     -fx-text-fill: #ffffff;
@@ -53,20 +47,18 @@
 }
 
 .dialog-pane .button:hover {
-    -fx-background-color: #005bb5; /* Darker blue on hover */
+    -fx-background-color: #005bb5;
 }
 
 .dialog-pane .button:pressed {
-    -fx-background-color: #003f8a; /* Even darker blue when pressed */
+    -fx-background-color: #003f8a;
 }
 
-/* Styling for the OK and Cancel buttons */
 .dialog-pane .button-bar .button {
     -fx-min-width: 80px;
     -fx-cursor: pointer;
 }
 
-/* Disabled buttons */
 .dialog-pane .button:disabled {
     -fx-background-color: #cccccc;
     -fx-text-fill: #666666;

@@ -61,14 +61,20 @@ public class loginController {
         User user = UsersDAO.getUserByEmailAndPassword(useremail, password);
 
         if (user != null) {
-
             if (BCrypt.checkpw(password, user.getPassword())) {
                 UserSession session = UserSession.getInstance();
                 session.setUsername(user.getUsername());
                 session.setEmail(user.getEmail());
                 session.setRole(user.getRole().getName());
+
                 try {
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));  // Adjust the path to your next FXML page
+                    FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));
+                    Parent root = loader.load();
+
+                    DashboardDesignSearchAndFilteringController controller = loader.getController();
+
+                    controller.setUserName(session.getUsername());
+
                     Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.show();
@@ -79,9 +85,6 @@ public class loginController {
                 errorLabel.setText("Invalid password.");
                 errorLabel.setTextFill(Color.RED);
             }
-
-
-
         } else {
             errorLabel.setText("User not found.");
             errorLabel.setTextFill(Color.RED);

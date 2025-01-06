@@ -6,6 +6,7 @@
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
 <AnchorPane style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.InteractionController">
@@ -14,7 +15,7 @@
     </stylesheets>
 
     <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-        <StackPane style="-fx-background-color: linear-gradient(to right, #2B634B, #1D4634);">
+        <StackPane style="-fx-background-color: linear-gradient(to right, #1D4634, #2E8B57);">
             <padding>
                 <Insets bottom="15" top="15" />
             </padding>
@@ -23,19 +24,16 @@
                     <Insets left="25" right="25" />
                 </padding>
                 <HBox alignment="CENTER_LEFT" spacing="10">
-                    <ImageView fitHeight="60.0" fitWidth="128.0" preserveRatio="true">
-                        <Image url="@img/Group.png" />
-                    </ImageView>
-                    <Label text="REMS" textFill="#b0dac7">
-                        <font>
-                            <Font name="System Bold" size="32.0" />
-                        </font>
-                        <effect>
-                            <DropShadow color="#00000040" radius="5" />
-                        </effect>
-                    </Label>
+                    <StackPane>
+                        <Circle radius="25" style="-fx-fill: white;" />
+                        <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
+                            <image>
+                                <Image url="@img/Logoooooo.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+
                 </HBox>
-                <Region HBox.hgrow="ALWAYS" />
                 <Label text="Client Interactions" textFill="#FFFFFF">
                     <font>
                         <Font name="System Bold" size="28.0" />
@@ -44,6 +42,7 @@
                         <DropShadow color="#00000040" radius="5" />
                     </effect>
                 </Label>
+                <Region HBox.hgrow="ALWAYS" />
                 <Region HBox.hgrow="ALWAYS" />
             </HBox>
         </StackPane>
@@ -73,7 +72,7 @@
                 </VBox>
 
                 <HBox alignment="CENTER_RIGHT" spacing="10">
-                    <Button minHeight="40" minWidth="120" onAction="#handleCancel" style="-fx-background-color: #808080; -fx-text-fill: white; -fx-background-radius: 20; -fx-cursor: hand;" text="Cancel" />
+                    <Button minHeight="40" minWidth="120" onAction="#handleCancel" style="-fx-background-color: #E09B6B; -fx-text-fill: white; -fx-background-radius: 20; -fx-cursor: hand;" text="Cancel" />
                     <Button minHeight="40" minWidth="120" onAction="#handleSave" style="-fx-background-color: #2B634B; -fx-text-fill: white; -fx-background-radius: 20; -fx-cursor: hand;" text="Save" />
                 </HBox>
             </VBox>

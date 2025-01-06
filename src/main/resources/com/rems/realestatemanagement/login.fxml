@@ -17,94 +17,82 @@
          <RowConstraints percentHeight="100" />
       </rowConstraints>
 
-      <VBox alignment="CENTER" spacing="20" style="-fx-background-color: #2B634B;" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-         <padding>
-            <Insets bottom="20" left="20" right="20" top="20" />
-         </padding>
+      <!-- Left Side -->
+      <StackPane style="-fx-background-color: #2B634B;" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+         <VBox alignment="CENTER" spacing="20" maxWidth="500">
+            <padding>
+               <Insets bottom="40" left="30" right="30" top="40" />
+            </padding>
 
-         <VBox alignment="CENTER" spacing="15" VBox.vgrow="ALWAYS">
             <Label text="Welcome to" textFill="#f0eded">
                <font>
-                  <Font name="System Bold" size="24.0" />
+                  <Font name="System Bold" size="32.0" />
                </font>
                <style>
                   -fx-font-weight: bold;
                </style>
             </Label>
 
-            <StackPane minHeight="70" prefHeight="170.0" prefWidth="327.0" VBox.vgrow="ALWAYS">
-               <ImageView fitHeight="57.0" fitWidth="226.0" preserveRatio="true">
-                  <image>
-                     <Image url="@img/logo.png" />
-                  </image>
-                  <viewport>
-                     <Rectangle2D height="0" width="200" />
-                  </viewport>
-               </ImageView>
-            </StackPane>
+            <ImageView fitWidth="300.0" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo.png" />
+               </image>
+            </ImageView>
 
-            <Label prefHeight="98.0" prefWidth="327.0" text="Real Estate Management System" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="Real Estate Management System" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
-                  <Font name="System Bold" size="20.0" />
+                  <Font name="System Bold" size="28.0" />
                </font>
                <style>
                   -fx-text-alignment: center;
                   -fx-font-weight: bold;
-                  -fx-padding: 0 10 0 10;
                </style>
             </Label>
          </VBox>
-      </VBox>
+      </StackPane>
 
-      <VBox alignment="CENTER" spacing="15" style="-fx-background-color: #f7f7f7;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
-         <padding>
-            <Insets>
-               <top>20</top>
-               <right>40</right>
-               <bottom>20</bottom>
-               <left>40</left>
-            </Insets>
-         </padding>
+      <!-- Right Side -->
+      <StackPane style="-fx-background-color: #f7f7f7;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+         <VBox alignment="CENTER" maxWidth="450" spacing="20">
+            <padding>
+               <Insets bottom="40" left="40" right="40" top="40" />
+            </padding>
 
-         <VBox alignment="CENTER" maxWidth="400" spacing="20" VBox.vgrow="ALWAYS">
             <Label text="Please Login to your account." textFill="#989696">
                <font>
-                  <Font size="13.0" />
+                  <Font size="18.0" />
                </font>
-               <style>
-                  -fx-padding: 0 0 20 0;
-               </style>
             </Label>
 
-            <VBox spacing="10" VBox.vgrow="ALWAYS">
-               <VBox spacing="5">
+            <VBox spacing="15">
+               <VBox spacing="10">
                   <Label text="Email" textFill="#989696">
                      <font>
-                        <Font size="12.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="email" VBox.vgrow="ALWAYS">
+                  <TextField fx:id="email">
                      <style>
-                        -fx-padding: 8;
+                        -fx-padding: 12;
                         -fx-background-radius: 4;
-                        -fx-font-size: 13px;
-                        -fx-pref-height: 35;
+                        -fx-font-size: 16px;
+                        -fx-pref-height: 45;
                      </style>
                   </TextField>
                </VBox>
 
-               <VBox spacing="5">
+               <VBox spacing="10">
                   <Label text="Password" textFill="#989696">
                      <font>
-                        <Font size="12.0" />
+                        <Font size="16.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="pass" VBox.vgrow="ALWAYS">
+                  <PasswordField fx:id="pass">
                      <style>
-                        -fx-padding: 8;
+                        -fx-padding: 12;
                         -fx-background-radius: 4;
-                        -fx-font-size: 13px;
-                        -fx-pref-height: 35;
+                        -fx-font-size: 16px;
+                        -fx-pref-height: 45;
                      </style>
                   </PasswordField>
                </VBox>
@@ -112,10 +100,11 @@
                <HBox alignment="CENTER_RIGHT">
                   <Hyperlink fx:id="forgotpass" onAction="#handleGoToResetAction" text="Forgot password?" textFill="#6c6ced">
                      <font>
-                        <Font size="11.0" />
+                        <Font size="14.0" />
                      </font>
                      <style>
                         -fx-border-color: transparent;
+                        -fx-padding: 5 0;
                      </style>
                   </Hyperlink>
                </HBox>
@@ -126,14 +115,14 @@
                   <style>
                      -fx-background-color: #1D4634;
                      -fx-padding: 12 24;
-                     -fx-font-size: 14px;
+                     -fx-font-size: 18px;
                      -fx-cursor: hand;
                      -fx-background-radius: 4;
-                     -fx-min-height: 40;
+                     -fx-min-height: 50;
                   </style>
                </Button>
             </VBox>
          </VBox>
-      </VBox>
+      </StackPane>
    </GridPane>
 </StackPane>

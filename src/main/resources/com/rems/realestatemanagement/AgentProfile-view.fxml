@@ -1,91 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.*?>
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.rems.realestatemanagement.Controller.AgentProfileController">
+<AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.AgentProfileController">
     <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-
+        <stylesheets>
+            <URL value="@table.css" />
+        </stylesheets>
         <top>
-            <VBox spacing="10.0" minHeight="80.0">
-                <padding>
-                    <Insets bottom="10.0" left="20.0" right="20.0" top="10.0"/>
-                </padding>
-                <HBox alignment="CENTER_RIGHT">
-                    <Button onAction="#goToAddAgentPage"
-                            styleClass="primary-button"
-                            style="-fx-background-color: #1D4634; -fx-text-fill: WHITE; -fx-cursor: hand;"
-                            minWidth="106.0"
-                            minHeight="26.0">
+            <VBox spacing="0">
+                <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-background-color: linear-gradient(to right, #1a472a, #2E8B57); -fx-padding: 20 30; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 10, 0, 0, 3);">
+                    <StackPane>
+                        <Circle radius="25" style="-fx-fill: white;" />
+                        <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
+                            <image>
+                                <Image url="@img/Logoooooo.png" />
+                            </image>
+                        </ImageView>
+                    </StackPane>
+
+                    <VBox spacing="2">
+                        <Label style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: white;" text="Agent Management" />
+                        <Label style="-fx-font-size: 14; -fx-text-fill: #e0e0e0;" text="Manage your real estate agents" />
+                    </VBox>
+
+                    <Region HBox.hgrow="ALWAYS" />
+
+                    <Button minHeight="40.0" minWidth="120.0" onAction="#goToAddAgentPage" style="-fx-background-color: white; -fx-text-fill: #1a472a; -fx-font-weight: bold;                                    -fx-background-radius: 20; -fx-cursor: hand; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);">
                         <graphic>
-                            <Text text="Add Agent" fill="WHITE"/>
+                            <HBox alignment="CENTER" spacing="8">
+                                <Text style="-fx-font-size: 14;" text="+" />
+                                <Text style="-fx-font-size: 14;" text="Add Agent" />
+                            </HBox>
                         </graphic>
-                        <padding>
-                            <Insets bottom="8.0" left="16.0" right="16.0" top="8.0"/>
-                        </padding>
                     </Button>
-                    <HBox.margin>
-                        <Insets bottom="10.0"/>
-                    </HBox.margin>
                 </HBox>
             </VBox>
         </top>
 
-
         <center>
-            <VBox spacing="10.0" VBox.vgrow="ALWAYS">
+            <VBox spacing="20.0" style="-fx-background-color: #f5f5f5;">
                 <padding>
-                    <Insets left="20.0" right="20.0"/>
+                    <Insets bottom="30.0" left="30.0" right="30.0" top="20.0" />
                 </padding>
-                <TableView fx:id="agentTable"
-                           VBox.vgrow="ALWAYS"
-                           styleClass="centered-table">
-                    <columnResizePolicy>
-                        <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
-                    </columnResizePolicy>
-                    <columns>
-                        <TableColumn fx:id="idColumn"
-                                     minWidth="50.0"
-                                     prefWidth="75.0"
-                                     maxWidth="200.0"
-                                     text="ID"
-                                     style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="usernameColumn"
-                                     minWidth="150.0"
-                                     prefWidth="200.0"
-                                     maxWidth="2000.0"
-                                     text="Username"
-                                     style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="emailColumn"
-                                     minWidth="200.0"
-                                     prefWidth="250.0"
-                                     maxWidth="2000.0"
-                                     text="Email Address"
-                                     style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="passwordColumn"
-                                     minWidth="200.0"
-                                     prefWidth="250.0"
-                                     maxWidth="2000.0"
-                                     text="Password"
-                                     style="-fx-alignment: CENTER;"/>
-                        <TableColumn fx:id="actionColumn"
-                                     minWidth="150.0"
-                                     prefWidth="125.0"
-                                     maxWidth="1000.0"
-                                     text="Action"
-                                     style="-fx-alignment: CENTER;"/>
-                    </columns>
-                    <VBox.margin>
-                        <Insets bottom="20.0"/>
-                    </VBox.margin>
-                    <style>
-                        -fx-cell-size: 45;
-                    </style>
-                </TableView>
+
+                <VBox style="-fx-background-color: white; -fx-background-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 3);">
+                    <TableView fx:id="agentTable" prefHeight="585.0" prefWidth="940.0" styleClass="modern-table" VBox.vgrow="ALWAYS">
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                        <columns>
+                            <TableColumn fx:id="idColumn" maxWidth="100.0" minWidth="50.0" style="-fx-alignment: CENTER;" text="ID" />
+                            <TableColumn fx:id="usernameColumn" minWidth="200.0" style="-fx-alignment: CENTER_LEFT;" text="Username" />
+                            <TableColumn fx:id="emailColumn" minWidth="250.0" style="-fx-alignment: CENTER_LEFT;" text="Email Address" />
+                            <TableColumn fx:id="passwordColumn" minWidth="200.0" style="-fx-alignment: CENTER;" text="Password" />
+                            <TableColumn fx:id="actionColumn" minWidth="150.0" style="-fx-alignment: CENTER;" text="Actions" />
+                        </columns>
+                        <style>
+                            -fx-cell-size: 50;
+                            -fx-background-color: transparent;
+                            -fx-border-color: transparent;
+                        </style>
+                    </TableView>
+                </VBox>
             </VBox>
         </center>
     </BorderPane>

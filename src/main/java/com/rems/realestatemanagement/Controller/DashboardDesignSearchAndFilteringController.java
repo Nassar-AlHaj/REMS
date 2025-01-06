@@ -1,6 +1,7 @@
 package com.rems.realestatemanagement.Controller;
 
 import javafx.animation.*;
+import javafx.application.Platform;
 import javafx.util.Duration;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +18,7 @@ import javafx.stage.Screen;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class DashboardDesignSearchAndFilteringController {
     public MenuButton Type;
@@ -32,9 +34,15 @@ public class DashboardDesignSearchAndFilteringController {
     @FXML private VBox propertySubmenu;
     @FXML private Button propertyButton;
     @FXML private Button addPropertyButton;
+    @FXML private Button LogOut;
     @FXML private AnchorPane view;
     @FXML private VBox navigationContainer;
     @FXML private VBox propertyManagementSection;
+
+
+
+    @FXML
+    private Label userNameLabel;                                                                                                                                        @FXML
 
     private List<Button> buttons;
     private Button activeButton;
@@ -60,16 +68,13 @@ public class DashboardDesignSearchAndFilteringController {
 
     @FXML
     public void initialize() {
-
-
-
-
         buttons = new ArrayList<>();
         buttons.add(Admin_Console);
         buttons.add(Clients);
         buttons.add(Offer);
         buttons.add(Interactions);
         buttons.add(Contacts);
+        buttons.add(LogOut);
         setupButtonEffects();
         setupPropertyManagement();
         setupResponsiveness();
@@ -310,6 +315,24 @@ public class DashboardDesignSearchAndFilteringController {
     @FXML public void Contacts() {
         loadPage("/com/rems/realestatemanagement/contactUs.fxml");
         highlightButton(Contacts);
+    }
+
+    public void LogOut() {
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Confirm Log Out");
+        alert.setHeaderText("Are you sure you want to log out?");
+        alert.setContentText("This will close the application.");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            Platform.exit();
+            System.exit(0);
+        }
+    }
+
+
+    public void setUserName(String userName) {
+        userNameLabel.setText(userName);
     }
 
 }

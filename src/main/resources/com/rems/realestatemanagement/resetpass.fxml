@@ -3,60 +3,80 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
 
-<!--<?import javafx.scene.image.Image?>-->
-<!--<?import javafx.scene.image.ImageView?>-->
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.rems.realestatemanagement.Controller.resetController">
+   <VBox alignment="CENTER" spacing="15" maxWidth="600" minWidth="300">
+      <padding>
+         <Insets top="20" right="40" bottom="20" left="40"/>
+      </padding>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.resetController">
-   <children>
-      <!--      <ImageView fitHeight="39.0" fitWidth="178.0" layoutX="156.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">-->
-      <!--         <image>-->
-      <!--            <Image url="@/img/logo.png" />-->
-      <!--         </image>-->
-      <!--      </ImageView>-->
-      <Label layoutX="150.0" layoutY="71.0" prefHeight="17.0" prefWidth="135.0" text="Forgot Your Password?">
+      <StackPane minHeight="20" prefHeight="40.0" prefWidth="250.0" VBox.vgrow="NEVER">
+         <ImageView fitHeight="40.0" fitWidth="230.0" preserveRatio="true">
+            <image>
+               <Image url="@img/logo.png" />
+            </image>
+            <viewport>
+               <Rectangle2D height="0" width="200" />
+            </viewport>
+         </ImageView>
+         <VBox.margin>
+            <Insets bottom="-5"/>
+         </VBox.margin>
+      </StackPane>
+
+      <Label text="Forgot Your Password?" styleClass="header-label">
          <font>
-            <Font name="System Bold Italic" size="12.0" />
+            <Font name="System Bold Italic" size="16.0"/>
          </font>
          <textFill>
             <LinearGradient endX="1.0" endY="0.01577284659496993" startX="1.0" startY="1.0">
                <stops>
                   <Stop>
                      <color>
-                        <Color red="0.8700000047683716" green="0.5985599756240845" blue="0.41760000586509705" />
-                     </color>
-                  </Stop>
-                  <Stop offset="0.040268456375838924">
-                     <color>
-                        <Color red="0.8700000047683716" green="0.5985599756240845" blue="0.41760000586509705" />
-                     </color>
-                  </Stop>
-                  <Stop offset="0.2729306487695749">
-                     <color>
-                        <Color red="0.8700000047683716" green="0.5985599756240845" blue="0.41760000586509705" />
+                        <Color red="0.8700000047683716" green="0.5985599756240845" blue="0.41760000586509705"/>
                      </color>
                   </Stop>
                   <Stop offset="1.0">
                      <color>
-                        <Color red="0.061403509229421616" green="0.0602664053440094" blue="0.0602664053440094" />
+                        <Color red="0.061403509229421616" green="0.0602664053440094" blue="0.0602664053440094"/>
                      </color>
                   </Stop>
                </stops>
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutX="67.0" layoutY="125.0" text="Please write your email." />
-      <Label layoutX="67.0" layoutY="102.0" prefHeight="32.0" prefWidth="313.0" text="Seems like you forgot your password for your account!" />
-      <Label layoutX="43.0" layoutY="323.0" text="If you did not forget your password, you can safely ignore the email!" />
-      <Button fx:id="emailbutton" layoutX="61.0" layoutY="191.0" mnemonicParsing="false" onAction="#handleSendEmail" prefHeight="32.0" prefWidth="313.0" style="-fx-background-color: #1d4634;" text="Submit " textFill="#eff2f1" />
-      <Button fx:id="ecode" layoutX="61.0" layoutY="262.0" mnemonicParsing="false" onAction="#handleGoNewPass" prefHeight="32.0" prefWidth="313.0" style="-fx-background-color: #1d4634;" text="Submit" textFill="WHITE" />
-      <TextField fx:id="emailverefication" layoutX="61.0" layoutY="152.0" prefHeight="25.0" prefWidth="313.0" />
-      <TextField fx:id="code" layoutX="61.0" layoutY="223.0" prefHeight="25.0" prefWidth="313.0" />
-      <Label fx:id="codelabel" layoutX="61.0" layoutY="191.0" text="Please enter the code you recieved " />
-   </children>
-</AnchorPane>
+
+      <Label text="Seems like you forgot your password for your account!" wrapText="true"/>
+      <Label text="Please write your email." wrapText="true"/>
+
+      <TextField fx:id="emailverefication" maxWidth="400"/>
+
+      <Button fx:id="emailbutton" onAction="#handleSendEmail"
+              style="-fx-background-color: #1d4634;"
+              text="Submit" textFill="#eff2f1"
+              maxWidth="400"/>
+
+      <Label fx:id="codelabel" text="Please enter the code you recieved" wrapText="true"/>
+
+      <TextField fx:id="code" maxWidth="400"/>
+
+      <Button fx:id="ecode" onAction="#handleGoNewPass"
+              style="-fx-background-color: #1d4634;"
+              text="Submit" textFill="WHITE"
+              maxWidth="400"/>
+
+      <Label text="If you did not forget your password, you can safely ignore the email!"
+             wrapText="true"/>
+   </VBox>
+</StackPane>

@@ -4,10 +4,17 @@ import com.rems.realestatemanagement.models.User;
 import com.rems.realestatemanagement.models.services.RoleDAOImp;
 import com.rems.realestatemanagement.models.services.UsersDAOImp;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
+
+import java.awt.event.ActionEvent;
+import java.util.Objects;
 
 
 public class addagentController {
@@ -20,7 +27,8 @@ public class addagentController {
     private TextField agentpass;
     @FXML
     private Button backbutton;
-
+    @FXML
+    private Label errorLabel;
     @FXML
     private Button submitagent;
 
@@ -89,8 +97,8 @@ public class addagentController {
             addlabel.setStyle("-fx-text-fill: green;");
             clearFields();
         } catch (Exception e) {
-            addlabel.setText("Failed to add agent: " + e.getMessage());
-            addlabel.setStyle("-fx-text-fill: red;");
+            errorLabel.setText("Failed to add agent: " + e.getMessage());
+            errorLabel.setStyle("-fx-text-fill: red;");
         }
     }
 
@@ -111,18 +119,20 @@ public class addagentController {
     }
 
 
-//    @FXML
-//    public void handleGoBack(ActionEvent actionEvent) {
-//        try {
-//            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/resetpass.fxml")));
-//            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-//            stage.setScene(new Scene(root));
-//            stage.show();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 
+    @FXML
+    public void handleGoBack(javafx.event.ActionEvent actionEvent) {
 
+        try {
+            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));
+            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+    }
 }

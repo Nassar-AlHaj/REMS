@@ -82,6 +82,7 @@ public class EditPropertyController {
 
         if (property.getImageProperty() != null && !property.getImageProperty().isEmpty()) {
             propertyImageView.setImage(new Image(property.getImageProperty()));
+            imagePath = property.getImageProperty(); // تخزين المسار الحالي للصورة
         }
     }
 
@@ -112,7 +113,10 @@ public class EditPropertyController {
             currentProperty.setLocation(propertyLocationField.getText());
             currentProperty.setPrice(Double.parseDouble(propertyPriceField.getText()));
             currentProperty.setNumberOfRooms(Integer.parseInt(propertyRoomsField.getText()));
-            currentProperty.setImageProperty(imagePath);
+
+            if (imagePath != null && !imagePath.isEmpty()) {
+                currentProperty.setImageProperty(imagePath);
+            }
 
             boolean isUpdated = propertyDAO.update(currentProperty);
             if (isUpdated) {

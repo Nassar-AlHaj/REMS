@@ -6,6 +6,7 @@
 
 <?import javafx.collections.FXCollections?>
 <?import java.lang.String?>
+<?import javafx.scene.shape.Circle?>
 <AnchorPane style="-fx-background-color: #F5F7FA;"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -14,12 +15,15 @@
    <HBox alignment="CENTER_LEFT" spacing="15"
          style="-fx-background-color: linear-gradient(to right, #1D4634, #2E8B57); -fx-padding: 15 25;"
          AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-      <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
-         <image>
-            <Image url="@../../../img/Logoooooo.png" />
-         </image>
-      </ImageView>
-      <Label text="Property" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;"/>
+      <StackPane>
+         <Circle radius="25" style="-fx-fill: white;" />
+         <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
+            <image>
+               <Image url="@img/Logoooooo.png" />
+            </image>
+         </ImageView>
+      </StackPane>
+      <Label text="Add Property" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;"/>
    </HBox>
 
    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;"
@@ -50,7 +54,7 @@
                      -fx-border-radius: 8; -fx-border-style: dashed;">
                   <ImageView fitHeight="35" fitWidth="35" opacity="0.6">
                      <image>
-                        <Image url="@../../../img/PhotoIcon.png" />
+                        <Image url="@img/PhotoIcon.png" />
                      </image>
                   </ImageView>
                   <Label text="Drop your files here" style="-fx-font-size: 13;" textFill="#6C757D"/>

@@ -16,10 +16,10 @@
          AnchorPane.topAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
       <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
          <image>
-            <Image url="@../../../img/Logoooooo.png" />
+            <Image url="@img/Logoooooo.png" />
          </image>
       </ImageView>
-      <Label text="Property" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;"/>
+      <Label text="Add Property" style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;"/>
    </HBox>
 
    <ScrollPane fitToWidth="true" style="-fx-background-color: transparent;"

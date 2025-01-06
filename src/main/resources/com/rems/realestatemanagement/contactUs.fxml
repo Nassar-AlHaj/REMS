@@ -3,7 +3,6 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.rems.realestatemanagement.Controller.ContactUsController"
@@ -79,7 +78,7 @@
                           style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
                                  -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
                <Label fx:id="descriptionError" text="" textFill="#FF4C4C"
-                      style="-fx-font-size: 12px;" /> <!-- New error label for description -->
+                      style="-fx-font-size: 12px;" />
             </VBox>
 
             <!-- Country -->
@@ -105,4 +104,3 @@
       </VBox>
    </children>
 </AnchorPane>
-

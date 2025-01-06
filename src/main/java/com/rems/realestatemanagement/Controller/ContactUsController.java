@@ -3,15 +3,11 @@ package com.rems.realestatemanagement.Controller;
 import com.rems.realestatemanagement.models.ContactUs;
 import com.rems.realestatemanagement.models.services.ContactUsDAOImp;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
-import java.io.IOException;
 
 public class ContactUsController {
 
@@ -105,7 +101,7 @@ public class ContactUsController {
 
         if (!hasError) {
             saveContact();
-            showThankYouPopup();
+            showThankYouAlert();
             clearFields();
         }
     }
@@ -126,19 +122,12 @@ public class ContactUsController {
         }
     }
 
-    private void showThankYouPopup() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/Fxml/popup.fxml"));
-            AnchorPane popupRoot = loader.load();
-
-            Stage popupStage = new Stage();
-            popupStage.setTitle("Thank You");
-            popupStage.initModality(Modality.APPLICATION_MODAL);
-            popupStage.setScene(new Scene(popupRoot));
-            popupStage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    private void showThankYouAlert() {
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Thank You!");
+        alert.setHeaderText(null);
+        alert.setContentText("Your message has been submitted successfully.");
+        alert.showAndWait();
     }
 
     private void clearFields() {

@@ -15,7 +15,7 @@
 <?import javafx.geometry.Rectangle2D?>
 
 <StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.rems.realestatemanagement.Controller.newpassController">
+           fx:controller="com.rems.realestatemanagement.Controller.NewpassController">
     <VBox alignment="CENTER" spacing="15" maxWidth="600" minWidth="300">
         <padding>
             <Insets top="20" right="40" bottom="20" left="40"/>

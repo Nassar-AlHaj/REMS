@@ -23,7 +23,7 @@ import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class resetController {
+public class ResetController {
 
     @FXML
     private TextField emailverefication;
@@ -40,7 +40,7 @@ public class resetController {
 
     private String verificationCode;
 
-    public resetController() {
+    public ResetController() {
         UsersDAO = new UsersDAOImp();
     }
 
@@ -78,7 +78,7 @@ public class resetController {
 
 
         } catch (Exception e) {
-            Logger.getLogger(resetController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ResetController.class.getName()).log(Level.SEVERE, null, e);
             new Alert(Alert.AlertType.ERROR, "Failed to send verification email. Please try again.").show();
         }
     }
@@ -116,7 +116,7 @@ public class resetController {
 
             return message;
         } catch (Exception e) {
-            Logger.getLogger(resetController.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(ResetController.class.getName()).log(Level.SEVERE, null, e);
         }
         return null;
     }
@@ -142,7 +142,7 @@ public class resetController {
                 String verifiedEmail = emailverefication.getText().trim();
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/newpassform.fxml"));
                 Parent root = loader.load();
-                newpassController controller = loader.getController();
+                NewpassController controller = loader.getController();
                 controller.setVerifiedEmail(verifiedEmail);
 
                 Stage stage = (Stage) ((javafx.scene.Node) event.getSource()).getScene().getWindow();

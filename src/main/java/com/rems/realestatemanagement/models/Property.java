@@ -17,7 +17,7 @@ public class Property {
     @Column(name = "propertyName", nullable = false)
     private String propertyName;
 
-    @Column(name = "description")
+    @Column(name = "description", nullable = false)
     private String description;
 
     @Column(name = "price", nullable = false)
@@ -32,11 +32,15 @@ public class Property {
     @Column(name = "location", nullable = false)
     private String location;
 
-    @Column(name = "imageProperty")
+    @Column(name = "imageProperty", nullable = false)
     private String imageProperty;
 
-    @Column(name = "listingDate")
+    @Column(name = "listingDate", nullable = false)
     private LocalDate listingDate;
+
+    @Column(name= "currentClient")
+    private String currentClient;
+
 
     // Default constructor
     public Property() {
@@ -122,4 +126,8 @@ public class Property {
     public void setlistingDate(LocalDate listingDate) {
         this.listingDate = listingDate;
     }
+    public String getCurrentClient() { return currentClient; }
+
+    public void setCurrentClient(String currentClient) { this.currentClient = currentClient; }
+
 }

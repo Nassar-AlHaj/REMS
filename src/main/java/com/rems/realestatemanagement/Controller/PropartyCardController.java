@@ -62,6 +62,10 @@ public class PropartyCardController {
         }
     }
 
+
+
+
+
     private void displayProperties(List<Property> properties) {
         if (flowPaneCard != null) {
             flowPaneCard.getChildren().clear();
@@ -69,24 +73,8 @@ public class PropartyCardController {
                 VBox propertyCard = createPropertyCard(property);
 
                 propertyCard.setOnMouseClicked(event -> {
-                    try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/proparty-card-details.fxml"));
-                        Parent propertyDetails = loader.load();
-
-                        PropartyCardDetailsController detailsController = loader.getController();
-                        detailsController.setPropertyData(property);
-
-                        Scene scene = new Scene(propertyDetails);
-                        Stage stage = (Stage) propertyCard.getScene().getWindow();
-                        stage.setScene(scene);
-                        stage.show();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                        Alert alert = new Alert(Alert.AlertType.ERROR);
-                        alert.setTitle("Error");
-                        alert.setContentText("Failed to open property details.");
-                        alert.showAndWait();
-                    }
+                    event.consume();
+                    showPropertyDetailsPopup(property);
                 });
 
                 propertyCard.setOnMouseEntered(event ->
@@ -98,6 +86,38 @@ public class PropartyCardController {
             }
         }
     }
+
+
+    private void showPropertyDetailsPopup(Property property) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/proparty-card-details.fxml"));
+            Parent propertyDetails = loader.load();
+
+            PropartyCardDetailsController detailsController = loader.getController();
+            detailsController.setPropertyData(property);
+
+            Stage popupStage = new Stage();
+            popupStage.initModality(Modality.APPLICATION_MODAL);
+            popupStage.setTitle("Property Details");
+            Scene scene = new Scene(propertyDetails);
+            popupStage.setWidth(1000);
+            popupStage.setHeight(450);
+            popupStage.setResizable(false);
+            popupStage.setScene(scene);
+            popupStage.centerOnScreen();
+            popupStage.show();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setContentText("Failed to open property details.");
+            alert.showAndWait();
+        }
+    }
+
+
+
 
     private void initializeLocations() {
         List<String> locations = propertyDAOImp.getAllLocations();
@@ -120,6 +140,7 @@ public class PropartyCardController {
         card.setPrefHeight(257.0);
         card.setPrefWidth(246.0);
         card.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
+        FlowPane.setMargin(card, new Insets(15));
 
         StackPane imageContainer = new StackPane();
         imageContainer.setPrefHeight(150.0);
@@ -137,28 +158,12 @@ public class PropartyCardController {
 
         propertyImage.setOnMouseClicked(event -> {
             event.consume();
-            try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/proparty-card-details.fxml"));
-                Parent propertyDetails = loader.load();
-
-                PropartyCardDetailsController detailsController = loader.getController();
-                detailsController.setPropertyData(property);
-
-                Scene scene = new Scene(propertyDetails);
-                Stage stage = (Stage) card.getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-            } catch (IOException e) {
-                e.printStackTrace();
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setContentText("Failed to open property details.");
-                alert.showAndWait();
-            }
+            showPropertyDetailsPopup(property);
         });
 
         propertyImage.setOnMouseEntered(e -> propertyImage.setCursor(Cursor.HAND));
         propertyImage.setOnMouseExited(e -> propertyImage.setCursor(Cursor.DEFAULT));
+
         Label stateLabel = new Label(property.getState());
         stateLabel.setAlignment(Pos.CENTER);
         stateLabel.setContentDisplay(ContentDisplay.CENTER);
@@ -169,7 +174,9 @@ public class PropartyCardController {
         stateLabel.setFont(javafx.scene.text.Font.font("System", javafx.scene.text.FontWeight.BOLD, 12.0));
         StackPane.setMargin(stateLabel, new Insets(10, 0, 0, 10));
         StackPane.setAlignment(stateLabel, Pos.TOP_LEFT);
+
         imageContainer.getChildren().addAll(propertyImage, stateLabel);
+
         Label nameLabel = new Label(property.getPropertyName());
         nameLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14;");
 
@@ -196,7 +203,7 @@ public class PropartyCardController {
         editIcon.setFitHeight(20.0);
         editIcon.setFitWidth(20.0);
         editIcon.setOnMouseClicked(event -> {
-            event.consume(); // Prevent event bubbling
+            event.consume();
             handleEditClick(property);
         });
 
@@ -212,12 +219,26 @@ public class PropartyCardController {
         actionBox.setSpacing(10);
         actionBox.setPadding(new Insets(0, 10, 5, 0));
         actionBox.setAlignment(Pos.CENTER_RIGHT);
+
         card.getChildren().addAll(imageContainer, nameLabel, priceBox, locationBox, actionBox);
         card.setSpacing(10);
         card.setPadding(new Insets(10));
+        card.setOnMouseClicked(event -> {
+            event.consume();
+            showPropertyDetailsPopup(property);
+        });
+
+        card.setOnMouseEntered(event -> {
+            card.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 0);");
+            card.setCursor(Cursor.HAND);
+        });
+        card.setOnMouseExited(event -> {
+            card.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);");
+            card.setCursor(Cursor.DEFAULT);
+        });
+
         return card;
     }
-
     private void handleEditClick(Property property) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/editProperty.fxml"));

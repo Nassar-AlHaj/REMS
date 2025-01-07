@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "role_permissions")
-public class Role_Permission {
+public class RolePermission {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,7 +18,7 @@ public class Role_Permission {
     @JoinColumn(name = "permission_id", nullable = false)
     private Permissions permission;
 
-    public Role_Permission() {
+    public RolePermission() {
     }
 
 

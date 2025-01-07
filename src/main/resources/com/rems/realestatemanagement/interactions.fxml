@@ -11,7 +11,7 @@
 
 <AnchorPane style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.InteractionController">
     <stylesheets>
-        <URL value="@table.css" />
+        <URL value="@style/table.css" />
     </stylesheets>
 
     <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
@@ -84,7 +84,7 @@
                     <TextField fx:id="searchField" prefWidth="300" promptText="🔍 Search interactions..." style="-fx-background-radius: 20; -fx-border-radius: 20;                          -fx-border-color: #2B634B; -fx-border-width: 1;                          -fx-padding: 8 15; -fx-background-color: white;" />
                 </HBox>
 
-                <TableView fx:id="interactionsTable" stylesheets="@table.css" VBox.vgrow="ALWAYS">
+                <TableView fx:id="interactionsTable" stylesheets="@style/table.css" VBox.vgrow="ALWAYS">
                     <columns>
                         <TableColumn fx:id="clientNameColumn" text="Client Name" />
                         <TableColumn fx:id="dateColumn" text="Date" />

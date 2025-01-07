@@ -15,7 +15,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.Objects;
 
-public class loginController {
+public class LoginController {
 
     @FXML
     private TextField email;
@@ -29,7 +29,9 @@ public class loginController {
     private Label errorLabel;
     private UsersDAOImp UsersDAO;
 
-    public loginController() {
+
+
+    public LoginController() {
         UsersDAO = new UsersDAOImp();
     }
 
@@ -68,10 +70,10 @@ public class loginController {
                 session.setRole(user.getRole().getName());
 
                 try {
-                    FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml")));
+                    FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/sideBar.fxml")));
                     Parent root = loader.load();
 
-                    DashboardDesignSearchAndFilteringController controller = loader.getController();
+                    SideBarController controller = loader.getController();
 
                     controller.setUserName(session.getUsername());
 

@@ -43,6 +43,9 @@ public class EditPropertyController {
     @FXML
     private ImageView propertyImageView;
 
+    @FXML
+    private ComboBox<String> propertyStatusComboBox;
+
     private String imagePath;
     private Property currentProperty;
     private PropertyDAOImp propertyDAO;
@@ -65,6 +68,12 @@ public class EditPropertyController {
                 "Land"
         );
 
+        propertyStatusComboBox.getItems().addAll(
+                "Available",
+                "Sold",
+                "Rented"
+        );
+
         updateImageButton.setOnAction(event -> handleUpdateImage());
         saveButton.setOnAction(event -> handleSave());
         cancelButton.setOnAction(event -> handleCancel());
@@ -79,10 +88,11 @@ public class EditPropertyController {
         propertyLocationField.setText(property.getLocation());
         propertyPriceField.setText(String.valueOf(property.getPrice()));
         propertyRoomsField.setText(String.valueOf(property.getNumberOfRooms()));
+        propertyStatusComboBox.setValue(property.getState());
 
         if (property.getImageProperty() != null && !property.getImageProperty().isEmpty()) {
             propertyImageView.setImage(new Image(property.getImageProperty()));
-            imagePath = property.getImageProperty(); // تخزين المسار الحالي للصورة
+            imagePath = property.getImageProperty();
         }
     }
 
@@ -113,8 +123,9 @@ public class EditPropertyController {
             currentProperty.setLocation(propertyLocationField.getText());
             currentProperty.setPrice(Double.parseDouble(propertyPriceField.getText()));
             currentProperty.setNumberOfRooms(Integer.parseInt(propertyRoomsField.getText()));
+            currentProperty.setState(propertyStatusComboBox.getValue());
 
-            if (imagePath != null && !imagePath.isEmpty()) {
+            if (imagePath != null && !imagePath.isEmpty() && !imagePath.equals(currentProperty.getImageProperty())) {
                 currentProperty.setImageProperty(imagePath);
             }
 
@@ -124,6 +135,8 @@ public class EditPropertyController {
                     saveListener.onSave(currentProperty);
                 }
                 showAlert(Alert.AlertType.INFORMATION, "Success", "Property details updated successfully!");
+                Stage stage = (Stage) saveButton.getScene().getWindow();
+                stage.close();
             } else {
                 showAlert(Alert.AlertType.ERROR, "Error", "Failed to update property details.");
             }

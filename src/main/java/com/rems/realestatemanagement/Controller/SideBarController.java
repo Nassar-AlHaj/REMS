@@ -1,7 +1,8 @@
 package com.rems.realestatemanagement.Controller;
 
 import javafx.animation.*;
-import javafx.application.Platform;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,7 +22,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
-public class DashboardDesignSearchAndFilteringController {
+public class SideBarController {
     public MenuButton Type;
     public MenuButton Filter;
     public MenuButton Location;
@@ -41,6 +42,7 @@ public class DashboardDesignSearchAndFilteringController {
     @FXML private VBox navigationContainer;
     @FXML private VBox propertyManagementSection;
 
+    UserSession session = UserSession.getInstance();
 
 
     @FXML
@@ -79,6 +81,7 @@ public class DashboardDesignSearchAndFilteringController {
         buttons.add(DashBoard);
         buttons.add(LogOut);
 
+
         String roleId = UserSession.getInstance().getRole();
 
         if (Objects.equals(roleId, "Admin")) {
@@ -108,7 +111,7 @@ public class DashboardDesignSearchAndFilteringController {
             handlePropertyMenuItemClick("Property");
             Admin_Console.setVisible(false);
             Admin_Console.setManaged(false);
-            
+
             Property_management.setVisible(true);
             Property_management.setManaged(true);
 
@@ -284,7 +287,7 @@ public class DashboardDesignSearchAndFilteringController {
                 loadPage("/com/rems/realestatemanagement/proparty-card.fxml");
                 break;
             case "Add Property":
-                loadPage("/com/rems/realestatemanagement/AddProperty.fxml");
+                loadPage("/com/rems/realestatemanagement/addProperty.fxml");
                 break;
         }
     }
@@ -344,22 +347,22 @@ public class DashboardDesignSearchAndFilteringController {
 
     // Navigation methods
     @FXML public void Admin_Console() {
-        loadPage("/com/rems/realestatemanagement/AgentProfile-view.fxml");
+        loadPage("/com/rems/realestatemanagement/agentProfile-view.fxml");
         highlightButton(Admin_Console);
     }
 
     @FXML public void Clients() {
-        loadPage("/com/rems/realestatemanagement/Client.fxml");
+        loadPage("/com/rems/realestatemanagement/client.fxml");
         highlightButton(Clients);
     }
 
     @FXML public void Offer() {
-        loadPage("/com/rems/realestatemanagement/OffersView.fxml");
+        loadPage("/com/rems/realestatemanagement/offersView.fxml");
         highlightButton(Offer);
     }
 
     @FXML public void Interactions() {
-        loadPage("/com/rems/realestatemanagement/Interactions.fxml");
+        loadPage("/com/rems/realestatemanagement/interactions.fxml");
         highlightButton(Interactions);
     }
 
@@ -369,27 +372,39 @@ public class DashboardDesignSearchAndFilteringController {
     }
 
     @FXML public void Dashboard() {
-        loadPage("/com/rems/realestatemanagement/DashBoard.fxml");
+        loadPage("/com/rems/realestatemanagement/dashBoard.fxml");
 
         highlightButton(DashBoard);
     }
 
 
-    public void LogOut() {
+    @FXML
+    public void LogOut(javafx.event.ActionEvent actionEvent) {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Confirm Log Out");
         alert.setHeaderText("Are you sure you want to log out?");
-        alert.setContentText("This will close the application.");
+        alert.setContentText("This will return you to the login page.");
 
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            Platform.exit();
-            System.exit(0);
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/login.fxml"));
+                Parent loginPage = loader.load();
+
+                Scene scene = new Scene(loginPage);
+                Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            session.logout();
         }
+
     }
 
-
     public void setUserName(String userName) {
+
         userNameLabel.setText(userName);
     }
 

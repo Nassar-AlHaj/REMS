@@ -5,6 +5,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -31,13 +32,17 @@ public class PropartyCardDetailsController {
     @FXML
     private ImageView propertyImageView;
 
+    @FXML
+    private Text InformationText;
+
+    @FXML
+    private Label currentClientLabel;
+
     private Property property;
 
     @FXML
     private void initialize() {
-        backButton.setOnAction(event -> goBack());
-        backButton.setOnMouseEntered(event -> backButton.setOpacity(1.0));
-        backButton.setOnMouseExited(event -> backButton.setOpacity(0.6));
+
     }
 
     public void setPropertyData(Property property) {
@@ -48,7 +53,8 @@ public class PropartyCardDetailsController {
         this.property = property;
         if (propertyNameLabel == null || priceLabel == null ||
                 locationLabel == null || stateLabel == null ||
-                propertyImageView == null) {
+                propertyImageView == null || InformationText == null ||
+                currentClientLabel == null) {
             System.out.println("Warning: One or more FXML elements not properly injected");
             return;
         }
@@ -61,6 +67,8 @@ public class PropartyCardDetailsController {
             priceLabel.setText(String.format("$%.2f", property.getPrice()));
             locationLabel.setText(property.getLocation());
             stateLabel.setText(property.getState());
+            InformationText.setText(property.getDescription());
+            currentClientLabel.setText(property.getCurrentClient());
 
             if (property.getImageProperty() != null && !property.getImageProperty().isEmpty()) {
                 propertyImageView.setImage(new Image(property.getImageProperty()));
@@ -73,7 +81,7 @@ public class PropartyCardDetailsController {
 
     private void goBack() {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/DashboardDesignSearchAndFiltering.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/proparty-card.fxml"));
             Parent propertyList = loader.load();
             Stage stage = (Stage) backButton.getScene().getWindow();
             stage.setScene(new Scene(propertyList));

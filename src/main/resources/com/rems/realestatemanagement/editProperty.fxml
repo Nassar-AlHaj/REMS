@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.Font?>
-<?import javafx.geometry.Insets?>
+        <?import javafx.scene.control.*?>
+        <?import javafx.scene.image.*?>
+        <?import javafx.scene.layout.*?>
+        <?import javafx.scene.text.Font?>
+        <?import javafx.geometry.Insets?>
 
 <StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
            fx:controller="com.rems.realestatemanagement.Controller.EditPropertyController">
@@ -50,8 +50,12 @@
             <TextField fx:id="propertyRoomsField" GridPane.rowIndex="5" GridPane.columnIndex="1"
                        maxWidth="200" style="-fx-background-radius: 5;"/>
 
-            <Label text="Property Image" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
-            <VBox spacing="10" GridPane.rowIndex="6" GridPane.columnIndex="1">
+            <Label text="Status" GridPane.rowIndex="6" GridPane.columnIndex="0"/>
+            <ComboBox fx:id="propertyStatusComboBox" GridPane.rowIndex="6" GridPane.columnIndex="1"
+                      maxWidth="200" style="-fx-background-radius: 5;"/>
+
+            <Label text="Property Image" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
+            <VBox spacing="10" GridPane.rowIndex="7" GridPane.columnIndex="1">
                 <ImageView fx:id="propertyImageView" fitHeight="150" fitWidth="200"
                            style="-fx-background-color: #f8f9fa; -fx-background-radius: 5;"/>
                 <Button fx:id="updateImageButton" text="Choose New Image"

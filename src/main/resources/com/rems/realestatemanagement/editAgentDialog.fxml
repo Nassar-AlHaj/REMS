@@ -38,6 +38,6 @@
         <ButtonType fx:constant="CANCEL" />
     </buttonTypes>
     <stylesheets>
-        <URL value="@dialog.css" />
+        <URL value="@style/dialog.css" />
     </stylesheets>
 </DialogPane>

@@ -11,7 +11,7 @@
 <AnchorPane prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.AgentProfileController">
     <BorderPane AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <stylesheets>
-            <URL value="@table.css" />
+            <URL value="@style/table.css" />
         </stylesheets>
         <top>
             <VBox spacing="0">

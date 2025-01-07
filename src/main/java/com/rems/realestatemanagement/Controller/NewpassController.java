@@ -14,7 +14,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.Objects;
 
-public class newpassController {
+public class NewpassController {
 
     @FXML
     private PasswordField newpass;
@@ -29,7 +29,7 @@ public class newpassController {
 
     private UsersDAOImp UsersDOA;
 
-    public newpassController() {
+    public NewpassController() {
         UsersDOA = new UsersDAOImp();
     }
 

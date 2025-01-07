@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.loginController">
+<StackPane minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.LoginController">
 
    <GridPane style="-fx-font-family: 'System';" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
       <columnConstraints>

@@ -116,11 +116,45 @@ public class AddPropertyController {
 
     @FXML
     public void onApplyLeasingClicked() {
+        StringBuilder errorMessage = new StringBuilder("Please fill in the following fields:\n");
 
-        if (propertyName.getText().isEmpty() || description.getText().isEmpty() || price.getText().isEmpty() ||
-                state.getValue()== null || numberOfRooms.getText().isEmpty() || locations.getText().isEmpty() ||
-                propertyType.getValue().equals("Select Property Type")) {
-            showAlert(Alert.AlertType.ERROR, "Invalid Input", "Please fill in all fields.");
+        boolean hasError = false;
+
+        if (propertyName.getText().isEmpty()) {
+            errorMessage.append("- Property Name\n");
+            hasError = true;
+        }
+        if (description.getText().isEmpty()) {
+            errorMessage.append("- Description\n");
+            hasError = true;
+        }
+        if (price.getText().isEmpty()) {
+            errorMessage.append("- Price\n");
+            hasError = true;
+        }
+        if (state.getValue() == null) {
+            errorMessage.append("- State\n");
+            hasError = true;
+        }
+        if (numberOfRooms.getText().isEmpty()) {
+            errorMessage.append("- Number of Rooms\n");
+            hasError = true;
+        }
+        if (locations.getText().isEmpty()) {
+            errorMessage.append("- Location\n");
+            hasError = true;
+        }
+        if (propertyType.getValue().equals("Select Property Type")) {
+            errorMessage.append("- Property Type\n");
+            hasError = true;
+        }
+        if (uploadedImagesContainer.getChildren().isEmpty()) {
+            errorMessage.append("- At least one image\n");
+            hasError = true;
+        }
+
+        if (hasError) {
+            showAlert(Alert.AlertType.ERROR, "Invalid Input", errorMessage.toString());
             return;
         }
 
@@ -142,7 +176,6 @@ public class AddPropertyController {
             }
 
             property.setlistingDate(LocalDate.now());
-
 
             propertyDAOImp.insert(property);
 

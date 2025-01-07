@@ -19,7 +19,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
 
 import java.io.IOException;
 import java.math.BigInteger;
@@ -115,7 +114,7 @@ public class AgentProfileController {
 
     private void showEditDialog(User user) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/EditAgentDialog.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/editAgentDialog.fxml"));
             DialogPane dialogPane = loader.load();
             EditAgentDialogController controller = loader.getController();
             controller.setUser(user);
@@ -178,14 +177,28 @@ public class AgentProfileController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/addagent.fxml"));
             Parent root = loader.load();
-            Stage stage = (Stage) agentTable.getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
+
+            // Create a new stage for the popup
+            Stage popupStage = new Stage();
+            popupStage.setTitle("Add Agent"); // Set an appropriate title
+
+            // Set the modality to make it a modal window (blocks interaction with parent window)
+            popupStage.initModality(Modality.WINDOW_MODAL);
+
+            // Set the parent window
+            popupStage.initOwner(agentTable.getScene().getWindow());
+
+            // Create and set the scene
+            Scene scene = new Scene(root);
+            popupStage.setScene(scene);
+
+            // Show the popup window
+            popupStage.showAndWait();
+
         } catch (IOException e) {
-            System.err.println("Error navigating to add agent page: " + e.getMessage());
+            System.err.println("Error showing add agent popup: " + e.getMessage());
         }
     }
-
     private static class UserTableItem {
         private final SimpleIntegerProperty id;
         private final SimpleStringProperty username;

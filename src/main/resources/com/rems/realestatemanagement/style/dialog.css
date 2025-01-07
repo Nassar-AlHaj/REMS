@@ -1,0 +1,66 @@
+.dialog-pane {
+    -fx-background-color: #f9f9f9;
+    -fx-border-color: #dcdcdc;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-padding: 20px;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-font-size: 14px;
+}
+
+.label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333333;
+}
+
+.text-field, .password-field {
+    -fx-border-color: #cccccc;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+    -fx-font-size: 14px;
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #333333;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #0078d7;
+    -fx-border-width: 2px;
+}
+
+.password-match-label {
+    -fx-font-size: 12px;
+    -fx-font-style: italic;
+    -fx-text-fill: #666666;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #1D4634;
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-padding: 10px 15px;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #005bb5;
+}
+
+.dialog-pane .button:pressed {
+    -fx-background-color: #003f8a;
+}
+
+.dialog-pane .button-bar .button {
+    -fx-min-width: 80px;
+    -fx-cursor: pointer;
+}
+
+.dialog-pane .button:disabled {
+    -fx-background-color: #cccccc;
+    -fx-text-fill: #666666;
+    -fx-cursor: not-allowed;
+}

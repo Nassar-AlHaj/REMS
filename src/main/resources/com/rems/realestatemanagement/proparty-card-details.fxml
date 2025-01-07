@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="448.0" prefWidth="970.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.property.PropartyCardDetailsController">
+   <!-- Header Section -->
+   <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="1193.0" spacing="15" style="-fx-background-color: linear-gradient(to right, #1D4634, #2E8B57); -fx-padding: 15 25;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <StackPane>
+         <Circle radius="23" style="-fx-fill: white;" />
+         <ImageView fitHeight="43" fitWidth="43" preserveRatio="true">
+            <image>
+               <Image url="@img/Logoooooo.png" />
+            </image>
+         </ImageView>
+      </StackPane>
+      <Label style="-fx-font-size: 22; -fx-font-weight: bold; -fx-text-fill: white;" text="Property Details" />
+   </HBox>
+
+
+   <!-- Property Card Details Section -->
+   <VBox prefHeight="365.0" prefWidth="1182.0" AnchorPane.bottomAnchor="-99.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="65.0">
+      <ScrollPane fitToWidth="true" prefWidth="1182.0" style="-fx-background-color: white;">
+         <HBox alignment="CENTER_LEFT" prefHeight="366.0" prefWidth="1168.0" spacing="30.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="343.0" prefWidth="512.0" spacing="20.0">
+               <ImageView fx:id="propertyImageView" fitHeight="314.0" fitWidth="512.0" preserveRatio="true">
+                  <Image url="@img/propartycard1.png" />
+               </ImageView>
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+            </VBox>
+            <VBox maxWidth="400.0" minWidth="300.0" spacing="10.0">
+               <padding><Insets top="20.0" /></padding>
+               <Label fx:id="propertyNameLabel" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: black;" text="The Old Rectory" />
+               <HBox spacing="10.0">
+                  <Label style="-fx-text-fill: black;" text="Property Address :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="locationLabel" style="-fx-text-fill: black;" text="Yule Street, Arvada CO 80007" />
+               </HBox>
+               <VBox spacing="10.0">
+                  <Label style="-fx-text-fill: black;" text="Property Information">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Text fx:id="InformationText" text="Welcome to Oceanview Retreat, an exquisite beachfront property located in the vibrant city of Miami, Florida. Situated along the pristine shores of the Atlantic Ocean, this luxurious estate offers a truly unparalleled coastal living experience. With breathtaking panoramic views of the ocean and direct access to a private white sandy beach, Oceanview Retreat is a haven for relaxation and rejuvenation. Immerse yourself in the soothing sounds of the waves and indulge in the serenity of the surroundings" wrappingWidth="350.0" />
+               </VBox>
+               <HBox spacing="5.0">
+                  <Label style="-fx-text-fill: black;" text="Monthly  Rent : ">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="priceLabel" style="-fx-text-fill: black;" text="\$2000" />
+               </HBox>
+               <HBox spacing="5.0">
+                  <Label style="-fx-text-fill: black;" text="State :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="stateLabel" style="-fx-text-fill: black;" text="Rented" />
+               </HBox>
+               <Line endX="316.185791015625" endY="50.0" startX="50" startY="50" stroke="black" strokeWidth="2" />
+               <HBox spacing="5.0">
+                  <Label style="-fx-text-fill: black;" text="Current Client :">
+                     <font>
+                        <Font name="System Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="currentClientLabel" style="-fx-text-fill: black;" text="Mais" />
+                  <ImageView>
+                     <Image url="@img/Frame.png" />
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </HBox>
+            </VBox>
+         </HBox>
+      </ScrollPane>
+   </VBox>
+</AnchorPane>

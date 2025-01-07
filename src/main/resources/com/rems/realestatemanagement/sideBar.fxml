@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.dashboard.SideBarController">
+    <children>
+        <HBox VBox.vgrow="ALWAYS">
+            <!-- Sidebar -->
+            <VBox maxWidth="200" minWidth="200" style="-fx-background-color: white;">
+                <padding>
+                    <Insets bottom="20" left="10" right="10" top="20" />
+                </padding>
+                <!-- Logo -->
+                <ImageView fitHeight="65.0" fitWidth="162.0" preserveRatio="true">
+                    <image>
+                        <Image url="@img/img.png" />
+                    </image>
+                    <VBox.margin>
+                        <Insets bottom="30" />
+                    </VBox.margin>
+                </ImageView>
+                <!-- Navigation Section -->
+                <VBox spacing="16">
+                    <!-- Admin Console -->
+                    <Button fx:id="Admin_Console" onAction="#Admin_Console" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Admin Console">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/dashboard-icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <!-- Property Management Section -->
+                    <VBox spacing="2">
+                        <Button fx:id="Property_management" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Property Management">
+                            <graphic>
+                                <ImageView fitHeight="20" fitWidth="20">
+                                    <Image url="@img/property-icon 1.png" />
+                                </ImageView>
+                            </graphic>
+                        </Button>
+                        <!-- Property Management Submenu -->
+                        <VBox fx:id="propertySubmenu" spacing="2" style="-fx-background-color: #F8F8F8;">
+                            <VBox.margin>
+                                <Insets left="12" top="2" />
+                            </VBox.margin>
+                            <Button fx:id="propertyButton" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 14px; -fx-min-width: 160; -fx-alignment: CENTER_LEFT; -fx-padding: 6 12;" text=" Property">
+                                <graphic>
+                                    <ImageView fitHeight="16" fitWidth="16">
+                                        <Image url="@img/list-icon.png" />
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                            <Button fx:id="addPropertyButton" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 14px; -fx-min-width: 160; -fx-alignment: CENTER_LEFT; -fx-padding: 6 12;" text=" Add Property">
+                                <graphic>
+                                    <ImageView fitHeight="16" fitWidth="16">
+                                        <Image url="@img/add-property-icon.png" />
+                                    </ImageView>
+                                </graphic>
+                            </Button>
+                        </VBox>
+                    </VBox>
+                    <!-- Clients -->
+                    <Button fx:id="Clients" onAction="#Clients" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Clients">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/clients-icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <!-- Offer Management -->
+                    <Button fx:id="Offer" onAction="#Offer" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Offer Management">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/offers-icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <!-- Interactions -->
+                    <Button fx:id="Interactions" onAction="#Interactions" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Interactions">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/interactions-icon.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+                    <!-- Contacts -->
+                    <Button fx:id="Contacts" onAction="#Contacts" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Contacts">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/contact.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                    <Button fx:id="DashBoard" onAction="#Dashboard" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" DashBoard">
+                    <graphic>
+                        <ImageView fitHeight="20" fitWidth="20">
+                            <Image url="@img/dashboardD-icon.png" />
+                        </ImageView>
+                    </graphic>
+                </Button>
+                    <!-- Log Out -->
+                    <Button fx:id="LogOut" onAction="#LogOut" style="-fx-background-color: white; -fx-text-fill: #1D4634; -fx-font-size: 16px; -fx-min-width: 180; -fx-alignment: CENTER_LEFT; -fx-padding: 8 12;" text=" Log Out">
+                        <graphic>
+                            <ImageView fitHeight="20" fitWidth="20">
+                                <Image url="@img/logout-icon 1.png" />
+                            </ImageView>
+                        </graphic>
+                    </Button>
+
+                </VBox>
+            </VBox>
+
+            <!-- Main Content -->
+            <VBox HBox.hgrow="ALWAYS">
+
+                <HBox alignment="CENTER_RIGHT" prefHeight="40.0" prefWidth="245.0" spacing="10" style="-fx-background-color: white;">
+                    <padding>
+                        <Insets bottom="20" left="20" right="20" top="20" />
+                    </padding>
+                    <children>
+                        <!-- Profile Picture -->
+                        <ImageView fitHeight="30.0" fitWidth="30.0" preserveRatio="true">
+                            <image>
+                                <Image url="@img/profile (2).png" />
+                            </image>
+                        </ImageView>
+
+                        <!-- User Info -->
+                        <VBox prefHeight="40" prefWidth="60.0">
+                            <children>
+                                <Label fx:id="userNameLabel" prefHeight="31.0" prefWidth="59.0" text="User Name" />
+                            </children>
+                        </VBox>
+
+                    </children>
+                </HBox>
+
+                <AnchorPane fx:id="view" style="-fx-background-color: #F8F8F8;" VBox.vgrow="ALWAYS" />
+            </VBox>
+        </HBox>
+    </children>
+</VBox>

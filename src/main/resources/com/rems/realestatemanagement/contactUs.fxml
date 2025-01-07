@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.rems.realestatemanagement.Controller.common.ContactUsController"
+            style="-fx-background-color: #F4F5F7;" prefHeight="600.0" prefWidth="800.0">
+   <children>
+      <!-- Main Content Wrapper -->
+      <VBox alignment="CENTER" spacing="20.0" prefWidth="600.0" maxWidth="600.0"
+            style="-fx-background-color: #FFFFFF; -fx-background-radius: 15;
+                   -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 10, 0.5, 0, 5);"
+            AnchorPane.topAnchor="50.0" AnchorPane.leftAnchor="100.0"
+            AnchorPane.rightAnchor="100.0" AnchorPane.bottomAnchor="50.0">
+         <!-- Header -->
+         <HBox alignment="CENTER" spacing="10.0">
+            <ImageView fitHeight="50.0" fitWidth="50.0" preserveRatio="true">
+               <image>
+                  <Image url="@img/Logoooooo.png" />
+               </image>
+            </ImageView>
+            <Label text="Contact Us" textFill="#2B2B2B"
+                   style="-fx-font-family: 'Arial Black'; -fx-font-size: 30px;" />
+         </HBox>
+
+         <!-- Form Section -->
+         <VBox spacing="15.0" alignment="CENTER" maxWidth="500.0">
+            <!-- First Name -->
+            <VBox spacing="5.0">
+               <HBox>
+                  <Label text="First Name" textFill="#606060"
+                         style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+                  <Label text="*" textFill="#FF4C4C"
+                         style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               </HBox>
+               <TextField fx:id="firstName" promptText="Enter your first name"
+                          style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                 -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
+               <Label fx:id="firstNameError" text="" textFill="#FF4C4C"
+                      style="-fx-font-size: 12px;" />
+            </VBox>
+
+            <!-- Last Name -->
+            <VBox spacing="5.0">
+               <Label text="Last Name" textFill="#606060"
+                      style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               <TextField fx:id="lastName" promptText="Enter your last name"
+                          style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                 -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
+            </VBox>
+
+            <!-- Email -->
+            <VBox spacing="5.0">
+               <HBox>
+                  <Label text="Email" textFill="#606060"
+                         style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+                  <Label text="*" textFill="#FF4C4C"
+                         style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               </HBox>
+               <TextField fx:id="email" promptText="Enter your email address"
+                          style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                 -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
+               <Label fx:id="emailError" text="" textFill="#FF4C4C"
+                      style="-fx-font-size: 12px;" />
+            </VBox>
+
+            <!-- Description -->
+            <VBox spacing="5.0">
+               <HBox>
+                  <Label text="Description" textFill="#606060"
+                         style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+                  <Label text="*" textFill="#FF4C4C"
+                         style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               </HBox>
+               <TextField fx:id="descriptions" promptText="Describe your query"
+                          style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                 -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
+               <Label fx:id="descriptionError" text="" textFill="#FF4C4C"
+                      style="-fx-font-size: 12px;" />
+            </VBox>
+
+            <!-- Country -->
+            <VBox spacing="5.0">
+               <HBox>
+                  <Label text="Country of Residence" textFill="#606060"
+                         style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+                  <Label text="*" textFill="#FF4C4C"
+                         style="-fx-font-family: 'Arial'; -fx-font-size: 14px;" />
+               </HBox>
+               <ComboBox fx:id="country" promptText="Select your country"
+                         style="-fx-background-color: #F4F5F7; -fx-background-radius: 5;
+                                -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 5;" />
+               <Label fx:id="countryError" text="" textFill="#FF4C4C"
+                      style="-fx-font-size: 12px;" />
+            </VBox>
+
+            <!-- Submit Button -->
+            <Button mnemonicParsing="false" onAction="#handleContactUs" text="Submit" textFill="#FFFFFF"
+                    style="-fx-background-color: #2B634B; -fx-background-radius: 20;
+                           -fx-font-size: 16px; -fx-padding: 10;" maxWidth="200.0" />
+         </VBox>
+      </VBox>
+   </children>
+</AnchorPane>

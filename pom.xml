@@ -36,6 +36,17 @@
             <version>11.2.1</version>
         </dependency>
         <dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mindrot</groupId>
+            <artifactId>jbcrypt</artifactId>
+            <version>0.4</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.dlsc.formsfx</groupId>
             <artifactId>formsfx-core</artifactId>
             <version>11.6.0</version>
@@ -85,6 +96,25 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>5.6.15.Final</version>
+        </dependency>
+
+        <!-- MySQL Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.28</version>
+        </dependency>
+
+        <!-- Hibernate C3P0 Connection Pool -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-c3p0</artifactId>
+            <version>5.6.15.Final</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -104,10 +134,9 @@
                 <version>0.0.8</version>
                 <executions>
                     <execution>
-                        <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.rems.realestatemanagement/com.rems.realestatemanagement.HelloApplication
+                            <mainClass>com.rems.realestatemanagement/com.rems.realestatemanagement.RemsAPP
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

@@ -16,7 +16,13 @@ module com.rems.realestatemanagement {
     requires com.google.protobuf;
     requires java.mail;
     requires jbcrypt;
-    opens com.rems.realestatemanagement.Controller to javafx.fxml;
     opens com.rems.realestatemanagement.models;
     exports com.rems.realestatemanagement;
+    opens com.rems.realestatemanagement.Controller.auth to javafx.fxml;
+    opens com.rems.realestatemanagement.Controller.agent to javafx.fxml;
+    opens com.rems.realestatemanagement.Controller.property to javafx.fxml;
+    opens com.rems.realestatemanagement.Controller.offer to javafx.fxml;
+    opens com.rems.realestatemanagement.Controller.client to javafx.fxml;
+    opens com.rems.realestatemanagement.Controller.common to javafx.fxml;
+    opens com.rems.realestatemanagement.Controller.dashboard to javafx.fxml;
 }

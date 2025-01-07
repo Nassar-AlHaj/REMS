@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller;
+package com.rems.realestatemanagement.Controller.dashboard;
 
 import javafx.animation.*;
 import javafx.scene.Parent;

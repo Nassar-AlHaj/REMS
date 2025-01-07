@@ -7,7 +7,7 @@
         <?import javafx.geometry.Insets?>
 
 <StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="com.rems.realestatemanagement.Controller.EditPropertyController">
+           fx:controller="com.rems.realestatemanagement.Controller.property.EditPropertyController">
 
     <padding>
         <Insets top="20" right="20" bottom="20" left="20"/>

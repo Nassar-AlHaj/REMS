@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller;
+package com.rems.realestatemanagement.Controller.agent;
 
 import com.rems.realestatemanagement.models.User;
 import javafx.fxml.FXML;

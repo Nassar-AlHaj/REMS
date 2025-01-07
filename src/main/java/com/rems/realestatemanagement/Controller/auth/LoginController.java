@@ -1,5 +1,6 @@
-package com.rems.realestatemanagement.Controller;
+package com.rems.realestatemanagement.Controller.auth;
 
+import com.rems.realestatemanagement.Controller.dashboard.SideBarController;
 import com.rems.realestatemanagement.models.User;
 import com.rems.realestatemanagement.models.services.UsersDAOImp;
 import com.rems.realestatemanagement.session.UserSession;
@@ -47,7 +48,7 @@ public class LoginController {
         }
 
         if (!isValidPassword(password)) {
-            errorLabel.setText("Password must be strong.");
+            errorLabel.setText("Password incorrect.");
             errorLabel.setTextFill(Color.RED);
             return;
         }

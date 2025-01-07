@@ -1,28 +1,20 @@
-package com.rems.realestatemanagement.Controller;
+package com.rems.realestatemanagement.Controller.dashboard;
 
 import com.rems.realestatemanagement.models.Property;
-import com.rems.realestatemanagement.models.Role;
 import com.rems.realestatemanagement.models.User;
 import com.rems.realestatemanagement.models.services.PropertyDAOImp;
 import com.rems.realestatemanagement.models.services.UsersDAOImp;
-import com.rems.realestatemanagement.session.UserSession;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Collectors;
 
 public class DashBoardControllet {
 

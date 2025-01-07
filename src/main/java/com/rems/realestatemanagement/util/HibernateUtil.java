@@ -21,6 +21,9 @@ public class HibernateUtil {
             configuration.addAnnotatedClass(Client.class);
             configuration.addAnnotatedClass(Interaction.class);
 
+            configuration.addAnnotatedClass(Offers.class);
+            configuration.addAnnotatedClass(Interaction.class);
+
 
             return configuration.buildSessionFactory();
         } catch (Throwable ex) {

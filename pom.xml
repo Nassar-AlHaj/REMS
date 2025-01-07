@@ -136,7 +136,7 @@
                     <execution>
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.rems.realestatemanagement/com.rems.realestatemanagement.HelloApplication
+                            <mainClass>com.rems.realestatemanagement/com.rems.realestatemanagement.RemsAPP
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

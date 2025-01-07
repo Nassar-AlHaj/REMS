@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller;
+package com.rems.realestatemanagement.Controller.common;
 import com.rems.realestatemanagement.models.Client;
 import com.rems.realestatemanagement.models.Interaction;
 import com.rems.realestatemanagement.models.Interaction.InteractionType;

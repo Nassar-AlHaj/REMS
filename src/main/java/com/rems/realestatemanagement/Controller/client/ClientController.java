@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller;
+package com.rems.realestatemanagement.Controller.client;
 
 import com.rems.realestatemanagement.models.Client;
 import com.rems.realestatemanagement.models.Client.ClientCategory;

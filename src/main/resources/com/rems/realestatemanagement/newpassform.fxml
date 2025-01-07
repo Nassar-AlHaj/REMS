@@ -3,61 +3,95 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.geometry.Rectangle2D?>
 
-<!--<?import javafx.scene.image.Image?>-->
-<!--<?import javafx.scene.image.ImageView?>-->
+<StackPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.rems.realestatemanagement.Controller.NewpassController">
+    <VBox alignment="CENTER" spacing="15" maxWidth="600" minWidth="300">
+        <padding>
+            <Insets top="20" right="40" bottom="20" left="40"/>
+        </padding>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="342.0" prefWidth="436.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.newpassController">
-    <children>
-        <Button fx:id="submitbutton" onAction="#handleNewPassAction" layoutX="88.0" layoutY="240.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="260.0" style="-fx-background-color: #1d4634;" text="Submit" textFill="#fffdfd" />
-<!--        <ImageView fitHeight="47.0" fitWidth="135.0" layoutX="152.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">-->
-<!--            <image>-->
-<!--                <Image url="@/img/logo.png" />-->
-<!--            </image>-->
-<!--        </ImageView>-->
-        <Label layoutX="101.0" layoutY="85.0" text="Your email has been verified successfully!">
+
+        <StackPane minHeight="20" prefHeight="40.0" prefWidth="250.0" VBox.vgrow="NEVER">
+            <ImageView fitHeight="40.0" fitWidth="230.0" preserveRatio="true">
+                <image>
+                    <Image url="@img/logo.png" />
+                </image>
+                <viewport>
+                    <Rectangle2D height="0" width="200" />
+                </viewport>
+            </ImageView>
+            <VBox.margin>
+                <Insets bottom="-5"/>
+            </VBox.margin>
+        </StackPane>
+
+        <Label text="Your email has been verified successfully!" styleClass="success-label">
             <textFill>
                 <LinearGradient endX="1.0" endY="0.13880123776216235" startX="1.0" startY="1.0">
                     <stops>
                         <Stop>
                             <color>
-                                <Color red="0.8784313797950745" green="0.6078431606292725" blue="0.41960784792900085" />
-                            </color>
-                        </Stop>
-                        <Stop offset="0.30201342281879195">
-                            <color>
-                                <Color red="0.8784313797950745" green="0.6078431606292725" blue="0.41960784792900085" />
+                                <Color red="0.8784313797950745" green="0.6078431606292725" blue="0.41960784792900085"/>
                             </color>
                         </Stop>
                         <Stop offset="1.0">
                             <color>
-                                <Color />
+                                <Color/>
                             </color>
                         </Stop>
                     </stops>
                 </LinearGradient>
             </textFill>
             <font>
-                <Font name="System Bold Italic" size="12.0" />
+                <Font name="System Bold Italic" size="14.0"/>
             </font>
         </Label>
-        <Label layoutX="88.0" layoutY="119.0" text="Please enter your new password" textFill="#989696">
-            <font>
-                <Font size="10.0" />
-            </font>
+
+        <VBox spacing="5" maxWidth="400" alignment="CENTER_LEFT">
+            <Label text="Please enter your new password" styleClass="instruction-label">
+                <font>
+                    <Font size="12.0"/>
+                </font>
+            </Label>
+            <PasswordField fx:id="newpass" maxWidth="Infinity"/>
+        </VBox>
+
+        <VBox spacing="5" maxWidth="400" alignment="CENTER_LEFT">
+            <Label text="Rewrite your password" styleClass="instruction-label">
+                <font>
+                    <Font size="12.0"/>
+                </font>
+            </Label>
+            <PasswordField fx:id="newpass2" maxWidth="Infinity"/>
+            <padding>
+                <Insets bottom="5"/>
+            </padding>
+        </VBox>
+
+        <Label fx:id="errorlabel" styleClass="error-label" wrapText="true">
+            <VBox.margin>
+                <Insets top="-10"/>
+            </VBox.margin>
         </Label>
-        <Label layoutX="89.0" layoutY="173.0" text="Rewrite your password" textFill="#989696">
-            <font>
-                <Font size="10.0" />
-            </font>
-        </Label>
-        <PasswordField fx:id="newpass" layoutX="88.0" layoutY="141.0" prefHeight="25.0" prefWidth="260.0" />
-        <PasswordField fx:id="newpass2" layoutX="88.0" layoutY="196.0" prefHeight="25.0" prefWidth="260.0" />
-      <Label fx:id="errorlabel" layoutX="89.0" layoutY="221.0" />
-    </children>
-</AnchorPane>
+
+        <Button fx:id="submitbutton" onAction="#handleNewPassAction"
+                style="-fx-background-color: #1d4634;"
+                text="Submit" textFill="#fffdfd"
+                maxWidth="400">
+            <VBox.margin>
+                <Insets top="-5"/>
+            </VBox.margin>
+        </Button>
+    </VBox>
+</StackPane>

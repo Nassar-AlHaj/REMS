@@ -1,66 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Hyperlink?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<!--<?import javafx.scene.image.Image?>-->
-<!--<?import javafx.scene.image.ImageView?>-->
+<StackPane minHeight="400.0" minWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.LoginController">
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.loginController">
-   <children>
-      <AnchorPane layoutX="-2.0" prefHeight="400.0" prefWidth="301.0" style="-fx-background-color: #2B634B;">
-         <children>
-            <Label layoutX="96.0" layoutY="106.0" prefHeight="17.0" prefWidth="107.0" text="Welcome to" textFill="#f0eded">
+   <GridPane style="-fx-font-family: 'System';" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+      <columnConstraints>
+         <ColumnConstraints percentWidth="50" />
+         <ColumnConstraints percentWidth="50" />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints percentHeight="100" />
+      </rowConstraints>
+
+      <!-- Left Side -->
+      <StackPane style="-fx-background-color: #2B634B;" GridPane.columnIndex="0" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+         <VBox alignment="CENTER" spacing="20" maxWidth="500">
+            <padding>
+               <Insets bottom="40" left="30" right="30" top="40" />
+            </padding>
+
+            <Label text="Welcome to" textFill="#f0eded">
                <font>
-                  <Font name="System Bold" size="17.0" />
+                  <Font name="System Bold" size="32.0" />
+               </font>
+               <style>
+                  -fx-font-weight: bold;
+               </style>
+            </Label>
+
+            <ImageView fitWidth="300.0" preserveRatio="true">
+               <image>
+                  <Image url="@img/logo.png" />
+               </image>
+            </ImageView>
+
+            <Label text="Real Estate Management System" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <style>
+                  -fx-text-alignment: center;
+                  -fx-font-weight: bold;
+               </style>
+            </Label>
+         </VBox>
+      </StackPane>
+
+      <!-- Right Side -->
+      <StackPane style="-fx-background-color: #f7f7f7;" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+         <VBox alignment="CENTER" maxWidth="450" spacing="20">
+            <padding>
+               <Insets bottom="40" left="40" right="40" top="40" />
+            </padding>
+
+            <Label text="Please Login to your account." textFill="#989696">
+               <font>
+                  <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="20.0" layoutY="214.0" text="Real Estate Management System" textFill="WHITE">
-               <font>
-                  <Font name="System Bold" size="17.0" />
-               </font>
-            </Label>
-<!--            <ImageView fitHeight="67.0" fitWidth="175.0" layoutX="62.0" layoutY="148.0" pickOnBounds="true" preserveRatio="true">-->
-<!--               <image>-->
-<!--                  <Image url="@/img/logo.png" />-->
-<!--               </image>-->
-<!--            </ImageView>-->
-         </children>
-      </AnchorPane>
-      <AnchorPane layoutX="299.0" prefHeight="400.0" prefWidth="301.0" style="-fx-background-color: #f7f7f7f7;">
-         <children>
-            <Label layoutX="85.0" layoutY="94.0" text="Please Login to your account." textFill="#989696">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <Button fx:id="register" layoutX="39.0" layoutY="279.0" mnemonicParsing="false" onAction="#handleLoginAction" prefHeight="31.0" prefWidth="223.0" style="-fx-background-color: #1D4634;" text="Log In" textFill="#fdf7f7" />
-            <Label layoutX="36.0" layoutY="133.0" text="Email" textFill="#989696">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <Label layoutX="39.0" layoutY="200.0" text="Password" textFill="#989696">
-               <font>
-                  <Font size="11.0" />
-               </font>
-            </Label>
-            <TextField fx:id="email" layoutX="34.0" layoutY="156.0" prefHeight="27.0" prefWidth="223.0" />
-            <Hyperlink fx:id="forgotpass" layoutX="171.0" layoutY="247.0" onAction="#handleGoToResetAction" text="Forgot password?" textFill="#6c6ced">
-               <font>
-                  <Font size="10.0" />
-               </font>
-            </Hyperlink>
-            <PasswordField fx:id="pass" layoutX="34.0" layoutY="221.0" prefHeight="25.0" prefWidth="223.0" />
-            <Label fx:id="errorLabel" layoutX="33.0" layoutY="248.0" prefHeight="17.0" prefWidth="12.0" />
-         </children>
-      </AnchorPane>
-      <Accordion />
-   </children>
-</AnchorPane>
+
+            <VBox spacing="15">
+               <VBox spacing="10">
+                  <Label text="Email" textFill="#989696">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="email">
+                     <style>
+                        -fx-padding: 12;
+                        -fx-background-radius: 4;
+                        -fx-font-size: 16px;
+                        -fx-pref-height: 45;
+                     </style>
+                  </TextField>
+               </VBox>
+
+               <VBox spacing="10">
+                  <Label text="Password" textFill="#989696">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+                  <PasswordField fx:id="pass">
+                     <style>
+                        -fx-padding: 12;
+                        -fx-background-radius: 4;
+                        -fx-font-size: 16px;
+                        -fx-pref-height: 45;
+                     </style>
+                  </PasswordField>
+               </VBox>
+
+               <HBox alignment="CENTER_RIGHT">
+                  <Hyperlink fx:id="forgotpass" onAction="#handleGoToResetAction" text="Forgot password?" textFill="#6c6ced">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <style>
+                        -fx-border-color: transparent;
+                        -fx-padding: 5 0;
+                     </style>
+                  </Hyperlink>
+               </HBox>
+
+               <Label fx:id="errorLabel" />
+
+               <Button fx:id="register" maxWidth="Infinity" onAction="#handleLoginAction" text="Log In" textFill="#fdf7f7">
+                  <style>
+                     -fx-background-color: #1D4634;
+                     -fx-padding: 12 24;
+                     -fx-font-size: 18px;
+                     -fx-cursor: hand;
+                     -fx-background-radius: 4;
+                     -fx-min-height: 50;
+                  </style>
+               </Button>
+            </VBox>
+         </VBox>
+      </StackPane>
+   </GridPane>
+</StackPane>

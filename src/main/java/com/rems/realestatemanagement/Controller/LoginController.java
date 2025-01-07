@@ -1,5 +1,6 @@
 package com.rems.realestatemanagement.Controller;
 
+
 import com.rems.realestatemanagement.models.User;
 import com.rems.realestatemanagement.models.services.UsersDAOImp;
 import com.rems.realestatemanagement.session.UserSession;
@@ -15,7 +16,7 @@ import org.mindrot.jbcrypt.BCrypt;
 
 import java.util.Objects;
 
-public class loginController {
+public class LoginController {
 
     @FXML
     private TextField email;
@@ -29,7 +30,9 @@ public class loginController {
     private Label errorLabel;
     private UsersDAOImp UsersDAO;
 
-    public loginController() {
+
+
+    public LoginController() {
         UsersDAO = new UsersDAOImp();
     }
 
@@ -45,7 +48,7 @@ public class loginController {
         }
 
         if (!isValidPassword(password)) {
-            errorLabel.setText("Password is not correct.");
+            errorLabel.setText("Password incorrect.");
             errorLabel.setTextFill(Color.RED);
             return;
         }
@@ -66,9 +69,11 @@ public class loginController {
                 session.setUsername(user.getUsername());
                 session.setEmail(user.getEmail());
                 session.setRole(user.getRole().getName());
+
                 try {
-                    FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/resetpass.fxml")));
+                    FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/sideBar.fxml")));
                     Parent root = loader.load();
+
                     Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
                     stage.setScene(new Scene(root));
                     stage.show();

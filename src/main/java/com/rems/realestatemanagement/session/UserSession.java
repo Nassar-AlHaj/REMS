@@ -39,4 +39,11 @@ public class UserSession {
     public void setRole(String role) {
         this.role = role;
     }
+
+    public void logout() {
+        this.username = null;
+        this.email = null;
+        this.role = null;
+        instance = null;
+    }
 }

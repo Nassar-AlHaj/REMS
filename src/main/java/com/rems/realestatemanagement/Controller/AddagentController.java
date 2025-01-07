@@ -7,10 +7,11 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import org.mindrot.jbcrypt.BCrypt;
 
 
-public class addagentController {
+public class AddagentController {
 
     @FXML
     private TextField agentname;
@@ -20,7 +21,8 @@ public class addagentController {
     private TextField agentpass;
     @FXML
     private Button backbutton;
-
+    @FXML
+    private Label errorLabel;
     @FXML
     private Button submitagent;
 
@@ -30,7 +32,7 @@ public class addagentController {
     private UsersDAOImp UsersDAO;
     private RoleDAOImp RoleDAO;
 
-    public addagentController() {
+    public AddagentController() {
         UsersDAO = new UsersDAOImp();
         RoleDAO = new RoleDAOImp();
     }
@@ -39,13 +41,9 @@ public class addagentController {
     @FXML
     public void handleAddAgentAction() {
 
-
-
-
         String name = agentname.getText().trim();
         String email = agentemail.getText().trim();
         String password = agentpass.getText().trim();
-
 
         if (name.isEmpty() || email.isEmpty() || password.isEmpty()) {
             addlabel.setText("Please fill in all fields.");
@@ -53,21 +51,17 @@ public class addagentController {
             return;
         }
 
-
-
         if (!isValidEmail(email)) {
             addlabel.setText("Please enter a valid email address.");
             addlabel.setStyle("-fx-text-fill: red;");
             return;
         }
 
-
         if (!isValidPassword(password)) {
             addlabel.setText("Password must be strong enough.");
             addlabel.setStyle("-fx-text-fill: red;");
             return;
         }
-
 
         String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
         Role agentRole = RoleDAO.findByName("Agent");
@@ -88,11 +82,17 @@ public class addagentController {
             addlabel.setText("Agent added successfully!");
             addlabel.setStyle("-fx-text-fill: green;");
             clearFields();
+
+            Stage stage = (Stage) addlabel.getScene().getWindow();
+            stage.close();
+
         } catch (Exception e) {
-            addlabel.setText("Failed to add agent: " + e.getMessage());
-            addlabel.setStyle("-fx-text-fill: red;");
+            errorLabel.setText("Failed to add agent: " + e.getMessage());
+            errorLabel.setStyle("-fx-text-fill: red;");
         }
     }
+
+
 
     private void clearFields() {
         agentname.clear();
@@ -111,17 +111,6 @@ public class addagentController {
     }
 
 
-//    @FXML
-//    public void handleGoBack(ActionEvent actionEvent) {
-//        try {
-//            Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/rems/realestatemanagement/resetpass.fxml")));
-//            Stage stage = (Stage) ((javafx.scene.Node) actionEvent.getSource()).getScene().getWindow();
-//            stage.setScene(new Scene(root));
-//            stage.show();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
 
 
 

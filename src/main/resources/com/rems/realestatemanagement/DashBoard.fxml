@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane style="-fx-background-color: #F8F9FA;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rems.realestatemanagement.Controller.DashBoardControllet">
+
+    <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+
+        <!-- Navigation Bar -->
+        <StackPane style="-fx-background-color: linear-gradient(to right, #1D4634, #2E8B57);">
+            <padding>
+                <Insets bottom="15" top="15" />
+            </padding>
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <padding>
+                    <Insets left="20" right="20" />
+                </padding>
+                <StackPane>
+                    <Circle radius="25" style="-fx-fill: white;" />
+                    <ImageView fitHeight="45" fitWidth="45" preserveRatio="true">
+                        <image>
+                            <Image url="@img/Logoooooo.png" />
+                        </image>
+                    </ImageView>
+                </StackPane>
+                <Label style="-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 5, 0, 0, 0);" text="Admin Dashboard" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="24.0" />
+                    </font>
+                </Label>
+
+                <Region prefHeight="50.0" prefWidth="560.0" HBox.hgrow="ALWAYS" />
+                <Region HBox.hgrow="ALWAYS" />
+            </HBox>
+        </StackPane>
+
+        <!-- Main Content -->
+        <ScrollPane fitToWidth="true" style="-fx-background: transparent;                           -fx-background-color: transparent;                           -fx-padding: 0;" VBox.vgrow="ALWAYS">
+            <VBox spacing="25" style="-fx-padding: 25;">
+
+                <!-- Stats Grid -->
+                <GridPane fx:id="statsGrid" hgap="20" vgap="20">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                        <ColumnConstraints percentWidth="25" />
+                    </columnConstraints>
+
+                    <!-- Total Agents Card -->
+                    <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4); -fx-min-width: 200;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label style="-fx-font-size: 15; -fx-text-fill: #666;" text="Total Agents" />
+                        <Label fx:id="Total_Agents" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #4F846F;                                       -fx-padding: 5 0;" text="       " />
+                    </VBox>
+
+                    <!-- Active Properties Card -->
+                    <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);                                  -fx-min-width: 200;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label style="-fx-font-size: 15; -fx-text-fill: #666;" text="Active Properties" />
+                        <Label fx:id="Active_Properties" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #E09B6B; -fx-padding: 5 0;" text="   " />
+                    </VBox>
+
+                    <!-- Total Sales Card -->
+                    <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);                                  -fx-min-width: 200;" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                        <Label style="-fx-font-size: 15; -fx-text-fill: #666;" text="Total Sales" />
+                        <Label fx:id="Total_Sales" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #90B4CE; -fx-padding: 5 0;" text="   " />
+                    </VBox>
+
+                    <!-- Average Price Card -->
+                    <VBox style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4);                                  -fx-min-width: 200;" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                        <Label style="-fx-font-size: 15; -fx-text-fill: #666;" text="Average Sale Price" />
+                        <Label fx:id="Average_Sale_Price" style="-fx-font-size: 28; -fx-font-weight: bold; -fx-text-fill: #B491C8; -fx-padding: 5 0;" text="     " />
+                    </VBox>
+                    <rowConstraints>
+                        <RowConstraints />
+                    </rowConstraints>
+                </GridPane>
+
+                <!-- Charts Section -->
+                <HBox spacing="20" VBox.vgrow="ALWAYS">
+                    <!-- Monthly Performance Chart -->
+                    <VBox alignment="CENTER" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4); -fx-min-height: 350;" HBox.hgrow="ALWAYS">
+                          <Label prefHeight="30.0" prefWidth="128.0" style="-fx-text-fill: Black; -fx-font-weight: bold; -fx-font-size: 18;" text="Last Property">
+                              <font>
+                                  <Font size="15.0" />
+                              </font>
+                          </Label>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <StackPane fx:id="Card_Last_Property" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <ImageView fx:id="show_Image" fitHeight="142.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true" />
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </VBox>
+                        <Label fx:id="Last_property" alignment="CENTER" maxWidth="Infinity" style="-fx-text-fill: Black; -fx-font-size: 14; -fx-font-weight: bold;" />
+                        <Label fx:id="property_Price" alignment="CENTER" maxWidth="Infinity" style="-fx-text-fill: Black; -fx-font-size: 14; -fx-font-weight: bold;" />
+                        <Label fx:id="property_Location" alignment="CENTER" maxWidth="Infinity" style="-fx-text-fill: Black; -fx-font-size: 14; -fx-font-weight: bold;" />
+                    </VBox>
+
+                    <!-- Property Distribution Chart -->
+                    <VBox alignment="CENTER" style="-fx-background-color: white; -fx-padding: 20; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 15, 0, 0, 4); -fx-min-height: 350;" HBox.hgrow="ALWAYS">
+                          <Label fx:id="Last_agent" prefHeight="27.0" prefWidth="238.0" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: Black;" text="Most expensive properties" />
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <StackPane fx:id="distributionChartContainer" prefHeight="137.0" prefWidth="315.0" VBox.vgrow="ALWAYS">
+                                    <children>
+                                        <ImageView fx:id="Image_Property_view" fitHeight="159.0" fitWidth="229.0" pickOnBounds="true" preserveRatio="true" />
+                                    </children>
+                                </StackPane>
+                            </children>
+                        </VBox>
+                        <Label fx:id="Proparty_name_M" alignment="CENTER" maxWidth="Infinity" style="-fx-text-fill: Black; -fx-font-size: 14; -fx-font-weight: bold;" />
+                        <Label fx:id="Proparty_Price_M" alignment="CENTER" maxWidth="Infinity" style="-fx-text-fill: Black; -fx-font-size: 14; -fx-font-weight: bold;" />
+                        <Label fx:id="Proparty_Location_M" alignment="CENTER" maxWidth="Infinity" style="-fx-text-fill: Black; -fx-font-size: 14; -fx-font-weight: bold;" />
+                    </VBox>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </VBox>
+</AnchorPane>

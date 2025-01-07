@@ -14,10 +14,11 @@ import javafx.scene.paint.Color;
 import javafx.beans.value.ChangeListener;
 import javafx.scene.Scene;
 import javafx.stage.Screen;
-
+import com.rems.realestatemanagement.session.UserSession;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 
 public class DashboardDesignSearchAndFilteringController {
@@ -34,6 +35,7 @@ public class DashboardDesignSearchAndFilteringController {
     @FXML private VBox propertySubmenu;
     @FXML private Button propertyButton;
     @FXML private Button addPropertyButton;
+    @FXML private  Button DashBoard;
     @FXML private Button LogOut;
     @FXML private AnchorPane view;
     @FXML private VBox navigationContainer;
@@ -74,11 +76,60 @@ public class DashboardDesignSearchAndFilteringController {
         buttons.add(Offer);
         buttons.add(Interactions);
         buttons.add(Contacts);
+        buttons.add(DashBoard);
         buttons.add(LogOut);
+
+        String roleId = UserSession.getInstance().getRole();
+
+        if (Objects.equals(roleId, "Admin")) {
+            Admin_Console();
+            Admin_Console.setVisible(true);
+            Admin_Console.setManaged(true);
+
+
+            Property_management.setVisible(true);
+            Property_management.setManaged(true);
+
+            Clients.setVisible(true);
+            Clients.setManaged(true);
+
+            Offer.setVisible(true);
+            Offer.setManaged(true);
+
+            Interactions.setVisible(true);
+            Interactions.setManaged(true);
+
+            DashBoard.setVisible(true);
+            DashBoard.setManaged(true);
+            Contacts.setVisible(false);
+            Contacts.setManaged(false);
+
+        } else {
+            handlePropertyMenuItemClick("Property");
+            Admin_Console.setVisible(false);
+            Admin_Console.setManaged(false);
+            
+            Property_management.setVisible(true);
+            Property_management.setManaged(true);
+
+            Clients.setVisible(true);
+            Clients.setManaged(true);
+
+            Offer.setVisible(true);
+            Offer.setManaged(true);
+
+            Interactions.setVisible(true);
+            Interactions.setManaged(true);
+            DashBoard.setVisible(false);
+            DashBoard.setManaged(false);
+            Contacts.setVisible(true);
+            Contacts.setManaged(true);
+        }
+
         setupButtonEffects();
         setupPropertyManagement();
         setupResponsiveness();
-        Admin_Console();
+
         propertySubmenu.setVisible(false);
         propertySubmenu.setManaged(false);
     }
@@ -316,6 +367,13 @@ public class DashboardDesignSearchAndFilteringController {
         loadPage("/com/rems/realestatemanagement/contactUs.fxml");
         highlightButton(Contacts);
     }
+
+    @FXML public void Dashboard() {
+        loadPage("/com/rems/realestatemanagement/DashBoard.fxml");
+
+        highlightButton(DashBoard);
+    }
+
 
     public void LogOut() {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

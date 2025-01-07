@@ -72,4 +72,7 @@ public class User {
     public void setRole(Role role) {
         this.role = role;
     }
+
+    public int getRoleId() { return role.getId();
+    }
 }

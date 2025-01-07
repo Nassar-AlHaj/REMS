@@ -98,6 +98,26 @@ public class UsersDAOImp implements UsersDAO {
         }
     }
 
+
+    @Override
+    public List<User> getAllUsers() {
+        Session session = sessionFactory.openSession();
+        List<User> users = null;
+        try {
+            session.beginTransaction();
+            users = session.createQuery("FROM User", User.class).list();
+            session.getTransaction().commit();
+        } catch (Exception e) {
+            if (session.getTransaction() != null) {
+                session.getTransaction().rollback();
+            }
+            e.printStackTrace();
+        } finally {
+            session.close();
+        }
+        return users;
+    }
+
     @Override
     public void delete(int id) {
         Session session = sessionFactory.openSession();

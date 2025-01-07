@@ -11,7 +11,7 @@ public interface UsersDAO {
     public void update(User user);
 
     List<User> getAllAgents();
-
+    List<User> getAllUsers();
     void delete(User user);
     void delete(int id);
 }

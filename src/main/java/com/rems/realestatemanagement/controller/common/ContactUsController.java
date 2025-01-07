@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller.common;
+package com.rems.realestatemanagement.controller.common;
 
 import com.rems.realestatemanagement.models.ContactUs;
 import com.rems.realestatemanagement.models.services.ContactUsDAOImp;

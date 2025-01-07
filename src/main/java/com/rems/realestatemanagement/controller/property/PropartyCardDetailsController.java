@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller.property;
+package com.rems.realestatemanagement.controller.property;
 
 import com.rems.realestatemanagement.models.Property;
 import javafx.scene.control.Button;
@@ -35,9 +35,6 @@ public class PropartyCardDetailsController {
     @FXML
     private Text InformationText;
 
-    @FXML
-    private Label currentClientLabel;
-
     private Property property;
 
     @FXML
@@ -53,8 +50,7 @@ public class PropartyCardDetailsController {
         this.property = property;
         if (propertyNameLabel == null || priceLabel == null ||
                 locationLabel == null || stateLabel == null ||
-                propertyImageView == null || InformationText == null ||
-                currentClientLabel == null) {
+                propertyImageView == null || InformationText == null ) {
             System.out.println("Warning: One or more FXML elements not properly injected");
             return;
         }
@@ -68,7 +64,6 @@ public class PropartyCardDetailsController {
             locationLabel.setText(property.getLocation());
             stateLabel.setText(property.getState());
             InformationText.setText(property.getDescription());
-            currentClientLabel.setText(property.getCurrentClient());
 
             if (property.getImageProperty() != null && !property.getImageProperty().isEmpty()) {
                 propertyImageView.setImage(new Image(property.getImageProperty()));

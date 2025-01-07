@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller.dashboard;
+package com.rems.realestatemanagement.controller.dashboard;
 
 import com.rems.realestatemanagement.models.Property;
 import com.rems.realestatemanagement.models.User;

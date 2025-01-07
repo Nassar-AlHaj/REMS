@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller.agent;
+package com.rems.realestatemanagement.controller.agent;
 
 import com.rems.realestatemanagement.models.User;
 import com.rems.realestatemanagement.models.services.UsersDAOImp;

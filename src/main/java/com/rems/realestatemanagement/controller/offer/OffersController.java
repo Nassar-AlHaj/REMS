@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller.offer;
+package com.rems.realestatemanagement.controller.offer;
 
 import com.rems.realestatemanagement.models.Offers;
 import com.rems.realestatemanagement.models.interfaces.OffersDAO;

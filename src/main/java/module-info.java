@@ -18,11 +18,11 @@ module com.rems.realestatemanagement {
     requires jbcrypt;
     opens com.rems.realestatemanagement.models;
     exports com.rems.realestatemanagement;
-    opens com.rems.realestatemanagement.Controller.auth to javafx.fxml;
-    opens com.rems.realestatemanagement.Controller.agent to javafx.fxml;
-    opens com.rems.realestatemanagement.Controller.property to javafx.fxml;
-    opens com.rems.realestatemanagement.Controller.offer to javafx.fxml;
-    opens com.rems.realestatemanagement.Controller.client to javafx.fxml;
-    opens com.rems.realestatemanagement.Controller.common to javafx.fxml;
-    opens com.rems.realestatemanagement.Controller.dashboard to javafx.fxml;
+    opens com.rems.realestatemanagement.controller.auth to javafx.fxml;
+    opens com.rems.realestatemanagement.controller.agent to javafx.fxml;
+    opens com.rems.realestatemanagement.controller.property to javafx.fxml;
+    opens com.rems.realestatemanagement.controller.offer to javafx.fxml;
+    opens com.rems.realestatemanagement.controller.client to javafx.fxml;
+    opens com.rems.realestatemanagement.controller.common to javafx.fxml;
+    opens com.rems.realestatemanagement.controller.dashboard to javafx.fxml;
 }

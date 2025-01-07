@@ -10,7 +10,7 @@
 <AnchorPane style="-fx-background-color: #F5F7FA;"
             xmlns="http://javafx.com/javafx/23.0.1"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="com.rems.realestatemanagement.Controller.property.AddPropertyController">
+            fx:controller="com.rems.realestatemanagement.controller.property.AddPropertyController">
 
    <HBox alignment="CENTER_LEFT" spacing="15"
          style="-fx-background-color: linear-gradient(to right, #1D4634, #2E8B57); -fx-padding: 15 25;"

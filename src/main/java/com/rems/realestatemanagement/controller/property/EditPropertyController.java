@@ -1,4 +1,4 @@
-package com.rems.realestatemanagement.Controller.property;
+package com.rems.realestatemanagement.controller.property;
 
 import com.rems.realestatemanagement.models.Property;
 import com.rems.realestatemanagement.models.services.PropertyDAOImp;

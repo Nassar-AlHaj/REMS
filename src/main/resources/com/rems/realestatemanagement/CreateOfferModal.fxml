@@ -26,7 +26,7 @@
                      <Label text="*" textFill="RED" />
                   </children>
                </HBox>
-               <TextField fx:id="clientName" promptText="Enter the client's name" style="-fx-background-color: #F4F5F7; -fx-background-radius: 5; -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
+               <TextField fx:id="clientNameField" promptText="Enter the client's name" style="-fx-background-color: #F4F5F7; -fx-background-radius: 5; -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
             </VBox>
 
             <!-- Property Id -->
@@ -37,7 +37,7 @@
                      <Label text="*" textFill="RED" />
                   </children>
                </HBox>
-               <TextField fx:id="propertyAddress" promptText="Enter the property's id" style="-fx-background-color: #F4F5F7; -fx-background-radius: 5; -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
+               <TextField fx:id="propertyId" promptText="Enter the property's id" style="-fx-background-color: #F4F5F7; -fx-background-radius: 5; -fx-border-color: #D9D9D9; -fx-border-radius: 5; -fx-padding: 10;" />
             </VBox>
 
             <!-- Type -->

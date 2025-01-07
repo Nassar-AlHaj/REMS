@@ -5,37 +5,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.Cursor;
 import javafx.scene.Parent;
-
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import com.rems.realestatemanagement.models.services.PropertyDAOImp;
-
 import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import java.util.ArrayList;
-
 
 public class PropartyCardController {
 
     @FXML private TextField Enter_Keyword;
     @FXML private MenuButton Location;
-    @FXML private MenuButton Type;
-    @FXML private MenuButton Filter;
-    @FXML private FlowPane flowPane;
     @FXML private CheckMenuItem Price_above;
     @FXML private CheckMenuItem Price_below;
-
     @FXML private CheckMenuItem Latest;
     @FXML private CheckMenuItem Oldest;
     @FXML private CheckMenuItem All;
@@ -50,15 +40,10 @@ public class PropartyCardController {
     @FXML private CheckMenuItem Chicago;
     @FXML private ChoiceBox Availability;
 
-    @FXML private VBox propertyCard;
-
     @FXML
     private FlowPane flowPaneCard;
 
     private final PropertyDAOImp propertyDAOImp = new PropertyDAOImp();
-    private static final String HOVER_EFFECT = "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 15, 0, 0, 0);";
-    private static final String NORMAL_EFFECT = "-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 10, 0, 0, 0);";
-
     @FXML
     private void initialize() {
         loadProperties();
@@ -114,12 +99,6 @@ public class PropartyCardController {
         }
     }
 
-
-
-
-
-
-
     private void initializeLocations() {
         List<String> locations = propertyDAOImp.getAllLocations();
         Location.getItems().clear();
@@ -136,29 +115,11 @@ public class PropartyCardController {
         }
     }
 
-
-
-
-
-
-
-
-    private ImageView createIcon(String path, double height, double width) {
-        ImageView icon = new ImageView(new Image(getClass().getResource(path).toString()));
-        icon.setFitHeight(height);
-        icon.setFitWidth(width);
-        return icon;
-    }
-
-
-
-
-
-
     private VBox createPropertyCard(Property property) {
         VBox card = new VBox();
         card.setPrefHeight(257.0);
         card.setPrefWidth(246.0);
+        card.setBackground(new Background(new BackgroundFill(Color.WHITE, null, null)));
 
         StackPane imageContainer = new StackPane();
         imageContainer.setPrefHeight(150.0);
@@ -174,6 +135,30 @@ public class PropartyCardController {
         propertyImage.setFitHeight(120.0);
         propertyImage.setFitWidth(228.0);
 
+        propertyImage.setOnMouseClicked(event -> {
+            event.consume();
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rems/realestatemanagement/proparty-card-details.fxml"));
+                Parent propertyDetails = loader.load();
+
+                PropartyCardDetailsController detailsController = loader.getController();
+                detailsController.setPropertyData(property);
+
+                Scene scene = new Scene(propertyDetails);
+                Stage stage = (Stage) card.getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                e.printStackTrace();
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setContentText("Failed to open property details.");
+                alert.showAndWait();
+            }
+        });
+
+        propertyImage.setOnMouseEntered(e -> propertyImage.setCursor(Cursor.HAND));
+        propertyImage.setOnMouseExited(e -> propertyImage.setCursor(Cursor.DEFAULT));
         Label stateLabel = new Label(property.getState());
         stateLabel.setAlignment(Pos.CENTER);
         stateLabel.setContentDisplay(ContentDisplay.CENTER);
@@ -182,12 +167,9 @@ public class PropartyCardController {
         stateLabel.setStyle("-fx-background-color: #e67300;");
         stateLabel.setTextFill(javafx.scene.paint.Color.WHITE);
         stateLabel.setFont(javafx.scene.text.Font.font("System", javafx.scene.text.FontWeight.BOLD, 12.0));
-
         StackPane.setMargin(stateLabel, new Insets(10, 0, 0, 10));
         StackPane.setAlignment(stateLabel, Pos.TOP_LEFT);
-
         imageContainer.getChildren().addAll(propertyImage, stateLabel);
-
         Label nameLabel = new Label(property.getPropertyName());
         nameLabel.setStyle("-fx-font-weight: bold; -fx-font-size: 14;");
 
@@ -213,22 +195,26 @@ public class PropartyCardController {
         ImageView editIcon = new ImageView(new Image(getClass().getResource("/com/rems/realestatemanagement/img/Frame.png").toString()));
         editIcon.setFitHeight(20.0);
         editIcon.setFitWidth(20.0);
-        editIcon.setOnMouseClicked(event -> handleEditClick(property));
+        editIcon.setOnMouseClicked(event -> {
+            event.consume(); // Prevent event bubbling
+            handleEditClick(property);
+        });
 
         ImageView deleteIcon = new ImageView(new Image(getClass().getResource("/com/rems/realestatemanagement/img/Remove.png").toString()));
         deleteIcon.setFitHeight(20.0);
         deleteIcon.setFitWidth(20.0);
-        deleteIcon.setOnMouseClicked(event -> handleDeleteClick(property, card));
+        deleteIcon.setOnMouseClicked(event -> {
+            event.consume();
+            handleDeleteClick(property, card);
+        });
 
         actionBox.getChildren().addAll(editIcon, deleteIcon);
         actionBox.setSpacing(10);
         actionBox.setPadding(new Insets(0, 10, 5, 0));
         actionBox.setAlignment(Pos.CENTER_RIGHT);
-
         card.getChildren().addAll(imageContainer, nameLabel, priceBox, locationBox, actionBox);
         card.setSpacing(10);
         card.setPadding(new Insets(10));
-
         return card;
     }
 
@@ -252,12 +238,12 @@ public class PropartyCardController {
     }
 
     private void refreshPropertyCard(Property updatedProperty) {
-        for (int i = 0; i < flowPane.getChildren().size(); i++) {
-            VBox card = (VBox) flowPane.getChildren().get(i);
+        for (int i = 0; i < flowPaneCard.getChildren().size(); i++) {
+            VBox card = (VBox) flowPaneCard.getChildren().get(i);
             Label nameLabel = (Label) card.getChildren().get(1);
             if (nameLabel.getText().equals(updatedProperty.getPropertyName())) {
                 VBox updatedCard = createPropertyCard(updatedProperty);
-                flowPane.getChildren().set(i, updatedCard);
+                flowPaneCard.getChildren().set(i, updatedCard);
                 break;
             }
         }
@@ -271,7 +257,7 @@ public class PropartyCardController {
             if (response == ButtonType.OK) {
                 try {
                     propertyDAOImp.delete(property);
-                    flowPane.getChildren().remove(card);
+                    flowPaneCard.getChildren().remove(card);
 
                     Alert successAlert = new Alert(Alert.AlertType.INFORMATION);
                     successAlert.setTitle("Success");
@@ -287,8 +273,6 @@ public class PropartyCardController {
             }
         });
     }
-
-
 
     public void Filtering() {
         try {
@@ -391,8 +375,6 @@ public class PropartyCardController {
 
 
     }
-
-
     private List<Property> applyKeywordFilter(List<Property> properties) {
         String keyword = Enter_Keyword.getText().trim().toLowerCase();
         if (!keyword.isEmpty()) {
@@ -417,7 +399,6 @@ public class PropartyCardController {
         }
         return properties;
     }
-
 
 }
 
